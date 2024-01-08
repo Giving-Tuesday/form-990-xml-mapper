@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Return xmlns="http://www.irs.gov/efile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.irs.gov/efile" returnVersion="2016v3.0">
+  <ReturnHeader binaryAttachmentCnt="0">
+    <ReturnTs>2018-08-08T15:35:49-05:00</ReturnTs>
+    <TaxPeriodEndDt>2017-09-30</TaxPeriodEndDt>
+    <PreparerFirmGrp>
+      <PreparerFirmEIN>300999399</PreparerFirmEIN>
+      <PreparerFirmName>
+        <BusinessNameLine1Txt>CLIFFORD ISARA CPA LLC</BusinessNameLine1Txt>
+      </PreparerFirmName>
+      <PreparerUSAddress>
+        <AddressLine1Txt>1150 S KING ST SUITE 605</AddressLine1Txt>
+        <CityNm>HONOLULU</CityNm>
+        <StateAbbreviationCd>HI</StateAbbreviationCd>
+        <ZIPCd>96814</ZIPCd>
+      </PreparerUSAddress>
+    </PreparerFirmGrp>
+    <ReturnTypeCd>990EZ</ReturnTypeCd>
+    <TaxPeriodBeginDt>2016-10-01</TaxPeriodBeginDt>
+    <Filer>
+      <EIN>990295298</EIN>
+      <BusinessName>
+        <BusinessNameLine1Txt>LITTLE LEAGUE BASEBALL INC</BusinessNameLine1Txt>
+      </BusinessName>
+      <BusinessNameControlTxt>LITT</BusinessNameControlTxt>
+      <PhoneNum>8082565535</PhoneNum>
+      <USAddress>
+        <AddressLine1Txt>C/O 94-1119 NAWELE STREET</AddressLine1Txt>
+        <CityNm>WAIPAHU</CityNm>
+        <StateAbbreviationCd>HI</StateAbbreviationCd>
+        <ZIPCd>96797</ZIPCd>
+      </USAddress>
+    </Filer>
+    <BusinessOfficerGrp>
+      <PersonNm>CHRISTOPHER YOUNG</PersonNm>
+      <PersonTitleTxt>PRESIDENT</PersonTitleTxt>
+      <PhoneNum>8082565535</PhoneNum>
+      <SignatureDt>2018-08-08</SignatureDt>
+      <DiscussWithPaidPreparerInd>1</DiscussWithPaidPreparerInd>
+    </BusinessOfficerGrp>
+    <PreparerPersonGrp>
+      <PreparerPersonNm>CLIFFORD K ISARA CPA</PreparerPersonNm>
+      <PTIN>P01256282</PTIN>
+      <PhoneNum>8085971337</PhoneNum>
+    </PreparerPersonGrp>
+    <FilingSecurityInformation>
+      <IPAddress>
+        <IPv4AddressTxt>67.52.70.139</IPv4AddressTxt>
+      </IPAddress>
+      <IPDt>2018-08-08</IPDt>
+      <IPTm>10:35:36</IPTm>
+      <IPTimezoneCd>HS</IPTimezoneCd>
+      <FilingLicenseTypeCd>P</FilingLicenseTypeCd>
+      <AtSubmissionCreationDeviceId>3676E037C764C6FA359F7C30D987D74C8235D44B</AtSubmissionCreationDeviceId>
+      <AtSubmissionFilingDeviceId>9B6A0672EE3EA233678759AF460742C224FB288E</AtSubmissionFilingDeviceId>
+    </FilingSecurityInformation>
+    <TaxYr>2016</TaxYr>
+    <BuildTS>2018-06-14 16:35:46Z</BuildTS>
+  </ReturnHeader>
+  <ReturnData documentCnt="4">
+    <IRS990EZ documentId="RetDoc1234200001" referenceDocumentId="RetDoc1051800001 RetDoc2278000001">
+      <GroupExemptionNum>3158</GroupExemptionNum>
+      <MethodOfAccountingCashInd>X</MethodOfAccountingCashInd>
+      <ScheduleBNotRequiredInd>X</ScheduleBNotRequiredInd>
+      <WebsiteAddressTxt>WWW.WAIPIOLITTLELEAGUE.ORG</WebsiteAddressTxt>
+      <Organization501c3Ind referenceDocumentId="RetDoc1039100001">X</Organization501c3Ind>
+      <TypeOfOrganizationCorpInd>X</TypeOfOrganizationCorpInd>
+      <GrossReceiptsAmt>29737</GrossReceiptsAmt>
+      <InfoInScheduleOPartIInd>X</InfoInScheduleOPartIInd>
+      <ProgramServiceRevenueAmt>29737</ProgramServiceRevenueAmt>
+      <TotalRevenueAmt>29737</TotalRevenueAmt>
+      <FeesAndOtherPymtToIndCntrctAmt>600</FeesAndOtherPymtToIndCntrctAmt>
+      <OccupancyRentUtltsAndMaintAmt>5529</OccupancyRentUtltsAndMaintAmt>
+      <OtherExpensesTotalAmt>38643</OtherExpensesTotalAmt>
+      <TotalExpensesAmt>44772</TotalExpensesAmt>
+      <ExcessOrDeficitForYearAmt>-15035</ExcessOrDeficitForYearAmt>
+      <NetAssetsOrFundBalancesBOYAmt>76163</NetAssetsOrFundBalancesBOYAmt>
+      <OtherChangesInNetAssetsAmt>0</OtherChangesInNetAssetsAmt>
+      <NetAssetsOrFundBalancesEOYAmt>61128</NetAssetsOrFundBalancesEOYAmt>
+      <InfoInScheduleOPartIIInd>X</InfoInScheduleOPartIIInd>
+      <CashSavingsAndInvestmentsGrp>
+        <BOYAmt>62615</BOYAmt>
+        <EOYAmt>51957</EOYAmt>
+      </CashSavingsAndInvestmentsGrp>
+      <OtherAssetsTotalDetail>
+        <BOYAmt>13548</BOYAmt>
+        <EOYAmt>9171</EOYAmt>
+      </OtherAssetsTotalDetail>
+      <Form990TotalAssetsGrp>
+        <BOYAmt>76163</BOYAmt>
+        <EOYAmt>61128</EOYAmt>
+      </Form990TotalAssetsGrp>
+      <SumOfTotalLiabilitiesGrp>
+        <BOYAmt>0</BOYAmt>
+        <EOYAmt>0</EOYAmt>
+      </SumOfTotalLiabilitiesGrp>
+      <NetAssetsOrFundBalancesGrp>
+        <BOYAmt>76163</BOYAmt>
+        <EOYAmt>61128</EOYAmt>
+      </NetAssetsOrFundBalancesGrp>
+      <PrimaryExemptPurposeTxt>BASEBALL/SOFTBALL PROGRAMS</PrimaryExemptPurposeTxt>
+      <ProgramSrvcAccomplishmentGrp>
+        <DescriptionProgramSrvcAccomTxt>PROVIDING BASEBALL INSTRUCTION TO APPROXIMATELY 400 PLAYERS</DescriptionProgramSrvcAccomTxt>
+        <GrantsAndAllocationsAmt>0</GrantsAndAllocationsAmt>
+        <ProgramServiceExpensesAmt>35446</ProgramServiceExpensesAmt>
+      </ProgramSrvcAccomplishmentGrp>
+      <TotalProgramServiceExpensesAmt>35446</TotalProgramServiceExpensesAmt>
+      <InfoInScheduleOPartIVInd>X</InfoInScheduleOPartIVInd>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>CHRISTOPHER YOUNG</PersonNm>
+        <TitleTxt>PRESIDENT</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>4.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>JERRY FERREIRA</PersonNm>
+        <TitleTxt>VICE PRESIDENT</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>4.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>GAY LYNN GOO</PersonNm>
+        <TitleTxt>SECRETARY</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>4.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>JESSIE HAYASHI</PersonNm>
+        <TitleTxt>TREASURER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>6.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>MARGE VICARI</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>2.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>LEI AGBULOS</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>2.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>JASON NISHIMOTO</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>2.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>CHAD KOKUBUN</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>2.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>NEAL KUBO</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>0.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>DAVID JARVIS</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>0.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>TROY VICARI</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>0.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <OfficerDirectorTrusteeEmplGrp>
+        <PersonNm>DEAN FUJIMOTO</PersonNm>
+        <TitleTxt>BOARD MEMBER</TitleTxt>
+        <AverageHrsPerWkDevotedToPosRt>0.00</AverageHrsPerWkDevotedToPosRt>
+        <CompensationAmt>0</CompensationAmt>
+        <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+        <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+      </OfficerDirectorTrusteeEmplGrp>
+      <InfoInScheduleOPartVInd>X</InfoInScheduleOPartVInd>
+      <ActivitiesNotPreviouslyRptInd>0</ActivitiesNotPreviouslyRptInd>
+      <ChgMadeToOrgnzngDocNotRptInd>0</ChgMadeToOrgnzngDocNotRptInd>
+      <OrganizationHadUBIInd>0</OrganizationHadUBIInd>
+      <SubjectToProxyTaxInd>0</SubjectToProxyTaxInd>
+      <OrganizationDissolvedEtcInd>0</OrganizationDissolvedEtcInd>
+      <DirectIndirectPltclExpendAmt>0</DirectIndirectPltclExpendAmt>
+      <MadeLoansToFromOfficersInd>0</MadeLoansToFromOfficersInd>
+      <TaxImposedUnderIRC4911Amt>0</TaxImposedUnderIRC4911Amt>
+      <TaxImposedUnderIRC4912Amt>0</TaxImposedUnderIRC4912Amt>
+      <TaxImposedUnderIRC4955Amt>0</TaxImposedUnderIRC4955Amt>
+      <EngagedInExcessBenefitTransInd>0</EngagedInExcessBenefitTransInd>
+      <TaxImposedOnOrganizationMgrAmt>0</TaxImposedOnOrganizationMgrAmt>
+      <TaxReimbursedByOrganizationAmt>0</TaxReimbursedByOrganizationAmt>
+      <ProhibitedTaxShelterTransInd>0</ProhibitedTaxShelterTransInd>
+      <BooksInCareOfDetail>
+        <BusinessName>
+          <BusinessNameLine1Txt>PATRICIA HIRANO</BusinessNameLine1Txt>
+        </BusinessName>
+        <USAddress>
+          <AddressLine1Txt>94-1119 NAWELE STREET</AddressLine1Txt>
+          <CityNm>WAIPAHU</CityNm>
+          <StateAbbreviationCd>HI</StateAbbreviationCd>
+          <ZIPCd>96797</ZIPCd>
+        </USAddress>
+        <PhoneNum>8082565535</PhoneNum>
+      </BooksInCareOfDetail>
+      <ForeignFinancialAccountInd>0</ForeignFinancialAccountInd>
+      <ForeignOfficeInd>0</ForeignOfficeInd>
+      <DonorAdvisedFndsInd>0</DonorAdvisedFndsInd>
+      <OperateHospitalInd>0</OperateHospitalInd>
+      <TanningServicesProvidedInd>0</TanningServicesProvidedInd>
+      <RelatedOrganizationCtrlEntInd>0</RelatedOrganizationCtrlEntInd>
+      <PoliticalCampaignActyInd>0</PoliticalCampaignActyInd>
+      <LobbyingActivitiesInd>0</LobbyingActivitiesInd>
+      <SchoolOperatingInd>0</SchoolOperatingInd>
+      <TrnsfrExmptNonChrtblRltdOrgInd>0</TrnsfrExmptNonChrtblRltdOrgInd>
+      <PartVIOfCompOfHghstPdEmplTxt>NONE</PartVIOfCompOfHghstPdEmplTxt>
+      <PartVIHghstPdCntrctProfSrvcTxt>NONE</PartVIHghstPdCntrctProfSrvcTxt>
+      <FiledScheduleAInd>1</FiledScheduleAInd>
+    </IRS990EZ>
+    <IRS990ScheduleA documentId="RetDoc1039100001">
+      <PubliclySupportedOrg509a2Ind>X</PubliclySupportedOrg509a2Ind>
+      <GiftsGrantsContrisRcvd509Grp>
+        <CurrentTaxYearMinus4YearsAmt>2085</CurrentTaxYearMinus4YearsAmt>
+        <CurrentTaxYearMinus3YearsAmt>147</CurrentTaxYearMinus3YearsAmt>
+        <CurrentTaxYearMinus2YearsAmt>28600</CurrentTaxYearMinus2YearsAmt>
+        <CurrentTaxYearMinus1YearAmt>16</CurrentTaxYearMinus1YearAmt>
+        <CurrentTaxYearAmt>0</CurrentTaxYearAmt>
+        <TotalAmt>30848</TotalAmt>
+      </GiftsGrantsContrisRcvd509Grp>
+      <GrossReceiptsAdmissionsGrp>
+        <CurrentTaxYearMinus4YearsAmt>59243</CurrentTaxYearMinus4YearsAmt>
+        <CurrentTaxYearMinus3YearsAmt>37574</CurrentTaxYearMinus3YearsAmt>
+        <CurrentTaxYearMinus2YearsAmt>37757</CurrentTaxYearMinus2YearsAmt>
+        <CurrentTaxYearMinus1YearAmt>33222</CurrentTaxYearMinus1YearAmt>
+        <CurrentTaxYearAmt>29737</CurrentTaxYearAmt>
+        <TotalAmt>197533</TotalAmt>
+      </GrossReceiptsAdmissionsGrp>
+      <Total509Grp>
+        <CurrentTaxYearMinus4YearsAmt>61328</CurrentTaxYearMinus4YearsAmt>
+        <CurrentTaxYearMinus3YearsAmt>37721</CurrentTaxYearMinus3YearsAmt>
+        <CurrentTaxYearMinus2YearsAmt>66357</CurrentTaxYearMinus2YearsAmt>
+        <CurrentTaxYearMinus1YearAmt>33238</CurrentTaxYearMinus1YearAmt>
+        <CurrentTaxYearAmt>29737</CurrentTaxYearAmt>
+        <TotalAmt>228381</TotalAmt>
+      </Total509Grp>
+      <AmountsRcvdDsqlfyPersonGrp>
+        <TotalAmt>0</TotalAmt>
+      </AmountsRcvdDsqlfyPersonGrp>
+      <SubstantialContributorsAmtGrp>
+        <TotalAmt>0</TotalAmt>
+      </SubstantialContributorsAmtGrp>
+      <SubstAndDsqlfyPrsnsTotGrp>
+        <TotalAmt>0</TotalAmt>
+      </SubstAndDsqlfyPrsnsTotGrp>
+      <PublicSupportTotal509Amt>228381</PublicSupportTotal509Amt>
+      <TotalSupportCalendarYearGrp>
+        <CurrentTaxYearMinus4YearsAmt>61328</CurrentTaxYearMinus4YearsAmt>
+        <CurrentTaxYearMinus3YearsAmt>37721</CurrentTaxYearMinus3YearsAmt>
+        <CurrentTaxYearMinus2YearsAmt>66357</CurrentTaxYearMinus2YearsAmt>
+        <CurrentTaxYearMinus1YearAmt>33238</CurrentTaxYearMinus1YearAmt>
+        <CurrentTaxYearAmt>29737</CurrentTaxYearAmt>
+        <TotalAmt>228381</TotalAmt>
+      </TotalSupportCalendarYearGrp>
+      <PublicSupportCY509Pct>1.00000</PublicSupportCY509Pct>
+      <InvestmentIncomeCYPct>0.00000</InvestmentIncomeCYPct>
+      <ThirtyThrPctSuprtTestsCY509Ind>X</ThirtyThrPctSuprtTestsCY509Ind>
+    </IRS990ScheduleA>
+    <IRS990ScheduleO documentId="RetDoc1051800001">
+      <SupplementalInformationDetail>
+        <FormAndLineReferenceDesc>FORM 990-EZ, PART I, LINE 14</FormAndLineReferenceDesc>
+        <ExplanationTxt>DESCRIPTION: DEPRECIATION. AMOUNT: 4,377. DESCRIPTION: OTHER EXPENSES. AMOUNT: 1,152. TOTAL TO FORM 990-EZ, LINE 14: 5,529.</ExplanationTxt>
+      </SupplementalInformationDetail>
+      <SupplementalInformationDetail>
+        <FormAndLineReferenceDesc>FORM 990-EZ, PART I, LINE 16 - OTHER EXPENSES</FormAndLineReferenceDesc>
+        <ExplanationTxt>DESCRIPTION: TOURNAMENTS. AMOUNT: 5,300. DESCRIPTION: EQUIPMENT SUPPLIES. AMOUNT: 6,899. DESCRIPTION: OFFICE EXPENSES. AMOUNT: 3,454. DESCRIPTION: UNIFORMS. AMOUNT: 22,029. DESCRIPTION: FIELD MAINTENANCE. AMOUNT: 287. DESCRIPTION: PROMOTIONS. AMOUNT: 660. DESCRIPTION: BANK CHARGES. AMOUNT: 14. TOTAL TO FORM 990-EZ, LINE 16: 38,643.</ExplanationTxt>
+      </SupplementalInformationDetail>
+      <SupplementalInformationDetail>
+        <FormAndLineReferenceDesc>FORM 990-EZ, PART II, LINE 24 - OTHER ASSETS</FormAndLineReferenceDesc>
+        <ExplanationTxt>DESCRIPTION: OTHER DEPRECIABLE ASSETS. BEG. OF YEAR AMOUNT: 13,548. END OF YEAR AMOUNT: 9,171.</ExplanationTxt>
+      </SupplementalInformationDetail>
+    </IRS990ScheduleO>
+    <TransferPrsnlBnftContractsDecl documentId="RetDoc2278000001">
+      <DeclarationDesc>THE ORGANIZATION DID NOT, DURING THE YEAR, RECEIVE ANY FUNDS, DIRECTLY,OR INDIRECTLY, TO PAY PREMIUMS ON A PERSONAL BENEFIT CONTRACT.THE ORGANIZATION, DID NOT, DURING THE YEAR, PAY ANY PREMIUMS, DIRECTLY,OR INDIRECTLY, ON A PERSONAL BENEFIT CONTRACT.</DeclarationDesc>
+    </TransferPrsnlBnftContractsDecl>
+  </ReturnData>
+</Return>
