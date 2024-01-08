@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Partnership Income Return - Schedule K3 Section 267A Disallowed Deduction Statement</Description>
+			<Purpose>Attach to the Schedule K-3 a statement titled "Section 267A Disallowed Deduction" that separately lists the following information.
+A.	The amount of interest paid or accrued by the partnership for which the partner is not allowed a deduction under section 267A.
+B.	The amount of royalty paid or accrued by the partnership for which the partner is not allowed a deduction under section 267A.
+C.	The extent to which information reported on other parts of the Schedule K-3 (for example, a line in Part II, Section 2; or Part IX, Section 2) reflects interest or royalty for which the partner is not allowed a deduction under section 267A.</Purpose>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- ================================================================================ -->
+	<!-- ============ Schedule K3 Section 267A Disallowed Deduction Statement =========== -->
+	<!-- ================================================================================ -->
+
+	<xsd:element name="SchK3Sect267ADsallwDedStmt">
+		<xsd:annotation>
+			<xsd:documentation>Schedule K3 Section 267A Disallowed Deduction Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="SchK3Sect267ADsallwDedStmtType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="ScheduleK3Section267ADisallowedDeductionStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="SchK3Sect267ADsallwDedStmtType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Schedule K3 Section 267A Disallowed Deduction Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice minOccurs="0">
+				<xsd:sequence>
+
+					<!-- Partnership EIN -->
+					<xsd:element name="PartnershipEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Partnership EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of partnership -->
+					<xsd:element name="PartnershipName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of partnership</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Partner EIN -->
+						<xsd:element name="PartnerEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Partner SSN -->
+						<xsd:element name="PartnerSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of partner -->
+						<xsd:element name="PartnerName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of partner person -->
+						<xsd:element name="PartnerPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+				<xsd:sequence>
+
+					<!-- Corporation EIN -->
+					<xsd:element name="CorporationEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Corporation EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of corporation -->
+					<xsd:element name="CorporationName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of corporation</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Shareholder EIN -->
+						<xsd:element name="ShareholderEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Shareholder SSN -->
+						<xsd:element name="ShareholderSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of shareholder -->
+						<xsd:element name="ShareholderName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of shareholder person -->
+						<xsd:element name="ShareholderPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+			</xsd:choice>
+
+			<!-- Amount of interest paid or accrued by the partnership/S corporation for which the partner/shareholder is not allowed a deduction under section 267A. -->
+			<xsd:element name="IntPdOrAccrDsallwDedAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of interest paid or accrued by the partnership/S corporation for which the partner/shareholder is not allowed a deduction under section 267A.</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Amount of royalty paid or accrued by the partnership/S corporation for which the partner/shareholder is not allowed a deduction under section 267A. -->
+			<xsd:element name="RyltyPdOrAccrDsallwDedAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of royalty paid or accrued by the partnership/S corporation for which the partner/shareholder is not allowed a deduction under section 267A.</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Extent to which information reported on other parts of the Schedule K-3 reflects interest or royalty for which the partner/shareholder is not allowed a deduction under section 267A. -->
+			<xsd:element name="InfoRptIntRyltyDsallwDedDesc" type="LineExplanationType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Extent to which information reported on other parts of the Schedule K-3 reflects interest or royalty for which the partner/shareholder is not allowed a deduction under section 267A.</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

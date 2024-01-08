@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.irs.gov/efile" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 5471 Schedule G1</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- =================================================================== -->
+	<!-- ==================== IRS Form 5471 Schedule G-1 ===================== -->
+	<!-- =================================================================== -->
+
+	<xsd:element name="IRS5471ScheduleG1">
+		<xsd:annotation>
+			<xsd:documentation>Form 5471 Schedule G-1</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS5471ScheduleG1Type">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS5471ScheduleG1">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment GeneralDependencyMedium GeneralDependencySmall"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="IRS5471ScheduleG1Type">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 5471 Schedule G-1</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+				<xsd:choice>
+				<!-- Person Filing Form 5471 -->
+				<xsd:element name="PersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Person Filing Form 5471</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				
+				<!-- Business Filing Form 5471 -->
+				<xsd:element name="BusinessName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Business Filing Form 5471</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+
+			<xsd:choice>
+				<!-- Social Security number -->
+				<xsd:element name="SSN" type="SSNType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>SSN</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				
+				<!-- Employer Identification Number -->
+				<xsd:element name="EIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				
+				<!-- Missing Employer Identification Number Reason Code -->
+				<xsd:element name="MissingEINReasonCd">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Missing EIN Reason Code</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="TextType">
+							<xsd:enumeration value="APPLD FOR"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>		
+		</xsd:choice>
+			
+		<!-- Name of Foreign Corporation -->	
+		<xsd:element name="ForeignCorporationName" type="BusinessNameType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of Foreign Corporation</Description>
+						<LineNumber></LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		
+		<!-- Foreign Corporation EIN -->
+		<xsd:element name="ForeignCorporationEIN" type="EINType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Foreign Corporation EIN</Description>
+					<LineNumber></LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Reference ID number -->
+		<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Reference ID</Description>
+					<LineNumber></LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+
+		<!-- Description of Cost Sharing Arrangement -->
+		<xsd:element name="CostSharingArrangementDesc" type="ExplanationType" >
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Description of Cost Sharing Arrangement</Description>
+					<LineNumber>1</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Foreign Corporation Participant in Cost Sharing Arrangement -->
+		<xsd:element name="FrgnCorpBecamePartcpCostShrInd" type="BooleanType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Foreign Corporation Participant in Cost Sharing Arrangement</Description>
+					<LineNumber>2</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Cost Sharing in Effect Before Date -->
+		<xsd:element name="PartcpCostShrPriorSpcfdDateInd" type="BooleanType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Cost Sharing in Effect Before Date</Description>
+					<LineNumber>3</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Foreign Corporation Share of Benefits -->
+		<xsd:element name="FrgnPartcpShrBnftCSAPct" type="Decimal4RatioType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Foreign Corporation Share of Benefits</Description>
+					<LineNumber>4</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Did a U.S. Taxpayer Make Any Contribution? -->
+		<xsd:element name="PlatformContributionInd" type="BooleanType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Did a U.S. Taxpayer Make Any Contribution?</Description>
+					<LineNumber>5a</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Present Value of the Platform Contribution -->
+		 <xsd:element name="PlatformContributionAmt" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Present Value of the Platform Contribution</Description>
+					<LineNumber>5b</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:complexType>
+				<xsd:simpleContent>
+					<xsd:extension base="USAmountPosType">
+						<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+						<xsd:attribute name="referenceDocumentName" type="StringType" fixed="PlatformContributionStatement"/>
+					</xsd:extension>
+				</xsd:simpleContent>
+			</xsd:complexType>
+		</xsd:element>
+		
+		<!-- Comparable Uncontrolled Transaction Method -->
+		<xsd:element name="ComparableUncontrolledTransInd" type="CheckboxType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Comparable Uncontrolled Transaction Method</Description>
+					<LineNumber>5c</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>		
+
+		<!-- Market Capitalization Method -->
+		<xsd:element name="MarketCapitalizationMethodInd" type="CheckboxType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Market Capitalization Method</Description>
+					<LineNumber>5c</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>	
+		
+		<!-- Income Method -->
+		<xsd:element name="IncomeMethodInd" type="CheckboxType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Income Method</Description>
+					<LineNumber>5c</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Residual Profit Split Method -->
+		<xsd:element name="ResidualProfitSplitMethodInd" type="CheckboxType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Residual Profit Split Method</Description>
+					<LineNumber>5c</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>	
+		
+		<!-- Acquisition Price Method -->
+		<xsd:element name="AcquisitionPriceMethodInd" type="CheckboxType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Acquisition Price Method</Description>
+					<LineNumber>5c</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+
+		<!-- Unspecified Method -->
+		<xsd:element name="UnspecifiedMethodsInd" type="CheckboxType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Unspecified Method</Description>
+					<LineNumber>5c</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+			
+		<!-- Total Amount of Stock-Based Compensation Claimed -->
+		<xsd:element name="StockBasedCompDedClaimedAmt" type="USAmountNNType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Total Amount of Stock-Based Compensation Claimed</Description>
+					<LineNumber>6a</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		
+		<!-- Total Amount of Stock-Based Compensation Granted -->
+		<xsd:element name="CompClmTrtdAsIntngblDevAmt" type="USAmountNNType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Total Amount of Stock-Based Compensation Granted</Description>
+					<LineNumber>6b</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+			
+		<!-- Stock-Based Compensation Granted to Individuals -->
+		<xsd:element name="CompClmNotTrtdAsIntngblDevInd" type="BooleanType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Stock-Based Compensation Granted to Individuals</Description>
+					<LineNumber>6c</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>			
+		
+		<!-- Total Intangible Development Cost for Sharing Arrangement -->
+		<xsd:element name="IntngblDevCostsAmt" type="USAmountNNType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Total Intangible Development Cost for Sharing Arrangement</Description>
+					<LineNumber>7a</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>			
+		
+		<!-- Intangible Development Cost Allocated to Foreign Corporation -->
+		<xsd:element name="IntngblDevCostsPartcpShrAmt" type="USAmountNNType" minOccurs="0">
+			<xsd:annotation>
+				<xsd:documentation>
+					<Description>Intangible Development Cost Allocated to Foreign Corporation</Description>
+					<LineNumber>7b</LineNumber>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

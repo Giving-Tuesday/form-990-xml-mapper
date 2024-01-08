@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+    <xsd:annotation>
+        <xsd:documentation>
+            <Description>IRS e-file Schema - Section 987 Gain Or Loss Stmt</Description>
+            <TaxYear>2022</TaxYear>
+            <MaturityLevel>R10.6 MD1</MaturityLevel>
+            <ReleaseDate>February 9, 2023</ReleaseDate>
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+
+    <!-- ===================================== -->
+    <!-- === Section 987 Gain Or Loss Stmt === -->
+    <!-- ===================================== -->
+
+    <xsd:element name="Section987GainOrLossStmt">
+        <xsd:annotation>
+            <xsd:documentation>Section 987 Gain Or Loss Stmt</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="Section987GainOrLossStmtType">
+                    <xsd:attributeGroup ref="DocumentAttributes">
+                        <xsd:annotation>
+                            <xsd:documentation>Common return document attributes</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attributeGroup>
+                    <xsd:attribute name="documentName" type="StringType" fixed="Section987GainOrLossStmt">
+                        <xsd:annotation>
+                            <xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+                        </xsd:annotation>
+                    </xsd:attribute>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+
+    <xsd:complexType name="Section987GainOrLossStmtType">
+        <xsd:annotation>
+            <xsd:documentation>Content model for Section 987 Gain Or Loss Stmt</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+
+            <!-- Description of the Methodology Used to Figure the Section 987 Gain or Loss -->
+            <xsd:element name="MethodDesc" type="ExplanationType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <Description>Description of the methodology used to figure the section 987 gain or loss</Description>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            
+	    <!-- Amount of Section 987 Gain or Loss Included on Line 2 That was Previously Deferred. -->
+            <xsd:element name="Sect987GainOrLossPrevDefrdAmt" type="ForeignAmountType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        <Description>Amount of section 987 gain or loss included on line 2 that was previously deferred.</Description>
+                    </xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+
+        </xsd:sequence>
+    </xsd:complexType>
+ </xsd:schema>

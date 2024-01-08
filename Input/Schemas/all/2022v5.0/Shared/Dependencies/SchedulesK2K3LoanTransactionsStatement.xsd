@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Partnership Income Return - Schedules K2 K3 Loan Transactions Statement</Description>
+			<Purpose>Complete if:
+(i) received a loan from its partner (or a member of the partner’s affiliated group) ("downstream loan"), as described in regulations section 1.861-9(e)(8), or 
+(ii) loaned an amount to its partner (or a member of the partner’s affiliated group) ("upstream loan"), as described in regulations section 1.861-9(e)(9).</Purpose>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- ===================================================================== -->
+	<!-- ============ Schedules K2 K3 Loan Transactions Statement ============ -->
+	<!-- ===================================================================== -->
+
+	<xsd:element name="SchK2K3LoanTransactionsStmt">
+		<xsd:annotation>
+			<xsd:documentation>Schedules K2 K3 Loan Transactions Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="SchK2K3LoanTransactionsStmtType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="SchedulesK2K3LoanTransactionsStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="SchK2K3LoanTransactionsStmtType">
+		<xsd:annotation>
+			<xsd:documentation>Schedules K2 K3 Loan Transactions Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice minOccurs="0">
+				<xsd:sequence>
+
+					<!-- Partnership EIN -->
+					<xsd:element name="PartnershipEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Partnership EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of partnership -->
+					<xsd:element name="PartnershipName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of partnership</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Partner EIN -->
+						<xsd:element name="PartnerEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Partner SSN -->
+						<xsd:element name="PartnerSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of partner -->
+						<xsd:element name="PartnerName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of partner person -->
+						<xsd:element name="PartnerPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+				<xsd:sequence>
+
+					<!-- Corporation EIN -->
+					<xsd:element name="CorporationEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Corporation EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of corporation -->
+					<xsd:element name="CorporationName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of corporation</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Shareholder EIN -->
+						<xsd:element name="ShareholderEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Shareholder SSN -->
+						<xsd:element name="ShareholderSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of shareholder -->
+						<xsd:element name="ShareholderName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of shareholder person -->
+						<xsd:element name="ShareholderPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+			</xsd:choice>
+			
+			<!-- Downstream loan repeating group -->
+			<xsd:element name="DownstreamLoanGrp" type="DownstreamLoanGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Downstream loan repeating group</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Upstream loan repeating group -->
+			<xsd:element name="UpstreamLoanGrp" type="UpstreamLoanGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Upstream loan repeating group</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for DownstreamLoanGrp -->
+	<xsd:complexType name="DownstreamLoanGrpType">
+		<xsd:sequence>
+		
+			<!-- Lender information repeating group -->
+			<xsd:element name="LenderInformationGrp" type="LenderBorrowerInformationGrpType" minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Lender information repeating group</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Date of loan -->
+			<xsd:element name="LoanDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Date of loan</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Amount of loan -->
+			<xsd:element name="LoanAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of loan</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Interest expense for year -->
+			<xsd:element name="InterestExpenseAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Interest expense for year</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for UpstreamLoanGrp -->
+	<xsd:complexType name="UpstreamLoanGrpType">
+		<xsd:sequence>
+		
+			<!-- Borrower information repeating group -->
+			<xsd:element name="BorrowerInformationGrp" type="LenderBorrowerInformationGrpType" minOccurs="0" maxOccurs="2">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Borrower information repeating group</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Date of loan -->
+			<xsd:element name="LoanDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Date of loan</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Amount of loan -->
+			<xsd:element name="LoanAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of loan</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Interest expense for year -->
+			<xsd:element name="InterestExpenseAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Interest expense for year</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for LenderInformationGrp and BorrowerInformationGrp -->
+	<xsd:complexType name="LenderBorrowerInformationGrpType">
+		<xsd:sequence>
+		
+			<xsd:choice minOccurs="0">
+				<!-- Name of lender -->
+				<xsd:element name="BusinessName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Name of lender</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Name of lender person -->
+				<xsd:element name="PersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Name of lender person</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			
+			<xsd:choice minOccurs="0">
+				<!-- Lender EIN -->
+				<xsd:element name="EIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Lender EIN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Lender SSN -->
+				<xsd:element name="SSN" type="SSNType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Lender SSN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

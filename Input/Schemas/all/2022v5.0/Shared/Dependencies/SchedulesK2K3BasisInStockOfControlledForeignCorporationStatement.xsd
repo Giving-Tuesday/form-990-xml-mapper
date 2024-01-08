@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Partnership Income Return - Schedules K2 K3 Basis In Stock Of Controlled Foreign Corporation Statement</Description>
+			<Purpose>Attach a statement with the following information for each foreign corporation for which basis is reported.
+Name of foreign corporation.
+EIN or other identifying number.
+Percentage of voting and value of stock owned in such foreign corporation.
+Value of the stock in such corporation.</Purpose>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- =================================================================================================== -->
+	<!-- ============ Schedules K2 K3 Basis In Stock Of Controlled Foreign Corporation Statement =========== -->
+	<!-- =================================================================================================== -->
+
+	<xsd:element name="SchK2K3BasisInStockOfCFCStmt">
+		<xsd:annotation>
+			<xsd:documentation>Schedules K2 K3 Basis In Stock Of Controlled Foreign Corporation Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="SchK2K3BasisInStockOfCFCStmtType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="SchedulesK2K3BasisInStockOfControlledForeignCorporationStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="SchK2K3BasisInStockOfCFCStmtType">
+		<xsd:annotation>
+			<xsd:documentation>Schedules K2 K3 Basis In Stock Of Controlled Foreign Corporation Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice minOccurs="0">
+				<xsd:sequence>
+
+					<!-- Partnership EIN -->
+					<xsd:element name="PartnershipEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Partnership EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of partnership -->
+					<xsd:element name="PartnershipName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of partnership</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Partner EIN -->
+						<xsd:element name="PartnerEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Partner SSN -->
+						<xsd:element name="PartnerSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of partner -->
+						<xsd:element name="PartnerName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of partner person -->
+						<xsd:element name="PartnerPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+				<xsd:sequence>
+
+					<!-- Corporation EIN -->
+					<xsd:element name="CorporationEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Corporation EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of corporation -->
+					<xsd:element name="CorporationName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of corporation</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Shareholder EIN -->
+						<xsd:element name="ShareholderEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Shareholder SSN -->
+						<xsd:element name="ShareholderSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of shareholder -->
+						<xsd:element name="ShareholderName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of shareholder person -->
+						<xsd:element name="ShareholderPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+			</xsd:choice>
+			
+			<!-- Basis in stock -->
+			<xsd:element name="BasisInStockGrp" type="BasisInStockGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Basis in stock</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for BasisInStockGrp -->
+	<xsd:complexType name="BasisInStockGrpType">
+		<xsd:sequence>
+		
+			<!-- Name of foreign corporation -->
+			<xsd:element name="ForeignCorporationName" type="BusinessNameType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of foreign corporation</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:choice minOccurs="0">
+				<!-- EIN or other identifying number -->
+				<xsd:element name="ForeignCorporationEIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN or other identifying number</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- EIN or other identifying number -->
+				<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN or other identifying number</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			
+			<!-- Percentage of voting -->
+			<xsd:element name="VotingStockOwnedPct" type="RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Percentage of voting</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Value of stock in such corporation -->
+			<xsd:element name="OwnedStockValueAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Value of stock in such corporation</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

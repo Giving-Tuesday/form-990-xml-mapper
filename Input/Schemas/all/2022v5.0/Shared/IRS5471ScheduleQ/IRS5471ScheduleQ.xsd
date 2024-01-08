@@ -1,0 +1,1693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - IRS Form 5471 Schedule Q</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- =========================================================== -->
+	<!-- ================ IRS Form 5471 Schedule Q ================= -->
+	<!-- =========================================================== -->
+
+	<xsd:element name="IRS5471ScheduleQ">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 5471 Schedule Q</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS5471ScheduleQType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS5471ScheduleQ">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="OtherExpensesSchedule2"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="IRS5471ScheduleQType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 5471 Schedule Q</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice>
+				<!-- Person Filing Form 5471 -->
+				<xsd:element name="PersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Person Filing Form 5471</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Business Filing Form 5471 -->
+				<xsd:element name="BusinessName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Business Filing Form 5471</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+
+			<xsd:choice>
+				<!-- Social Security number -->
+				<xsd:element name="SSN" type="SSNType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>SSN</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Employer Identification Number -->
+				<xsd:element name="EIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Missing Employer Identification Number Reason Code -->
+				<xsd:element name="MissingEINReasonCd">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Missing EIN Reason Code</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="TextType">
+							<xsd:enumeration value="APPLD FOR"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:choice>
+
+			<!-- Name of Foreign Corporation -->
+			<xsd:element name="ForeignCorporationName" type="BusinessNameType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of Foreign Corporation</Description>
+						<LineNumber></LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Foreign Corporation EIN -->
+			<xsd:element name="ForeignCorporationEIN" type="EINType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Corporation EIN</Description>
+						<LineNumber></LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Reference ID number -->
+			<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reference ID</Description>
+						<LineNumber></LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			
+			<!-- Seperate Category Code -->
+			<xsd:element name="SeparateCategoryCd">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Seperate Category Code</Description>
+						<LineNumber>Line A</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="TOTAL"/>
+						<xsd:enumeration value="PAS"/>
+						<xsd:enumeration value="GEN"/>
+						<xsd:enumeration value="901j"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!-- Passive Grouping code -->
+			<xsd:element name="PassiveCategoryIncomeGroupCd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Passive Grouping code</Description>
+						<LineNumber>Line B</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="i"/>
+						<xsd:enumeration value="ii"/>
+						<xsd:enumeration value="iii"/>
+						<xsd:enumeration value="iv"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!-- Country Code -->
+			<xsd:element name="SanctionedCountryCd" type="CountryType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Country Code</Description>
+						<LineNumber>Line C</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+				
+			<!-- US Source Income Indicator -->
+			<xsd:element name="USSourceIncomeInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>US Source Income Indicator</Description>
+						<LineNumber>Line D</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Foreign Source Income Indicator -->
+			<xsd:element name="ForeignSourceIncomeInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Source Income Indicator</Description>
+						<LineNumber>Line D</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- FOGEI or FORI Indicator -->
+			<xsd:element name="FOGEIOrFORIInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>FOGEI or FORI Indicator</Description>
+						<LineNumber>Line E</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Dividends, Interest, Rents, Royalties, & Annuities Total Group -->
+			<xsd:element name="TotalDivIntRntsRyltsAnntsGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Dividends, Interest, Rents, Royalties, &amp; Annuities Total Group</Description>
+						<LineNumber>Line 1a column (ii)-(xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Dividends, Interest, Rents, Royalties, & Annuities Group -->
+			<xsd:element name="DivIntRntsRyltsAnntsGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Dividends, Interest, Rents, Royalties, &amp; Annuities Group</Description>
+						<LineNumber>Lines 1a(1), 1a(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Gain from Certain property Transactions Total Group -->
+			<xsd:element name="TotNetGainCertainPropTransGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Gain from Certain property Transactions Total Group</Description>
+						<LineNumber>Line 1b columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Gain from Certain property Transactions Group -->
+			<xsd:element name="NetGainCertainPropTransGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Gain from Certain property Transactions Group</Description>
+						<LineNumber>Lines 1b(1), 1b(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Gain from Commodities Transactions Total Group -->
+			<xsd:element name="TotNetGainCommoditiesTranGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Gain from Commodities Transactions Total Group</Description>
+						<LineNumber>Line 1c columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Gain from Commodities Transactions Group -->
+			<xsd:element name="NetGainCommoditiesTranGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Gain from Commodities Transactions Group</Description>
+						<LineNumber>Lines 1c(1), 1c(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Foreign Currency Gain Total Group -->
+			<xsd:element name="TotNetFrgnCurrencyGainGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Foreign Currency Gain Total Group</Description>
+						<LineNumber>Line 1d columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Foreign Currency Gain Group -->
+			<xsd:element name="NetFrgnCurrencyGainGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Foreign Currency Gain Group</Description>
+						<LineNumber>Lines 1d(1), 1d(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Income Equivalent to Interest Total Group -->
+			<xsd:element name="TotIncmEquivalentToIntGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Income Equivalent to Interest Total Group</Description>
+						<LineNumber>Line 1e columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Income Equivalent to Interest Group -->
+			<xsd:element name="IncmEquivalentToIntGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Income Equivalent to Interest Group</Description>
+						<LineNumber>Lines 1e(1), 1e(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Income Equivalent to Interest Group -->
+			<xsd:element name="TotalOtherSubpartFIncomeGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Income Equivalent to Interest Group</Description>
+						<LineNumber>Lines 1f(1), 1f(2), ..., columns (i) - (xii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Income Equivalent to Interest Group -->
+			<xsd:element name="OtherSubpartFIncomeGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Income Equivalent to Interest Group</Description>
+						<LineNumber>Lines 1f(1), 1f(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Foreign Base Company Sales Income Total Group -->
+			<xsd:element name="TotFrgnBaseCoSalesIncmGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Base Company Sales Income Total Group</Description>
+						<LineNumber>Line 1g columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Base Company Sales Income Group -->
+			<xsd:element name="FrgnBaseCoSalesIncmGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Base Company Sales Income Group</Description>
+						<LineNumber>Lines 1g(1), 1g(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Base Company Services Income Total Group -->
+			<xsd:element name="TotFrgnBaseCompanySrvcIncmGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Base Company Services Income Total Group</Description>
+						<LineNumber>Line 1h columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Base Company Services Income Group -->
+			<xsd:element name="FrgnBaseCompanySrvcIncmGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Base Company Services Income Group</Description>
+						<LineNumber>Lines 1h(1), 1g(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Full Inclusion Foreign Base Company Income Total Group -->
+			<xsd:element name="TotFullInclsnFrgnBaseCoIncmGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Full Inclusion Foreign Base Company Income Total Group</Description>
+						<LineNumber>Line 1i columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Full Inclusion Foreign Base Company Income Group -->
+			<xsd:element name="FullInclsnFrgnBaseCoIncmGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Full Inclusion Foreign Base Company Income Group</Description>
+						<LineNumber>Lines 1i(1), 1h(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Insurance Income Total Group -->
+			<xsd:element name="TotalInsuranceIncomeGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Insurance Income Total Group</Description>
+						<LineNumber>Line 1j columns (ii) - (xiii), (xv), and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Insurance Income Group -->
+			<xsd:element name="InsuranceIncomeGrp" type="CFCIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Insurance Income Group</Description>
+						<LineNumber>Lines 1j(1), 1i(2), ..., columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- International Boycott Income Group -->
+			<xsd:element name="IntntlBoycottIncomeGrp" type="IncomeSubGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>International Boycott Income Group</Description>
+						<LineNumber>Line 1k columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Bribes, Kickbacks, and Other Payments Group -->
+			<xsd:element name="BribesKickbackOtherPymtGrp" type="IncomeSubGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Bribes, Kickbacks, and Other Payments Group</Description>
+						<LineNumber>Line 1l columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Section 901(j) income Group -->
+			<xsd:element name="CFCSection901jIncomeGrp" type="IncomeSubGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 901(j) income Group</Description>
+						<LineNumber>Line 1m columns (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Recaptured Subpart F Income Group -->
+			<xsd:element name="RecapturedSubpartFIncmGrp" type="RecapturedSubpartFIncmGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Recaptured Subpart F Income Group</Description>
+						<LineNumber>Line 2 columns (i), (ii), (xi), (xv) and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Tested Income Total Group -->
+			<xsd:element name="TotalTestedIncomeGrp" type="TotalSubpartFIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Tested Income Total Group</Description>
+						<LineNumber>Line 3 columns (ii) - (xiii), (xv) and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Tested Income Group -->
+			<xsd:element name="TestedIncomeGrp" type="TestedIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Tested Income Group</Description>
+						<LineNumber>Line 3 column (i) - (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+			<!-- Residual Income Total Group -->
+			<xsd:element name="TotalResidualIncomeGrp" type="TotalResidualIncomeGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Residual Income Total Group</Description>
+						<LineNumber>Line 4 columns (ii) - (xi), (xiii), (xv) and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Residual Income Group -->
+			<xsd:element name="ResidualIncomeGrp" type="ResidualIncomeGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Residual Income Group</Description>
+						<LineNumber>Lines 4(1), 4(2), ..., columns (i) - (xi), (xiii), (xv) and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- CFC (Controlled Foreign Corporation) Income Total Group -->
+			<xsd:element name="CFCTotalIncomeGrp" type="IncomeTotalsGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>CFC Income Total Group</Description>
+						<LineNumber>Line 5 columns (ii) - (xii), (xv) and (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Lines 1a - 1i, and 3 columns (ii) - (xiii), (xv) and (xvi) -->
+	<xsd:complexType name="TotalSubpartFIncomeGrpType">
+		<xsd:sequence>
+
+			<!-- Gross Income Total -->
+			<xsd:element name="TotalGrossIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Definitely Related Expenses Total -->
+			<xsd:element name="TotalDefinitelyRltdExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Definitely Related Expenses Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Related Person Interest Expense Total -->
+			<xsd:element name="TotalRelatedPersonIntExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Related Person Interest Expense Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Interest Expense Total -->
+			<xsd:element name="TotalOtherInterestExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Interest Expense Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Research and Experimental Expense Total -->
+			<xsd:element name="TotalRsrchExptlExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Research and Experimental Expense Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Expenses Total -->
+			<xsd:element name="TotalOtherExpensesAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Expenses Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on Reattributed Income from Disregarded Payments Total -->
+			<xsd:element name="TotCYTxReattrIncmDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on Reattributed Income from Disregarded Payments Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on All Other Disregarded Payments Total -->
+			<xsd:element name="TotCYTaxOnAllOthDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on All Other Disregarded Payments Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Current Year Taxes Total -->
+			<xsd:element name="TotalOtherCurrentYearTaxAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Current Year Taxes Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income Total -->
+			<xsd:element name="TotalNetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Taxes for which Credit Allowed Total -->
+			<xsd:element name="TotalAllowedFrgnTaxCreditAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Taxes for which Credit Allowed Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (xii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Average Asset Value Total -->
+			<xsd:element name="TotalAverageAssetValueAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Average Asset Value Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (xiii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Loss Allocation Total -->
+			<xsd:element name="TotalAllocationLossAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income After Loss Allocation Total -->
+			<xsd:element name="TotalNetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation Total</Description>
+						<LineNumber>Line 1a - 1i, 3, column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Lines 5 columns (ii) - (xiii), (xv) and (xvi) -->
+	<xsd:complexType name="IncomeTotalsGrpType">
+		<xsd:sequence>
+
+			<!-- Gross Income Total -->
+			<xsd:element name="TotalGrossIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income Total</Description>
+						<LineNumber>Line 5 column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Definitely Related Expenses Total -->
+			<xsd:element name="TotalDefinitelyRltdExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Definitely Related Expenses Total</Description>
+						<LineNumber>Line 5 column (iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Related Person Interest Expense Total -->
+			<xsd:element name="TotalRelatedPersonIntExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Related Person Interest Expense Total</Description>
+						<LineNumber>Line 5 column (iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Interest Expense Total -->
+			<xsd:element name="TotalOtherInterestExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Interest Expense Total</Description>
+						<LineNumber>Line 5 column (v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Research and Experimental Expense Total -->
+			<xsd:element name="TotalRsrchExptlExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Research and Experimental Expense Total</Description>
+						<LineNumber>Line 5 column (vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Expenses Total -->
+			<xsd:element name="TotalOtherExpensesAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Expenses Total</Description>
+						<LineNumber>Line 5 column (vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on Reattributed Income from Disregarded Payments Total -->
+			<xsd:element name="TotCYTxReattrIncmDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on Reattributed Income from Disregarded Payments Total</Description>
+						<LineNumber>Line 5 column (viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on All Other Disregarded Payments Total -->
+			<xsd:element name="TotCYTaxOnAllOthDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on All Other Disregarded Payments Total</Description>
+						<LineNumber>Line 5 column (ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Current Year Taxes Total -->
+			<xsd:element name="TotalOtherCurrentYearTaxAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Current Year Taxes Total</Description>
+						<LineNumber>Line 5 column (x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income Total -->
+			<xsd:element name="TotalNetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income Total</Description>
+						<LineNumber>Line 5 column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Taxes for which Credit Allowed Total -->
+			<xsd:element name="TotalAllowedFrgnTaxCreditAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Taxes for which Credit Allowed Total</Description>
+						<LineNumber>Line 5 column (xii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Loss Allocation Total -->
+			<xsd:element name="TotalAllocationLossAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation Total</Description>
+						<LineNumber>Line 5 column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income After Loss Allocation Total -->
+			<xsd:element name="TotalNetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation Total</Description>
+						<LineNumber>Line 5 column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type used for Lines 1a(1), 1a(2) ... 1b(1) ... 1i(2) ..., columns (i) - (xvi) -->
+	<xsd:complexType name="CFCIncomeGrpType">
+		<xsd:sequence>
+
+			<!-- Row Identifier number -->
+			<xsd:element name="RowId" type="IRS5471SchQRowIDType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Row Identifier number</Description>
+						<LineNumber>Row identifier</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Enter the name of each QBU (qualified business unit) of the CFC, including the CFC -->
+			<xsd:element name="QBUName" type="BusinessNameType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter the name of each QBU of the CFC, including the CFC</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ...</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Country Code -->
+			<xsd:element name="CountryCd" type="CountryType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Country Code</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Gross Income -->
+			<xsd:element name="GrossIncomeAmt" type="ForeignAmountType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Definitely Related Expenses -->
+			<xsd:element name="DefinitelyRltdExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Definitely Related Expenses</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Related Person Interest Expense -->
+			<xsd:element name="RelatedPersonIntExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Related Person Interest Expense</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Interest Expense -->
+			<xsd:element name="OtherInterestExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Interest Expense</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Research and Experimental Expenses -->
+			<xsd:element name="RsrchExperimentalExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Research and Experimental Expenses</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Expenses -->
+			<xsd:element name="OtherExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Expenses</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on Reattributed Income from Disregarded Payments -->
+			<xsd:element name="CYTxReattrIncmDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on Reattributed Income from Disregarded Payments</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on All Other Disregarded Payments -->
+			<xsd:element name="CYTaxOnAllOthDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on All Other Disregarded Payments</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Current Year Taxes -->
+			<xsd:element name="OtherCurrentYearTaxesAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Current Year Taxes</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income -->
+			<xsd:element name="NetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Taxes for which Credit Allowed -->
+			<xsd:element name="ForeignTaxesCreditAllowedAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Taxes for which Credit Allowed</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (xii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Average Asset Value -->
+			<xsd:element name="AverageAssetValueAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Average Asset Value</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (xiii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- High Tax Election -->
+			<xsd:element name="HighTaxElectionInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>High Tax Election</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (xiv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+	
+			<!-- Loss Allocation -->
+			<xsd:element name="LossAllocationAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Net Income After Loss Allocation -->
+			<xsd:element name="NetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation</Description>
+						<LineNumber>Line 1a(1) or 1a(2) ... 1i(2) ..., column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Lines 1j, 1k and 1l columns (i) - (xiii) -->
+	<xsd:complexType name="IncomeSubGrpType">
+		<xsd:sequence>
+
+			<!-- Country Code -->
+			<xsd:element name="CountryCd" type="CountryType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Country Code</Description>
+						<LineNumber>Line 1k, 1l or 1m column (i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Gross Income -->
+			<xsd:element name="GrossIncomeAmt" type="ForeignAmountType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income</Description>
+						<LineNumber>Line 1k, 1l or 1m column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Definitely Related Expenses -->
+			<xsd:element name="DefinitelyRltdExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Definitely Related Expenses</Description>
+						<LineNumber>Line 1k, 1l or 1m column (iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Related Person Interest Expense -->
+			<xsd:element name="RelatedPersonIntExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Related Person Interest Expense</Description>
+						<LineNumber>Line 1k, 1l or 1m column (iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Interest Expense -->
+			<xsd:element name="OtherInterestExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Interest Expense</Description>
+						<LineNumber>Line 1k, 1l or 1m column (v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Research and Experimental Expense -->
+			<xsd:element name="RsrchExperimentalExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Research and Experimental Expense</Description>
+						<LineNumber>Line 1k, 1l or 1m column (vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Expenses -->
+			<xsd:element name="OtherExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Expenses</Description>
+						<LineNumber>Line 1k, 1l or 1m column (vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on Reattributed Income from Disregarded Payments -->
+			<xsd:element name="CYTxReattrIncmDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on Reattributed Income from Disregarded Payments</Description>
+						<LineNumber>Line 1k, 1l or 1m column (viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on All Other Disregarded Payments -->
+			<xsd:element name="CYTaxOnAllOthDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on All Other Disregarded Payments</Description>
+						<LineNumber>Line 1k, 1l or 1m column (ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Current Year Taxes -->
+			<xsd:element name="OtherCurrentYearTaxesAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Current Year Taxes</Description>
+						<LineNumber>Line 1k, 1l or 1m column (x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income -->
+			<xsd:element name="NetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income</Description>
+						<LineNumber>Line 1k, 1l or 1m column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Taxes for which Credit Allowed -->
+			<xsd:element name="ForeignTaxesCreditAllowedAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Taxes for which Credit Allowed</Description>
+						<LineNumber>Line 1k, 1l or 1m column (xii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Average Asset Value -->
+			<xsd:element name="AverageAssetValueAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Average Asset Value</Description>
+						<LineNumber>Line 1k, 1l or 1m column (xiii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Loss Allocation -->
+			<xsd:element name="LossAllocationAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation</Description>
+						<LineNumber>Line 1k, 1l or 1m column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Net Income After Loss Allocation -->
+			<xsd:element name="NetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation</Description>
+						<LineNumber>Line 1k, 1l or 1m column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Line 2 columns (i), (ii) and (xi) -->
+	<xsd:complexType name="RecapturedSubpartFIncmGrpType">
+		<xsd:sequence>
+
+			<!-- Country Code -->
+			<xsd:element name="CountryCd" type="CountryType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Country Code</Description>
+						<LineNumber>Line 2 column (i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Gross Income -->
+			<xsd:element name="GrossIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income</Description>
+						<LineNumber>Line 2 column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income -->
+			<xsd:element name="NetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income</Description>
+						<LineNumber>Line 2 column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Loss Allocation -->
+			<xsd:element name="LossAllocationAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation</Description>
+						<LineNumber>Line 2 column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Net Income After Loss Allocation -->
+			<xsd:element name="NetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation</Description>
+						<LineNumber>Line 2 column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Line 3 columns (i) - (xiv) -->
+	<xsd:complexType name="TestedIncomeGrpType">
+		<xsd:sequence>
+
+			<!-- Row Identifier number -->
+			<xsd:element name="RowId" type="IRS5471SchQRowIDType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Row Identifier number</Description>
+						<LineNumber>Row identifier</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Enter the name of each QBU of the CFC, including the CFC -->
+			<xsd:element name="QBUName" type="BusinessNameType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter the name of each QBU of the CFC, including the CFC</Description>
+						<LineNumber>Line 3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Courty Code -->
+			<xsd:element name="CountryCd" type="CountryType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Courty Code</Description>
+						<LineNumber>Line 3 column (i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Gross Income -->
+			<xsd:element name="GrossIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income</Description>
+						<LineNumber>Line 3 column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Definitely Related Expenses -->
+			<xsd:element name="DefinitelyRltdExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Definitely Related Expenses</Description>
+						<LineNumber>Line 3 column (iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Related Person Interest Expense -->
+			<xsd:element name="RelatedPersonIntExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Related Person Interest Expense</Description>
+						<LineNumber>Line 3 column (iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Interest Expense -->
+			<xsd:element name="OtherInterestExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Interest Expense</Description>
+						<LineNumber>Line 3 column (v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Research and Experimental Expenses -->
+			<xsd:element name="RsrchExperimentalExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Research and Experimental Expenses</Description>
+						<LineNumber>Line 3 column (vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Expenses -->
+			<xsd:element name="OtherExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Expenses</Description>
+						<LineNumber>Line 3 column (vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on Reattributed Income from Disregarded Payments -->
+			<xsd:element name="CYTxReattrIncmDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on Reattributed Income from Disregarded Payments</Description>
+						<LineNumber>Line 3 column (viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on All Other Disregarded Payments -->
+			<xsd:element name="CYTaxOnAllOthDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on All Other Disregarded Payments</Description>
+						<LineNumber>Line 3 column (ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Current Year Taxes -->
+			<xsd:element name="OtherCurrentYearTaxesAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Current Year Taxes</Description>
+						<LineNumber>Line 3 column (x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income -->
+			<xsd:element name="NetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income</Description>
+						<LineNumber>Line 3 column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Foreign Taxes for which Credit Allowed -->
+			<xsd:element name="ForeignTaxesCreditAllowedAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Taxes for which Credit Allowed</Description>
+						<LineNumber>Line 3 column (xii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Average Asset Value -->
+			<xsd:element name="AverageAssetValueAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Average Asset Value</Description>
+						<LineNumber>Line 3 column (xiii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- High Tax Election -->
+			<xsd:element name="HighTaxElectionInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>High Tax Election</Description>
+						<LineNumber>Line 3 column (xiv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Loss Allocation Total -->
+			<xsd:element name="LossAllocationAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation Total</Description>
+						<LineNumber>Line 3 column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income After Loss Allocation Total -->
+			<xsd:element name="NetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation Total</Description>
+						<LineNumber>Line 3 column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Line 4 columns (ii) - (xii) and (xiii) -->
+	<xsd:complexType name="TotalResidualIncomeGrpType">
+		<xsd:sequence>
+
+			<!-- Gross Income Total -->
+			<xsd:element name="TotalGrossIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income Total</Description>
+						<LineNumber>Line 4 column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Definitely Related Expenses Total -->
+			<xsd:element name="TotalDefinitelyRltdExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Definitely Related Expenses Total</Description>
+						<LineNumber>Line 4 column (iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Related Person Interest Expense Total -->
+			<xsd:element name="TotalRelatedPersonIntExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Related Person Interest Expense Total</Description>
+						<LineNumber>Line 4 column (iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Interest Expense Total -->
+			<xsd:element name="TotalOtherInterestExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Interest Expense Total</Description>
+						<LineNumber>Line 4 column (v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Research and Experimental Expense Total -->
+			<xsd:element name="TotalRsrchExptlExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Research and Experimental Expense Total</Description>
+						<LineNumber>Line 4 column (vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Expenses Total -->
+			<xsd:element name="TotalOtherExpensesAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Expenses Total</Description>
+						<LineNumber>Line 4 column (vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on Reattributed Income from Disregarded Payments Total -->
+			<xsd:element name="TotCYTxReattrIncmDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on Reattributed Income from Disregarded Payments Total</Description>
+						<LineNumber>Line 4 column (viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on All Other Disregarded Payments Total -->
+			<xsd:element name="TotCYTaxOnAllOthDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on All Other Disregarded Payments Total</Description>
+						<LineNumber>Line 4 column (ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Current Year Taxes Total -->
+			<xsd:element name="TotalOtherCurrentYearTaxAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Current Year Taxes Total</Description>
+						<LineNumber>Line 4 column (x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income Total -->
+			<xsd:element name="TotalNetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income Total</Description>
+						<LineNumber>Line 4 column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Average Asset Value Total -->
+			<xsd:element name="TotalAverageAssetValueAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Average Asset Value Total</Description>
+						<LineNumber>Line 4 column (xiii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Loss Allocation Total -->
+			<xsd:element name="TotalAllocationLossAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation Total</Description>
+						<LineNumber>Line 4 column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income After Loss Allocation Total -->
+			<xsd:element name="TotalNetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation Total</Description>
+						<LineNumber>Line 4 column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Lines 4(1), 4(2), ..., columns (i) - (xi) and (xiii) -->
+	<xsd:complexType name="ResidualIncomeGrpType">
+		<xsd:sequence>
+
+			<!-- Row Identifier -->
+			<xsd:element name="RowId" type="IRS5471SchQRowIDType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Row Identifier</Description>
+						<LineNumber>Row identifier</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Enter the name of each QBU of the CFC, including the CFC -->
+			<xsd:element name="QBUName" type="BusinessNameType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter the name of each QBU of the CFC, including the CFC</Description>
+						<LineNumber>Line 4</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Courty Code -->
+			<xsd:element name="CountryCd" type="CountryType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Courty Code</Description>
+						<LineNumber>Line 4 column (i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Gross Income -->
+			<xsd:element name="GrossIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gross Income</Description>
+						<LineNumber>Line 4 column (ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Definitely Related Expenses -->
+			<xsd:element name="DefinitelyRltdExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Definitely Related Expenses</Description>
+						<LineNumber>Line 4 column (iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Related Person Interest Expense -->
+			<xsd:element name="RelatedPersonIntExpnsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Related Person Interest Expense</Description>
+						<LineNumber>Line 4 column (iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Interest Expense -->
+			<xsd:element name="OtherInterestExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Interest Expense</Description>
+						<LineNumber>Line 4 column (v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Research and Experimental Expenses -->
+			<xsd:element name="RsrchExperimentalExpnssAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Research and Experimental Expenses</Description>
+						<LineNumber>Line 4 column (vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Expenses -->
+			<xsd:element name="OtherExpenseAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Expenses</Description>
+						<LineNumber>Line 4 column (vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on Reattributed Income from Disregarded Payments -->
+			<xsd:element name="CYTxReattrIncmDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on Reattributed Income from Disregarded Payments</Description>
+						<LineNumber>Line 4 column (viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Year Tax on All Other Disregarded Payments -->
+			<xsd:element name="CYTaxOnAllOthDsrgrdPymtAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Tax on All Other Disregarded Payments</Description>
+						<LineNumber>Line 4 column (ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Other Current Year Taxes -->
+			<xsd:element name="OtherCurrentYearTaxesAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Current Year Taxes</Description>
+						<LineNumber>Line 4 column (x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income -->
+			<xsd:element name="NetIncomeAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income</Description>
+						<LineNumber>Line 4 column (xi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Average Asset Value -->
+			<xsd:element name="AverageAssetValueAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Average Asset Value</Description>
+						<LineNumber>Line 4 column (xiii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Loss Allocation Total -->
+			<xsd:element name="LossAllocationAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Loss Allocation Total</Description>
+						<LineNumber>Line 4 column (xv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Income After Loss Allocation Total -->
+			<xsd:element name="NetIncmAfterLossAllocnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Income After Loss Allocation Total</Description>
+						<LineNumber>Line 4 column (xvi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for rows in the table in Form 5471 Schedule Q -->
+	<xsd:simpleType name="IRS5471SchQRowIDType">
+		<xsd:restriction base="IntegerNNType">
+			<xsd:totalDigits value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>
+

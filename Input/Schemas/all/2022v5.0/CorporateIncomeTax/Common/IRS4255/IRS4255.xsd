@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.irs.gov/efile" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 4255</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+	<!-- =============================================================== -->
+	<!-- ======================  IRS Form 4255 ============================ -->
+	<!-- =============================================================== -->
+	<xsd:element name="IRS4255">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 4255</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS4255Type">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS4255">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="IRS4255Type">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 4255</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!-- Properties -->
+			<xsd:element name="RecaptureOfInvstCrProperties" type="RecaptureOfInvstCrPropertiesType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Properties</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Recapture From Increase in Nonqualified Nonrecourse Financing for all Properties. Add all Amounts on Line 9 -->
+			<xsd:element name="SumNonqualifiedRcptrTaxAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Recapture from increase in nonqualified nonrecourse financing for all properties. Add all amounts on Line 9</Description>
+						<LineNumber>17</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountType">
+							<xsd:attribute name="taxFromAttachedCd">
+								<xsd:simpleType>
+									<xsd:restriction base="StringType">
+										<xsd:enumeration value="TAX FROM ATTACHED"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Recapture From Disposed or Unused Investment Credit Properties. Add all Amounts on Line 16 -->
+			<xsd:element name="SumInvestmentCrRcptrTaxAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Recapture from disposed or unused investment credit properties. Add all amounts on Line 16</Description>
+						<LineNumber>18</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountType">
+							<xsd:attribute name="taxFromAttachedCd">
+								<xsd:simpleType>
+									<xsd:restriction base="StringType">
+										<xsd:enumeration value="TAX FROM ATTACHED"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Tax For Recapture Qualifying Therapeutic Discovery Amount -->
+			<xsd:element name="TxForRcptrQlfyThrputicDiscvAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Tax for recapture qualifying therapeutic discovery amount</Description>
+						<LineNumber>19</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="RecaptureQualifyingTherapeuticDiscoveryProjectCreditStmt"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Total Increase in Tax. Add Lines 17, 18, and 19 -->
+			<xsd:element name="TotalIncreaseInTaxAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total increase in tax. Add lines 17, 18, and 19</Description>
+						<LineNumber>20</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="RecaptureOfInvstCrPropertiesType">
+		<xsd:sequence>
+			<!-- Type of Property - State Whether Rehabilitation, Energy, or Reforestation Property. If Rehabilitation Property, Also Show Type of Building. If Energy Property, Show Type. -->
+			<xsd:element name="PropertyDesc" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Type of Property - State Whether Rehabilitation, Energy, or Reforestation Property</Description>
+						<LineNumber>A</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:maxLength value="50"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			
+			<!-- Part I. Original Investment Credit -->
+			
+			<!-- Enter the Rate You Used to Figure the Original Credit from the Form 3468 That You Filed -->
+			<xsd:element name="CreditRt" type="RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter the Rate You Used to Figure the Original Credit from the Form 3468 That You Filed</Description>
+						<LineNumber>A1</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Credit Base at the End of the Previous Tax Year -->
+			<xsd:element name="CreditBasePYAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Credit base at the end of the previous tax year</Description>
+						<LineNumber>A2</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Net Change in Nonqualified Nonrecourse Financing -->
+			<xsd:element name="NonqualifiedFinanceNetChgAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net change in nonqualified nonrecourse financing</Description>
+						<LineNumber>A3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Credit Base at the End of the Current Tax Year -->
+			<xsd:element name="CreditBaseCYAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Credit base at the end of the current tax year</Description>
+						<LineNumber>A4</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Credit Refigured Under IRC Section 46 -->
+			<xsd:element name="RefiguredCreditAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Credit refigured under IRC section 46</Description>
+						<LineNumber>A5</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Credit Taken on Form 3800 in Prior Years -->
+			<xsd:element name="PriorYearsGeneralBusinessCrAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Credit taken on Form 3800 in prior years</Description>
+						<LineNumber>A6</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Part II. Recapture from increase in nonqualified nonrecourse financing (see instructions) -->
+			
+			<!-- Credit Subject to Recapture. Subtract Line 5 From Line 6 -->
+			<xsd:element name="AtRiskCreditRecaptureAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Credit subject to recapture. Subtract Line 5 from Line 6</Description>
+						<LineNumber>A7</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Original Credit Figured Using Current Year Credit Base -->
+			<xsd:element name="UnusedGeneralBusCrOrigCrAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Original credit figured using current year credit base</Description>
+						<LineNumber>A8</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Recapture Tax Resulting From a Net Increase in Nonqualified Nonrecourse Financing. Subtract Line 8 From Line 7 -->
+			<xsd:element name="NonqualifedFinanceRcptrTaxAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Recapture tax resulting from a net increase in nonqualified nonrecourse financing. Subtract Line 8 from Line 7</Description>
+						<LineNumber>A9</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Part III. Recapture from disposition of property or cessation of use as investment credit property -->
+			
+			<!-- Date Property was Placed in Service -->
+			<xsd:element name="PlacedInServiceDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Date Property was Placed in Service</Description>
+						<LineNumber>A10</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Date Property Ceased to be Qualified Investment Credit Property. Generally, This Will Be the Date You Disposed of the Property -->
+			<xsd:element name="PropertyCeasedToQualifyDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Date Property Ceased to be Qualified Investment Credit Property</Description>
+						<LineNumber>A11</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Number of Full Years Between the Date on Line 10 and the Date on Line 11 -->
+			<xsd:element name="PropertyQualifiedYearCnt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Number of Full Years Between the Date on Line 10 and the Date on Line 11</Description>
+						<LineNumber>A12</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="IntegerNNType">
+						<xsd:totalDigits value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Unused General Business Credits Allowed, if no Investment Credit -->
+			<xsd:element name="UnusedGeneralBusCrNoCrAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Unused general business credits allowed, if no investment credit</Description>
+						<LineNumber>A13</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Aggregate Decrease in General Business Credits. Subtract Line 13 From Line 6 -->
+			<xsd:element name="AggregateCreditDecreaseAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Aggregate decrease in general business credits. Subtract line 13 from line 6</Description>
+						<LineNumber>A14</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Recapture Percentage -->
+			<xsd:element name="RecapturePct" type="RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Recapture Percentage</Description>
+						<LineNumber>A15</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Recapture Tax From Property Disposed of or no Longer Used as Investment Credit Property. Multiply Line 14 by Line 15 -->
+			<xsd:element name="InvestmentCrRecaptureTaxAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Recapture tax from property disposed of or no longer used as investment credit property. Multiply line 14 by line 15</Description>
+						<LineNumber>A16</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

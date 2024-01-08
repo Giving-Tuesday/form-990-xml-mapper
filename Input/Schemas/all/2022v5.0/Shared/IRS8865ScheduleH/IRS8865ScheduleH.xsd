@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.irs.gov/efile" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 8865 Schedule H</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- =================================================================== -->
+	<!-- ==================== IRS Form 8865 Schedule H ===================== -->
+	<!-- =================================================================== -->
+
+	<xsd:element name="IRS8865ScheduleH">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 8865 Schedule H</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS8865ScheduleHType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS8865ScheduleH">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment GeneralDependencySmall"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="IRS8865ScheduleHType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 8865 Schedule H</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice minOccurs="0">
+				<!-- Filer Name -->
+				<xsd:element name="FilerName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Filer Name</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Filer Person Name -->
+				<xsd:element name="FilerPersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Filer Person Name</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+
+			<xsd:choice minOccurs="0">
+				<!-- Filer SSN -->
+				<xsd:element name="FilerSSN" type="SSNType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Filer SSN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Filer EIN -->
+				<xsd:element name="FilerEIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Filer EIN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Missing EIN Reason Code -->
+				<xsd:element name="MissingEINReasonCd">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Missing EIN Reason Code</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="TextType">
+							<xsd:enumeration value="APPLD FOR"/>
+							<xsd:enumeration value="FOREIGNUS"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:choice>
+
+			<!-- Foreign Partnership Name -->
+			<xsd:element name="ForeignPartnershipName" type="BusinessNameType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Partnership Name</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Successor Partnership Indicator -->
+			<xsd:element name="SuccessorPartnershipInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Successor Partnership Indicator</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:choice minOccurs="0">
+				<!-- Foreign Partnership EIN -->
+				<xsd:element name="ForeignPartnershipEIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Foreign Partnership Missing EIN Reason Code -->
+				<xsd:element name="FrgnPrtshpMissingEINReasonCd">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Foreign partnership Missing EIN Reason Code</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="TextType">
+							<xsd:enumeration value="APPLD FOR"/>
+							<xsd:enumeration value="FOREIGNUS"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:choice>
+			
+			<!-- Foreign Entity Reference ID Number -->
+			<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Entity Reference ID Number</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:choice minOccurs="0">
+				<!-- Transferor Person Name -->
+				<xsd:element name="TransferorPersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Transferor Person Name</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Transferor Business Name -->
+				<xsd:element name="TransferorBusinessName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Transferor Business Name</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+
+			<!-- Successor U.S. Transferor Indicator -->
+			<xsd:element name="SuccessorUSTransferorInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Successor U.S. Transferor Indicator</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Tax Year of Gain Deferral Contribution Indicator -->
+			<xsd:element name="TYGainDeferralContributionInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Tax Year of Gain Deferral Contribution Indicator</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Annual Reporting Indicator -->
+			<xsd:element name="AnnualReportingInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Annual Reporting Indicator</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Part I  Acceleration Event -->
+
+			<xsd:element name="AccelerationEventGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>AccelerationEventGrpType</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Schedule G, Part I, line number -->
+						<xsd:element name="LineNum">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Schedule G, Part I, line number</Description>
+									<LineNumber>Part I, Column (a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="4"/>
+									<xsd:pattern value="[0-9]+"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Description of event -->
+						<xsd:element name="EventDesc" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Description of event</Description>
+									<LineNumber>Part I, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Date of event -->
+						<xsd:element name="EventDt" type="DateType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Date of event</Description>
+									<LineNumber>Part I, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Gain recognized -->
+						<xsd:element name="GainRcgnzByAccelerationAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Gain recognized</Description>
+									<LineNumber>Part I, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Partnership's adjustment to section 721(c) property tax basis -->
+						<xsd:element name="AdjustedBasisAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partnership's adjustment to section 721(c) property tax basis</Description>
+									<LineNumber>Part I, Column (e)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Partial acceleration event -->
+						<xsd:element name="PartialAccelerationEventInd" type="CheckboxType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partial acceleration event</Description>
+									<LineNumber>Part I, Column (f)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Part II  Termination Event -->
+
+			<xsd:element name="TerminationEventGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>TerminaationEventGrpType</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Schedule G, Part I, line number -->
+						<xsd:element name="LineNum">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Schedule G, Part I, line number</Description>
+									<LineNumber>Part II, Column (a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="4"/>
+									<xsd:pattern value="[0-9]+"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Description of event -->
+						<xsd:element name="EventDesc" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Description of event</Description>
+									<LineNumber>Part II, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Date of event -->
+						<xsd:element name="EventDt" type="DateType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Date of event</Description>
+									<LineNumber>Part II, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Part III  Successor Event -->
+
+			<xsd:element name="SuccessorEventGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>SuccessorEventGrpType</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Schedule G, Part I, line number -->
+						<xsd:element name="LineNum">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Schedule G, Part I, line number</Description>
+									<LineNumber>Part III, Column (a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="4"/>
+									<xsd:pattern value="[0-9]+"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Description of event -->
+						<xsd:element name="EventDesc" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Description of event</Description>
+									<LineNumber>Part III, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Date of event -->
+						<xsd:element name="EventDt" type="DateType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Date of event</Description>
+									<LineNumber>Part III, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Business name -->
+						<xsd:element name="BusinessName" type="BusinessNameType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Business name</Description>
+									<LineNumber>Part III, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<xsd:choice minOccurs="0">
+							<!-- EIN -->
+							<xsd:element name="EIN" type="EINType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>EIN</Description>
+										<LineNumber>Part III, Column (d)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<!-- Missing EIN Reason Code -->
+							<xsd:element name="MissingEINReasonCd">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>Missing EIN reason code</Description>
+										<LineNumber>Part III, Column (d)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="TextType">
+										<xsd:enumeration value="APPLD FOR"/>
+										<xsd:enumeration value="FOREIGNUS"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:choice>
+
+						<xsd:choice minOccurs="0">
+							<!-- U.S. Address -->
+							<xsd:element name="USAddress" type="USAddressType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>U.S. address</Description>
+										<LineNumber>Part III, Column (d)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<!-- Foreign Address -->
+							<xsd:element name="ForeignAddress" type="ForeignAddressType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>Foreign address</Description>
+										<LineNumber>Part III, Column (d)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Part IV  Taxable Disposition of a Portion of an Interest in Partnership Event -->
+
+			<xsd:element name="TxblDisposPrtnIntPrtshpEvtGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>TxblDisposPrtnIntPrtshpEvtGrpType</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Description of event -->
+						<xsd:element name="EventDesc" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Description of event</Description>
+									<LineNumber>Part IV, Column (a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Date of event -->
+						<xsd:element name="EventDt" type="DateType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Date of event</Description>
+									<LineNumber>Part IV, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Percentage of partnership interest disposed -->
+						<xsd:element name="PartnershipInterestDisposedPct" type="RatioType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Percentage of partnership interest disposed</Description>
+									<LineNumber>Part IV, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Percentage of partnership interest retained -->
+						<xsd:element name="PartnershipInterestRetainedPct" type="RatioType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Percentage of partnership interest retained</Description>
+									<LineNumber>Part IV, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Aggregate remaining built-in gain attributed to partnership interest retained -->
+						<xsd:element name="TotRmngGainPrtshpIntRtnAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Aggregate remaining built-in gain attributed to partnership interest retained</Description>
+									<LineNumber>Part IV, Column (e)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Part V  Section 367 Transfer Event -->
+
+			<xsd:element name="Sect367TransferEventGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>Sect367TransferEventGrpType</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Schedule G, Part I, line number -->
+						<xsd:element name="LineNum">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Schedule G, Part I, line number</Description>
+									<LineNumber>Part V, Column (a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="4"/>
+									<xsd:pattern value="[0-9]+"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Description of event -->
+						<xsd:element name="EventDesc" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Description of event</Description>
+									<LineNumber>Part V, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="TextType">
+									<xsd:maxLength value="50"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Date of event -->
+						<xsd:element name="EventDt" type="DateType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Date of event</Description>
+									<LineNumber>Part V, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Gain recognized -->
+						<xsd:element name="GainRcgnzBySect367TrnsfrAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Gain recognized</Description>
+									<LineNumber>Part V, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Business name -->
+						<xsd:element name="BusinessName" type="BusinessNameType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Business name</Description>
+									<LineNumber>Part V, Column (e)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<xsd:choice minOccurs="0">
+							<!-- EIN -->
+							<xsd:element name="EIN" type="EINType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>EIN</Description>
+										<LineNumber>Part V, Column (e)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<!-- Missing EIN Reason Code -->
+							<xsd:element name="MissingEINReasonCd">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>Missing EIN reason code</Description>
+										<LineNumber>Part V, Column (e)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="TextType">
+										<xsd:enumeration value="APPLD FOR"/>
+										<xsd:enumeration value="FOREIGNUS"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:choice>
+
+						<xsd:choice minOccurs="0">
+							<!-- U.S. Address -->
+							<xsd:element name="USAddress" type="USAddressType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>U.S. address</Description>
+										<LineNumber>Part V, Column (e)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<!-- Foreign Address -->
+							<xsd:element name="ForeignAddress" type="ForeignAddressType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>Foreign address</Description>
+										<LineNumber>Part V, Column (e)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+			<!-- Part VI  Supplemental Information -->
+
+			<!-- Supplemental Information Text -->
+			<xsd:element name="SupplementalInformationTxt" type="ShortExplanationType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Supplemental information</Description>
+						<LineNumber>Part VI</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

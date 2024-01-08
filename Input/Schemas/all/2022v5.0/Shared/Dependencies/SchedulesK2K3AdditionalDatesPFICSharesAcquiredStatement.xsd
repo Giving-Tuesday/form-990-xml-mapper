@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Partnership Income Return - Schedules K2 K3 Additional Dates PFIC Shares Acquired Statement</Description>
+			<Purpose>For additional dates PFIC shares acquired, Schedule K-2 and K-3, Information to Complete Form 8621, Section 1 and Section 2</Purpose>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- ================================================================================ -->
+	<!-- ======== Schedules K2 K3 Additional Dates PFIC Shares Acquired Statement ======= -->
+	<!-- ================================================================================ -->
+
+	<xsd:element name="SchK2K3AddnlDtPFICShrAcqStmt">
+		<xsd:annotation>
+			<xsd:documentation>Schedules K2 K3 Additional Dates PFIC Shares Acquired Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="SchK2K3AddnlDtPFICShrAcqStmtType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="SchedulesK2K3AdditionalDatesPFICSharesAcquiredStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="SchK2K3AddnlDtPFICShrAcqStmtType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Schedules K2 K3 Additional Dates PFIC Shares Acquired Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice minOccurs="0">
+				<xsd:sequence>
+
+					<!-- Partnership EIN -->
+					<xsd:element name="PartnershipEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Partnership EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of partnership -->
+					<xsd:element name="PartnershipName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of partnership</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Partner EIN -->
+						<xsd:element name="PartnerEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Partner SSN -->
+						<xsd:element name="PartnerSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of partner -->
+						<xsd:element name="PartnerName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of partner person -->
+						<xsd:element name="PartnerPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+				<xsd:sequence>
+
+					<!-- Corporation EIN -->
+					<xsd:element name="CorporationEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Corporation EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of corporation -->
+					<xsd:element name="CorporationName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of corporation</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Shareholder EIN -->
+						<xsd:element name="ShareholderEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Shareholder SSN -->
+						<xsd:element name="ShareholderSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of shareholder -->
+						<xsd:element name="ShareholderName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of shareholder person -->
+						<xsd:element name="ShareholderPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+			</xsd:choice>
+			
+			<!-- Section 1 - PFIC shares acquired general information -->
+			<xsd:element name="PFICShrAcqGeneralInfoGrp" type="PFICShrAcqGeneralInfoGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 1 - PFIC shares acquired general information</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Section 2 - PFIC shares acquired additional information -->
+			<xsd:element name="PFICShrAcqAdditionalInfoGrp" type="PFICShrAcqAdditionalInfoGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 2 - PFIC shares acquired additional information</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for PFICShrAcqGeneralInfoGrp -->
+	<xsd:complexType name="PFICShrAcqGeneralInfoGrpType">
+		<xsd:sequence>
+		
+			<!-- Name of PFIC -->
+			<xsd:element name="PFICOrQEFName" type="BusinessNameType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of PFIC</Description>
+						<LineNumber>(a)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:choice minOccurs="0">
+				<!-- EIN or reference ID -->
+				<xsd:element name="PFICOrQEFEIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN or reference ID</Description>
+							<LineNumber>(b)</LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- EIN or reference ID -->
+				<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN or reference ID</Description>
+							<LineNumber>(b)</LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			
+			<!-- Dates PFIC shares acquired during tax year -->
+			<xsd:element name="SharesAcquiredDt" type="DateType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Dates PFIC shares acquired during tax year</Description>
+						<LineNumber>(g)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for PFICShrAcqAdditionalInfoGrp -->
+	<xsd:complexType name="PFICShrAcqAdditionalInfoGrpType">
+		<xsd:sequence>
+		
+			<!-- Name of PFIC -->
+			<xsd:element name="PFICOrQEFName" type="BusinessNameType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of PFIC</Description>
+						<LineNumber>(a)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<xsd:choice minOccurs="0">
+				<!-- EIN or reference ID -->
+				<xsd:element name="PFICOrQEFEIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN or reference ID</Description>
+							<LineNumber>(b)</LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- EIN or reference ID -->
+				<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" maxOccurs="unbounded">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN or reference ID</Description>
+							<LineNumber>(b)</LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			
+			<!-- PFIC shares information -->
+			<xsd:element name="PFICSharesInformationGrp" type="PFICSharesInformationGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>PFIC shares information</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+	
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for PFICSharesInformationGrp -->
+	<xsd:complexType name="PFICSharesInformationGrpType">
+		<xsd:sequence>
+		
+			<!-- Dates PFIC shares acquired during tax year -->
+			<xsd:element name="SharesAcquiredDt" type="DateType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Dates PFIC shares acquired during tax year</Description>
+						<LineNumber>(g)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Amount of cash and fair market value of property distributed by PFIC during the current tax year -->
+			<xsd:element name="PFICCashDistributedPropFMVAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of cash and fair market value of property distributed by PFIC during the current tax year</Description>
+						<LineNumber>(h)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Dates of distribution -->
+			<xsd:element name="DistributionDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Dates of distribution</Description>
+						<LineNumber>(i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Total creditable foreign taxes attributable to distribtion by PFIC -->
+			<xsd:element name="TotPFICCrdblFrgnTxsDistriAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total creditable foreign taxes attributable to distribtion by PFIC</Description>
+						<LineNumber>(j)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Total distributions from PFIC in preceding 3 tax years -->
+			<xsd:element name="TotPFICDistriPrec3TaxYearsAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total distributions from PFIC in preceding 3 tax years</Description>
+						<LineNumber>(k)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Dates PFIC shares disposed of during tax year -->
+			<xsd:element name="DispositionDt" type="DateType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Dates PFIC shares disposed of during tax year</Description>
+						<LineNumber>(l)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Amount realized on disposition of PFIC shares -->
+			<xsd:element name="PFICSharesDisposRealizedAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount realized on disposition of PFIC shares</Description>
+						<LineNumber>(m)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Tax basis of PFIC shares on dates of disposition -->
+			<xsd:element name="PFICSharesTaxBasisAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Tax basis of PFIC shares on dates of disposition</Description>
+						<LineNumber>(n)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Gain (loss) on disposition of PFIC shares -->
+			<xsd:element name="PFICSharesDisposGainLossAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Gain (loss) on disposition of PFIC shares</Description>
+						<LineNumber>(o)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

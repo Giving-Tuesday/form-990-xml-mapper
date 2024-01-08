@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - CFC Questions Statement</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+	<!-- ====================================== -->
+	<!-- ====== CFC Questions Statement ======= -->
+	<!-- ====================================== -->
+	<xsd:element name="CFCQuestionsStatement">
+		<xsd:annotation>
+			<xsd:documentation>CFC Questions Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="CFCQuestionsStatementType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="StringType" fixed="CFCQuestionsStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- CFC Questions Statement -->
+	<xsd:complexType name="CFCQuestionsStatementType">
+		<xsd:annotation>
+			<xsd:documentation>CFC Questions Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="CFCQuestionsDetailGrp" type="CFCQuestionsDetailGrpType" minOccurs="0" maxOccurs="22"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="CFCQuestionsDetailGrpType">
+		<xsd:sequence>
+			<!-- CFC Literal Code -->
+			<xsd:element name="CFCLiteralCd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>CFC Literal Code</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="DM"/>
+						<xsd:enumeration value="HT"/>
+						<xsd:enumeration value="DED"/>
+						<xsd:enumeration value="AHC"/>
+						<xsd:enumeration value="BN"/>
+						<xsd:enumeration value="ARR"/>
+						<xsd:enumeration value="EF"/>
+						<xsd:enumeration value="RD"/>
+						<xsd:enumeration value="SD"/>
+						<xsd:enumeration value="SCDI"/>
+						<xsd:enumeration value="SCRR"/>
+						<xsd:enumeration value="LT"/>
+						<xsd:enumeration value="AC"/>
+						<xsd:enumeration value="SCM"/>
+						<xsd:enumeration value="SCSU"/>
+						<xsd:enumeration value="PM"/>
+						<xsd:enumeration value="SC"/>
+						<xsd:enumeration value="BR"/>
+						<xsd:enumeration value="AF"/>
+						<xsd:enumeration value="AI"/>
+						<xsd:enumeration value="EP"/>
+						<xsd:enumeration value="XX"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Description -->
+			<xsd:element name="Desc" type="LineExplanationType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Description</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Amount -->
+			<xsd:element name="Amt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
