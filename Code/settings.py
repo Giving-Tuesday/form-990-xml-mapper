@@ -96,7 +96,7 @@ files = {#Schema Files 																		              # XML Path
          "TEGE/TEGE990PF/IRS990PF/TaxUnderSection511Statement.xsd" :                     "Return/ReturnData",
          "TEGE/TEGE990PF/IRS990PF/TransfersFromControlledEntitiesSchedule.xsd" :         "Return/ReturnData",
          "TEGE/TEGE990PF/IRS990PF/TransfersToControlledEntitiesSchedule.xsd" :           "Return/ReturnData",
-         "TEGE/Common/ReturnHeader990x.xsd" :                                            "Return"
+         "TEGE/Common/ReturnHeader990x.xsd" :                                            "Return",
          "TEGE/Common/Dependencies/ActivitiesNotPreviouslyReportedExplanation.xsd" :     "Return/ReturnData",
          "TEGE/Common/Dependencies/AffiliateListing.xsd" :                               "Return/ReturnData",
          "TEGE/Common/Dependencies/CompensationExplanation.xsd" :                        "Return/ReturnData",
