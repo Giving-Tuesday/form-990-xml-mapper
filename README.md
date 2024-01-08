@@ -90,7 +90,7 @@ The following are necessary for the mapper to work.
 Schema Mapper
 ├── Code   
 │   ├── Utils                    
-│   │    ├── helpers.py             # Helper functions used by functions by path_generator.py   
+│   │   ├── helpers.py             # Helper functions used by functions by path_generator.py   
 │   │   ├── logging.py             # Loggers and logging configuration. 
 │   │   ├── path_generator.py.     # Code to process schemas   
 │   ├── Main.py                     # Main script that runs the mapper
