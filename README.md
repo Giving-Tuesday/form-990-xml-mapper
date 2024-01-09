@@ -66,11 +66,11 @@ The following are necessary for the mapper to work.
     - Its very important that you have the schema folders organized in the same manner as the settings.py otherwise the code will fail. 
   - We recommend having schemas directories structured as follows: 
     ```
-      Schemas/all/[YearVersion]/TEGE/
-                                    /Common    
-                                    /TEGE990
-                                    /TEGE990EZ
-                                    /TEGE990PF
+      Input/Schemas/all/[YearVersion]/TEGE/
+                                         /Common    
+                                         /TEGE990
+                                         /TEGE990EZ
+                                         /TEGE990PF
                                   
     ```
 
@@ -161,10 +161,10 @@ Schema Mapper
   - We recommend having schemas directories structured as follows: 
     ```
       Input/Schemas/all/[YearVersion]/TEGE/
-                                    /Common    
-                                    /TEGE990
-                                    /TEGE990EZ
-                                    /TEGE990PF
+                                          /Common    
+                                          /TEGE990
+                                          /TEGE990EZ
+                                          /TEGE990PF
                                   
     ```
 - Missing Schema Files 
