@@ -171,6 +171,7 @@ Schema Mapper
 - Missing output directory for data dictionary csv to be saved. 
 
 ### Acknowledgements 
-In 2017 Matt Dragon & David Borenstein at Charity Navigator created a small open source 990 meta data project https://github.com/CharityNavigator/990_metadata/ to map 990xml fields using the IRS Schemas. We at CitizenAudit are indebted to their efforts as we expanded on their library. 
+
+In 2017 Matt Dragon & David Borenstein at Charity Navigator created a small open source 990 meta data project https://github.com/CharityNavigator/990_metadata/ to map 990xml fields using the IRS Schemas. We at CitizenAudit are indebted to their initial efforts as we expanded on their library (for our internal uses) and are now open sourcing our work for the benefit of the charitable sector. 
 
 ### Licensing TBD
