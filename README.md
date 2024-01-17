@@ -174,4 +174,12 @@ Schema Mapper
 
 In 2017 Matt Dragon & David Borenstein at Charity Navigator created a small open source 990 meta data project https://github.com/CharityNavigator/990_metadata/ to map 990xml fields using the IRS Schemas. We at CitizenAudit are indebted to their initial efforts as we expanded on their library (for our internal uses) and are now open sourcing our work for the benefit of the charitable sector. 
 
-### Licensing TBD
+### Licensing
+
+Copyright 2024 CitizenAudit.Org Inc & Giving Tuesday
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
