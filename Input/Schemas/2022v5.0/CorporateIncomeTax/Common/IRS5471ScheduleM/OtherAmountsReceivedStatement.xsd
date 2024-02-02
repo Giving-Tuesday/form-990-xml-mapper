@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Other Amounts Received Statement</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+	
+	<!-- ============================================================== -->
+	<!-- =============== Other Amounts Received Statement ============= -->
+	<!-- ============================================================== -->
+	
+	<xsd:element name="OtherAmountsReceivedStatement">
+		<xsd:annotation>
+			<xsd:documentation>Other Amounts Received Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="OtherAmountsReceivedStatementType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="OtherAmountsReceivedStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="OtherAmountsReceivedStatementType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Other Amounts Received Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!-- Other amounts received -->
+			<xsd:element name="OtherAmountsReceivedGrp" type="OtherAmountsReceivedGrpType" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other amounts received</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Total U.S. person control foreign corporation amount -->
+			<xsd:element name="TotUSPersonCtrlFrgnCorpAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total U.S. person control foreign corporation amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Total domestic corporation partnership U.S. person filing amount -->
+			<xsd:element name="TotDomCorpPrtshpUSPrsnFlngAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total domestic corporation partnership U.S. person filing amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Total other foreign corporation partnership U.S. person filing amount -->
+			<xsd:element name="TotOthFrgnCorpPrtshpUSPrsnAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total other foreign corporation partnership U.S. person filing amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Total ten percent more U.S. share control foreign corporation amount -->
+			<xsd:element name="TotTenPctMoreUSShrCFCAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total ten percent more U.S. share control foreign corporation amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Total ten percent more U.S. share any corporation amount -->
+			<xsd:element name="TotTenPctMoreUSShrAnyCFCAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total ten percent more U.S. share any corporation amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type for Repeating Group - Other Amounts Received Group -->
+	<xsd:complexType name="OtherAmountsReceivedGrpType">
+		<xsd:sequence>
+			<!-- Other amounts received description -->
+			<xsd:element name="ExplanationTxt" type="ExplanationType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other amounts received description</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- U.S. person control foreign corporation amount -->
+			<xsd:element name="USPersonCtrlFrgnCorpAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>U.S. person control foreign corporation amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Domestic corporation partnership U.S. person filing amount -->
+			<xsd:element name="DomCorpPrtshpUSPrsnFlngAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Domestic corporation partnership U.S. person filing amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Other foreign corporation partnership U.S. person filing amount -->
+			<xsd:element name="OthFrgnCorpPrtshpUSPrsnAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other foreign corporation partnership U.S. person filing amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Ten percent more U.S. share control foreign corporation amount -->
+			<xsd:element name="TenPctMoreUSShrCFCAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Ten percent more U.S. share control foreign corporation amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Ten percent more U.S. share any corporation amount -->
+			<xsd:element name="TenPctMoreUSShrAnyCFCAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Ten percent more U.S. share any corporation amount</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.irs.gov/efile" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 8835</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+
+
+	<!-- ================================================================== -->
+	<!-- ======================  IRS Form 8835 ============================ -->
+	<!-- ================================================================== -->
+
+
+	<xsd:element name="IRS8835">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 8835</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS8835Type">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS8835">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="fiscalYearTaxpayerCd">
+						<xsd:simpleType>
+							<xsd:restriction base="TextType">
+								<xsd:enumeration value="FY"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="IRS8835Type">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 8835</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<!-- Electricity and Refined Coal Produced at Qualified Facilities Placed in Service After October 22, 2004 -->
+			<xsd:element name="QualifiedFacilitiesAfter1022" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Kilowatt-Hours Produced and Sold - Wind Number -->
+						<xsd:element name="KwHrsPrdcdAndSoldWindQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Wind number</Description>
+									<LineNumber>Line 1a(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Wind Credit Amount -->
+						<xsd:element name="KwHrsPrdcdAndSoldWindCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Wind credit amount</Description>
+									<LineNumber>Line 1a(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Closed Loop Biomass Number -->
+						<xsd:element name="KwHrsPrdcdSoldClsLoopBmssQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Closed loop biomass number</Description>
+									<LineNumber>Line 1b(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Closed Loop Biomass Credit Amount -->
+						<xsd:element name="KwHrsPrdcdSoldClsLoopBmssCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Closed loop biomass credit amount</Description>
+									<LineNumber>Line 1b(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Geothermal Number -->
+						<xsd:element name="KwHrsPrdcdAndSoldGthrmlQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Geothermal number</Description>
+									<LineNumber>Line 1c(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Geothermal Credit Amount -->
+						<xsd:element name="KwHrsPrdcdAndSoldGthrmlAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Geothermal credit amount</Description>
+									<LineNumber>Line 1c(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					<!-- Kilowatt-Hours Produced and Sold - Solar Number -->
+						<xsd:element name="KwHrsPrdcdAndSoldSolarQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Solar number</Description>
+									<LineNumber>Line 1d(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Solar Credit Amount -->
+						<xsd:element name="KwHrsPrdcdAndSoldSolarCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Solar credit amount</Description>
+									<LineNumber>Line 1d(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+
+						<!-- Total For Credit Rate Under 45a1 Amount -->
+						<xsd:element name="TotalForCreditRateUnder45a1Amt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total for credit rate under 45a1 amount</Description>
+									<LineNumber>Line 1e</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Open Loop Biomass Number -->
+						<xsd:element name="KwHrsPrdcdSoldOpenLoopBmssQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Open loop biomass number</Description>
+									<LineNumber>Line 2a(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Open Loop Biomass Credit Amount -->
+						<xsd:element name="KwHrsPrdcdSoldOpenLopBmssCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Open loop biomass credit amount</Description>
+									<LineNumber>Line 2a(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Small Irrigation Power Number -->
+						<xsd:element name="KwHrsPrdcdSoldSmllIrgtnPwrQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Small irrigation power number</Description>
+									<LineNumber>Line 2b(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Small Irrigation Power Credit Amount -->
+						<xsd:element name="KwHrsPrdcdSldSmllIrgtnPwrCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Small irrigation power credit amount</Description>
+									<LineNumber>Line 2b(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Landfill Gas Number -->
+						<xsd:element name="KwHrsPrdcdAndSoldLndfllGasQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Landfill gas number</Description>
+									<LineNumber>Line 2c(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Landfill Gas Credit Amount -->
+						<xsd:element name="KwHrsPrdcdAndSoldLndfllGsCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Landfill gas credit amount</Description>
+									<LineNumber>Line 2c(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Trash Number -->
+						<xsd:element name="KwHrsPrdcdAndSoldTrashQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Trash number</Description>
+									<LineNumber>Line 2d(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Trash Credit Amount -->
+						<xsd:element name="KwHrsPrdcdAndSoldTrashCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Trash credit amount</Description>
+									<LineNumber>Line 2d(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Hydropower Number -->
+						<xsd:element name="KwHrsPrdcdAndSoldHydropowerQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Hydropower number</Description>
+									<LineNumber>Line 2e(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Hydropower Credit Amount -->
+						<xsd:element name="KwHrsPrdcdAndSoldHydropwrCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Hydropower credit amount</Description>
+									<LineNumber>Line 2e(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Marine Hydrokinetic Number -->
+						<xsd:element name="KwHrsPrdcdSoldMarineRnwblQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Marine hydrokinetic number</Description>
+									<LineNumber>Line 2f(a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Kilowatt-Hours Produced and Sold - Marine Hydrokinetic Credit Amount -->
+						<xsd:element name="KwHrsPrdcdSoldMarineRnwblCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Kilowatt-hours produced and sold - Marine hydrokinetic credit amount</Description>
+									<LineNumber>Line 2f(c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Total For Credit Rate Under 45b4a Amount -->
+						<xsd:element name="TotalForCreditRtUnder45b4AAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total for credit rate under 45b4a amount</Description>
+									<LineNumber>Line 2g</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Total Closed and Open-Loop Facility Kilowatt-Hours Produced and Sold Credit -->
+						<xsd:element name="TotClsOpenKwHrsPrdcdSoldCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total closed and open-loop facility kilowatt-hours produced and sold credit</Description>
+									<LineNumber>Line 3</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Closed and Open-Loop - Credit Before Phaseout Adjustment -->
+						<xsd:element name="CreditBfrPhaseoutAdjustmentAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Closed and open-Loop - credit before phaseout adjustment</Description>
+									<LineNumber>Line 4</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Closed and Open-Loop - Phaseout Adjustment Rate -->
+						<xsd:element name="PhaseoutAdjustmentRt" type="RatioType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Closed and open-Loop - phaseout adjustment rate</Description>
+									<LineNumber>Line 4</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Closed and Open-Loop - Total Phaseout Adjustment -->
+						<xsd:element name="TotalPhaseoutAdjustmentAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Closed and open-Loop - total phaseout adjustment</Description>
+									<LineNumber>Line 4</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Closed and Open-Loop - Kilowatt-Hours Credit Minus Phaseout Adjustment -->
+						<xsd:element name="NetPhaseoutAdjustmentAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Closed and open-loop - kilowatt-hours credit minus phaseout adjustment.  Subtract line 4 from line 3</Description>
+									<LineNumber>Line 5</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Number of Refined Coal Tons Produced and Sold -->
+						<xsd:element name="RefineCoalTonPrdcdSoldQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Number of refined coal tons produced and sold</Description>
+									<LineNumber>Line 6</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Total Refined Coal Tons Produced and Sold Credit -->
+						<xsd:element name="TotRefineCoalTonPrdcdSoldCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total refined coal tons produced and sold credit</Description>
+									<LineNumber>Line 6</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Specified Adjustments  - Used by Filers Adjusting the New Section 45V -->
+						<xsd:element name="Sect45VSpecifiedAdjustmentsAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Specified adjustments  - used by filers adjusting the new section 45V</Description>
+									<LineNumber>Line 6</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Refined Coal - Credit Before Phaseout Adjustment -->
+						<xsd:element name="RefinedCoalCrBfrPhaseoutAdjAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Refined coal - credit before phaseout adjustment</Description>
+									<LineNumber>Line 7</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Refined Coal - Phaseout Adjustment Rate -->
+						<xsd:element name="RefinedCoalPhaseoutAdjRt" type="RatioType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Refined coal - phaseout adjustment rate</Description>
+									<LineNumber>Line 7</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Refined Coal - Total Phaseout Adjustment -->
+						<xsd:element name="RefinedCoalTotalPhaseoutAdjAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Refined coal - total phaseout adjustment</Description>
+									<LineNumber>Line 7</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Line 7 Reserved for Future Use -->
+
+						<!-- Refined Coal - Tons Credit Minus Phaseout Adjustment -->
+						<xsd:element name="NetRefinedCoalPhaseoutAdjAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Refined coal - tons credit minus phaseout adjustment.  Subtract line 7 from line 6</Description>
+									<LineNumber>Line 8</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Specified Adjustments  - Used by Filers Adjusting the New Section 45V -->
+						<xsd:element name="Sect45VSpecialAdjustmentsAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Specified adjustments  - used by filers adjusting the new section 45V</Description>
+									<LineNumber>Line 8</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Line 9 Reserved for Future Use -->
+						
+						<!-- Number of Indian Coal Tons Produced and Sold -->
+						<xsd:element name="IndianCoalTonPrdcdSoldQty" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Number of Indian coal tons produced and sold</Description>
+									<LineNumber>Line 10</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LongIntegerType">
+									<xsd:totalDigits value="18"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						
+						<!-- Total Indian Coal Tons Produced and Sold Credit -->
+						<xsd:element name="TotIndianCoalTonPrdcdSoldCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total Indian coal tons produced and sold credit</Description>
+									<LineNumber>Line 10</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Refined Coal Credit Before Reduction -->
+						<xsd:element name="RefinedCoalCreditBeforeRedAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Refined coal credit before reduction</Description>
+									<LineNumber>Line 11</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- NetPhaseoutAdjustmentAmt Added to SpecialAdjustments -->
+						<xsd:element name="SumNetPhaseoutSpecialAdjAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>NetPhaseoutAdjustmentAmt added to SpecialAdjustments</Description>
+									<LineNumber>Line 11</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Total of Government Grants -->
+						<xsd:element name="TotalGovernmentGrantsAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total of government grants</Description>
+									<LineNumber>Line 12</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Total of Additions to the Capital Account -->
+						<xsd:element name="TotCapitalAccountAdditionsAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total of additions to the capital account</Description>
+									<LineNumber>Line 13</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Credit Reduction Percentage -->
+						<xsd:element name="CreditReductionRt" type="RatioType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Divide line 12 by line 13</Description>
+									<LineNumber>Line 14</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Credit Reduction -->
+						<xsd:element name="CreditReductionAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Multiply line 5 by the lessor of 1/2 or line 14</Description>
+									<LineNumber>Line 15</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Adjusted Credit Reduction -->
+						<xsd:element name="AdjustedCreditReductionAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Subtract line 15 from line 11</Description>
+									<LineNumber>Line 16</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Wind Facility Amount -->
+						<xsd:element name="WindFacilityAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Wind facility amount</Description>
+									<LineNumber>Line 17a</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Wind Facility Percentage Amount -->
+						<xsd:element name="WindFacilityPercentageAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Wind facility percentage amount</Description>
+									<LineNumber>Line 17b</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Wind Facility Year 2 Amount -->
+						<xsd:element name="WindFacilityYr2Amt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Wind facility year 2 amount</Description>
+									<LineNumber>Line 17c</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Wind Facility Percentage Year 2 Amount -->
+						<xsd:element name="WindFacilityPercentageYr2Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Wind facility percentage year 2 amount</Description>
+									<LineNumber>Line 17d</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Wind Facility Year 3 Amount -->
+						<xsd:element name="WindFacilityYr3Amt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Wind facility year 3 amount</Description>
+									<LineNumber>Line 17e</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Wind Facility Construction Percent Year 3 Amount -->
+						<xsd:element name="WindFcltyConstrPctYr3Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Wind facility construction percent year 3 amount</Description>
+									<LineNumber>Line 17f</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Wind Facility Construction Phase Out Credit Amount -->
+						<xsd:element name="WindFcltyConstrPhaseOutCrAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Wind facility construction phase out credit amount</Description>
+									<LineNumber>Line 17g</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						
+						<!-- Net Wind Facility Percentage Amount -->
+						<xsd:element name="NetWindFacilityPercentageAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Net wind facility percentage amount</Description>
+									<LineNumber>Line 18</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Renewable Electricity, Refined Coal, and Indian Coal Production Credit -->
+						<xsd:element name="RnwblElecRefinedCoalProdCrAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Renewable electricity, refined coal, and indian coal production credit </Description>
+									<LineNumber>Line 19</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Total Allowed Tax Credit -->
+						<xsd:element name="TotalAllowedTaxCreditAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Total allowed tax credit.  Add lines 18 through 19</Description>
+									<LineNumber>Line 20</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Amount Allocated to Patrons of the Cooperatives or Beneficiaries-->
+						<xsd:element name="AllocatedToBeneficiariesAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Amount allocated to patrons of the cooperatives or beneficiaries</Description>
+									<LineNumber>Line 21</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Estates, Trusts and  Cooperatives Credit-->
+						<xsd:element name="EstatesTrustsAndCoopsCreditAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Estates, trusts and  cooperatives credit</Description>
+									<LineNumber>Line 22</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

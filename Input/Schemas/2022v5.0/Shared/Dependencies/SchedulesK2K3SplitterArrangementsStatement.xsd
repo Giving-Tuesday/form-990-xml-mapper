@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Partnership Income Return - Schedules K2 K3 Splitter Arrangements Statement</Description>
+			<Purpose>Check box and attach a statement that includes the following for each splitter arrangement.
+Section 1 -Potentially suspended taxes.
+1.	Explanation of the splitter arrangement (for example, reverse hybrid owned by partnership).
+2.	Amount of taxes paid or accrued by in connection with the splitter arrangement.
+3.	Amount of related income on which such taxes were paid or accrued.
+4.	The two-letter code for the country to which the taxes were paid or accrued from the list at IRS.gov/CountryCodes. Do not enter "various" for the country code.
+5.	The separate category and source of income to which the taxes are assigned.
+Section 2 -Potentially unsuspended taxes. Include a separate section that reports the following with respect to each splitter arrangement
+1.	Origin year of the splitter arrangement.
+2.	Explanation of the splitter arrangement (for example, reverse hybrid owned by partnership).
+3.	Amount of taxes paid or accrued by in connection with the splitter arrangement in the origin year of the splitter arrangement.
+4.	Amount of related income on which such taxes were paid or accrued in the origin year of the splitter arrangement
+5.	The two-letter code for the country to which the taxes were paid or accrued from the list at    IRS.gov/CountryCodes. Do not enter "various" for the country code.
+6.	The separate category and source of income to which the taxes are assigned.
+7.	Amount of related income taken into account in the current tax year and the amount of taxes originally paid that relate to that portion of the related income.</Purpose>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- ================================================================================ -->
+	<!-- ================ Schedules K2 K3 Splitter Arrangements Statement =============== -->
+	<!-- ================================================================================ -->
+
+	<xsd:element name="SchK2K3SplitterArrngmStmt">
+		<xsd:annotation>
+			<xsd:documentation>Schedules K2 K3 Splitter Arrangements Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="SchK2K3SplitterArrngmStmtType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="SchedulesK2K3SplitterArrangementsStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="SchK2K3SplitterArrngmStmtType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Schedules K2 K3 Splitter Arrangements Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice minOccurs="0">
+				<xsd:sequence>
+
+					<!-- Partnership EIN -->
+					<xsd:element name="PartnershipEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Partnership EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of partnership -->
+					<xsd:element name="PartnershipName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of partnership</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Partner EIN -->
+						<xsd:element name="PartnerEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Partner SSN -->
+						<xsd:element name="PartnerSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Partner SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of partner -->
+						<xsd:element name="PartnerName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of partner person -->
+						<xsd:element name="PartnerPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of partner person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+				<xsd:sequence>
+
+					<!-- Corporation EIN -->
+					<xsd:element name="CorporationEIN" type="EINType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Corporation EIN</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<!-- Name of corporation -->
+					<xsd:element name="CorporationName" type="BusinessNameType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								<Description>Name of corporation</Description>
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+
+					<xsd:choice minOccurs="0">
+						<!-- Shareholder EIN -->
+						<xsd:element name="ShareholderEIN" type="EINType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder EIN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Shareholder SSN -->
+						<xsd:element name="ShareholderSSN" type="SSNType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Shareholder SSN</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+					<xsd:choice minOccurs="0">
+						<!-- Name of shareholder -->
+						<xsd:element name="ShareholderName" type="BusinessNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Name of shareholder person -->
+						<xsd:element name="ShareholderPersonNm" type="PersonNameType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Name of shareholder person</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:choice>
+
+				</xsd:sequence>
+			</xsd:choice>
+
+			<!-- Section 1 - Potentially suspended taxes -->
+			<xsd:element name="PotentiallySuspendedTaxesGrp" type="PotentiallySuspendedTaxesGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 1 - Potentially suspended taxes</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Section 2 - Potentially unsuspended taxes -->
+			<xsd:element name="PotentiallyUnsuspendedTaxesGrp" type="PotentiallyUnsuspendedTaxesGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 2 - Potentially unsuspended taxes</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type for PotentiallySuspendedTaxesGrp -->
+	<xsd:complexType name="PotentiallySuspendedTaxesGrpType">
+		<xsd:sequence>
+
+			<!-- Explanation of the splitter arrangement -->
+			<xsd:element name="Section909SplitterArrngmTxt" type="ShortExplanationType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Explanation of the splitter arrangement</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Amount of taxes paid or accrued in connection with the splitter arrangement -->
+			<xsd:element name="TaxesPaidOrAccruedAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of taxes paid or accrued in connection with the splitter arrangement</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Amount of related income on which such taxes were paid or accrued -->
+			<xsd:element name="RelatedIncomeAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of related income on which such taxes were paid or accrued</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Country to which taxes were paid or accrued -->
+			<xsd:element name="CountryCd" type="CountryType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Country to which taxes were paid or accrued</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Category to which the taxes are assigned -->
+			<xsd:element name="SeparateCategoryCd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Category to which the taxes are assigned</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="901j"/>
+						<xsd:enumeration value="OTH"/>
+						<xsd:enumeration value="RBT-PAS"/>
+						<xsd:enumeration value="RBT-GEN"/>
+						<xsd:enumeration value="RBT-951A"/>
+						<xsd:enumeration value="RBT-FB"/>
+						<xsd:enumeration value="PAS"/>
+						<xsd:enumeration value="GEN"/>
+						<xsd:enumeration value="951A"/>
+						<xsd:enumeration value="FB"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!-- Source of income to which the taxes are assigned -->
+			<xsd:element name="IncomeSourceTypeCd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Source of income to which the taxes are assigned</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="FOREIGN"/>
+						<xsd:enumeration value="US"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type for PotentiallyUnsuspendedTaxesGrp -->
+	<xsd:complexType name="PotentiallyUnsuspendedTaxesGrpType">
+		<xsd:sequence>
+
+			<!-- Origin year -->
+			<xsd:element name="OriginYr" type="YearType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Origin year</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Explanation of the splitter arrangement -->
+			<xsd:element name="Section909SplitterArrngmTxt" type="ShortExplanationType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Explanation of the splitter arrangement</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Amount of taxes paid or accrued -->
+			<xsd:element name="TaxesPaidOrAccruedAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of taxes paid or accrued</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Amount of related income on which such taxes were paid or accrued in the origin year of the splitter arrangement -->
+			<xsd:element name="OriginYrRelatedIncomeAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of related income on which such taxes were paid or accrued in the origin year of the splitter arrangement</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Country code -->
+			<xsd:element name="CountryCd" type="CountryType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Country code</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Category -->
+			<xsd:element name="SeparateCategoryCd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Category</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="901j"/>
+						<xsd:enumeration value="OTH"/>
+						<xsd:enumeration value="RBT-PAS"/>
+						<xsd:enumeration value="RBT-GEN"/>
+						<xsd:enumeration value="RBT-951A"/>
+						<xsd:enumeration value="RBT-FB"/>
+						<xsd:enumeration value="PAS"/>
+						<xsd:enumeration value="GEN"/>
+						<xsd:enumeration value="951A"/>
+						<xsd:enumeration value="FB"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!-- Source of income -->
+			<xsd:element name="IncomeSourceTypeCd" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Source of income</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="FOREIGN"/>
+						<xsd:enumeration value="US"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!-- Amount of related income taken into account in current tax year and the amount of taxes originally paid that relate to that portion of the related income -->
+			<xsd:element name="CYOriginallyPdRelatedIncomeAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of related income taken into account in current tax year and the amount of taxes originally paid that relate to that portion of the related income</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

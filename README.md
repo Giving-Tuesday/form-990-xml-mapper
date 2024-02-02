@@ -11,6 +11,7 @@ Unfortunately, the different types of XML documents (across years and form types
 
 These issus are complicated by shifting xpaths.  XML field locations can change (across years) as schemas are changed by the IRS.  For example, trying to grab a specifc field of the form 990 in 2010 will result in having to parse/navigate a Xpath that is different than the Xpath for the exact same field in 2018 as the xml schemas have changed. (See sample schemas --->  https://www.irs.gov/e-file-providers/current-valid-xml-schemas-and-business-rules-for-exempt-organizations-and-other-tax-exempt-entities-modernized-e-file).
 
+CitizenAudit.org & Giving Tuesday have partnered to solve this issue by releasing the following library/package. 
 
 ### Our Goal: A software library that will: 
 
@@ -66,11 +67,11 @@ The following are necessary for the mapper to work.
     - Its very important that you have the schema folders organized in the same manner as the settings.py otherwise the code will fail. 
   - We recommend having schemas directories structured as follows: 
     ```
-      Input/Schemas/all/[YearVersion]/TEGE/
-                                         /Common    
-                                         /TEGE990
-                                         /TEGE990EZ
-                                         /TEGE990PF
+      Input/Schemas/[YearVersion]/TEGE/
+                                      /Common    
+                                      /TEGE990
+                                      /TEGE990EZ
+                                      /TEGE990PF
                                   
     ```
 
@@ -160,17 +161,19 @@ Schema Mapper
 - Missing Schema Directories - Not having the appropriate directory structure in your code base.
   - We recommend having schemas directories structured as follows: 
     ```
-      Input/Schemas/all/[YearVersion]/TEGE/
-                                          /Common    
-                                          /TEGE990
-                                          /TEGE990EZ
-                                          /TEGE990PF
+      Input/Schemas/[YearVersion]/TEGE/
+                                      /Common    
+                                      /TEGE990
+                                      /TEGE990EZ
+                                      /TEGE990PF
                                   
     ```
 - Missing Schema Files 
 - Missing output directory for data dictionary csv to be saved. 
 
 ### Acknowledgements 
+
+This library was created by Miguel Barbosa at CitizenAudit.org in collaboration with Giving Tuesday.
 
 In 2017 Matt Dragon & David Borenstein at Charity Navigator created a small open source 990 meta data project https://github.com/CharityNavigator/990_metadata/ to map 990xml fields using the IRS Schemas. We at CitizenAudit are indebted to their initial efforts as we expanded on their library (for our internal uses) and are now open sourcing our work for the benefit of the charitable sector. 
 

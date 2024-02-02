@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Controlled Foreign Corporation Aggregate Extraordinary Disposition Balance Statement</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+	
+	<!-- =================================================================================================== -->
+	<!-- ====== Controlled Foreign Corporation Aggregate Extraordinary Disposition Balance Statement ======= -->
+	<!-- =================================================================================================== -->
+	
+	<xsd:element name="CFCAggregateEDBalanceStatement">
+		<xsd:annotation>
+			<xsd:documentation>Controlled Foreign Corporation Aggregate Extraordinary Disposition Balance Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="CFCAggregateEDBalanceStatementType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="StringType" fixed="ControlledForeignCorporationAggregateExtraordinaryDispositionBalanceStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- Controlled Foreign Corporation Aggregate Extraordinary Disposition Balance Statement -->
+	<xsd:complexType name="CFCAggregateEDBalanceStatementType">
+		<xsd:annotation>
+			<xsd:documentation>Controlled Foreign Corporation Aggregate Extraordinary Disposition Balance Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+		
+			<!-- Explanation -->
+			<xsd:element name="ExplanationTxt" type="ExplanationType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Explanation</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>	
+	</xsd:complexType>		
+</xsd:schema>

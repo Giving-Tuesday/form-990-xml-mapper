@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.irs.gov/efile" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 8881</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+
+	<!-- =================================================================== -->
+	<!-- =======================  IRS Form 8881============================ -->
+	<!-- =================================================================== -->
+
+	<xsd:element name="IRS8881">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form8881</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS8881Type">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS8881">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="IRS8881Type">
+		<xsd:annotation>
+			<xsd:documentation>Content model for IRS Form8881</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<!-- Part I Credit for Small Employer Pension Plan Startup Costs  -->
+			
+			<!-- Qualified Startup Costs Incurred during the tax year. Do not enter more than $1,000 -->
+			<xsd:element name="QualifiedStartupCostsIncurdAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Qualified startup costs incurred during the tax year. Do not enter more than $1,000</Description>
+						<LineNumber>Line 1</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Enter One-half Of Line 1 -->
+			<xsd:element name="OnehalfOfQlfyStartupCostAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter one-half of line 1</Description>
+						<LineNumber>Line 2</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="ControlledGroupMemberStatement"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>		
+			</xsd:element>
+			
+			<!-- Number of Employees Eligible to Participate in a Pension Plan -->
+			<xsd:element name="PensionPlanEligibleEmplCnt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Number of employees eligible to participate in a pension plan</Description>
+						<LineNumber>Line 3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="IntegerNNType">
+						<xsd:maxInclusive value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			
+			<!-- Pension Plan Employees Base Calculated Amount -->
+			<xsd:element name="PensionPlanEmplBaseCalcAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Pension plan employees base calculated amount</Description>
+						<LineNumber>Line 3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Pension Plan Employee Limited Calculation Amount -->
+			<xsd:element name="PensionPlanEmplLimitedCalcAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Pension plan employee limited calculation amount</Description>
+						<LineNumber>Line 4</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Smaller Startup Cost Employer Ltd Calculation Amount -->
+			<xsd:element name="SmllrStartupCostEmplLtdCalcAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Smaller startup cost employer Ltd calculation amount</Description>
+						<LineNumber>Line 5</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Startup Costs Partnership S-Corporation Credit Amount -->
+			<xsd:element name="StartupCostsPrtshpSCorpCrAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Startup costs partnership s-corporation credit amount</Description>
+						<LineNumber>Line 6</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!--  Reserved for future use Line 7  -->
+			
+			<!-- Add Lines 5 and 6 -->
+			<xsd:element name="PensionPlanStartupCostsCrAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Add lines 5 and 6</Description>
+						<LineNumber>Line 8</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Part II Small Employer Auto-Enrollment Credit -->
+			
+			<!-- Auto Enrollment Option For Retirement Savings Credit Amount -->
+			<xsd:element name="AutoEnrlmtOptForRetireSavCrAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Auto enrollment option for retirement savings credit amount</Description>
+						<LineNumber>Line 9</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Auto Enrollment Partnership S-Corporation Credit Amount -->
+			<xsd:element name="AutoEnrlmtPrtshpSCorpCrAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Auto enrollment partnership s-corporation credit amount</Description>
+						<LineNumber>Line 10</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Small Employer Auto Enrollment Credit Amount-->
+			<xsd:element name="SmllEmplrAutoEnrlmtCrAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Small employer auto enrollment credit amount</Description>
+						<LineNumber>Line 11</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

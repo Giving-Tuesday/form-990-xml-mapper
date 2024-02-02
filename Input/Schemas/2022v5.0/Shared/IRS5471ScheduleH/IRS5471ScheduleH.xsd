@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.irs.gov/efile" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 5471 Schedule H</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+	<!-- =============================================================== -->
+	<!-- ===============  IRS Form 5471 Schedule H ===================== -->
+	<!-- =============================================================== -->
+	<xsd:element name="IRS5471ScheduleH">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 5471 Schedule H</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS5471ScheduleHType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS5471ScheduleH">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="IRS5471ScheduleHType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 5471 Schedule H</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:choice minOccurs="1">
+				<!-- Person Name -->
+				<xsd:element name="PersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Person Filing Form 5471</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Business Name -->
+				<xsd:element name="BusinessName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Business Filing Form 5471</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<xsd:choice minOccurs="1">
+				<!-- SSN -->
+				<xsd:element name="SSN" type="SSNType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>SSN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- EIN -->
+				<xsd:element name="EIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Missing EIN Reason Code -->
+				<xsd:element name="MissingEINReasonCd">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Missing EIN Reason Code</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="TextType">
+							<xsd:enumeration value="APPLD FOR"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:choice>
+			<!-- Foreign Corporation Name -->
+			<xsd:element name="ForeignCorporationName" type="BusinessNameType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of Foreign Corporation</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Foreign Corporation EIN -->
+			<xsd:element name="ForeignCorporationEIN" type="EINType"  minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Corporation EIN</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reference ID Number -->
+			<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" minOccurs="0" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reference ID</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Foreign Current Year Net Income Per Books Amount -->
+			<xsd:element name="ForeignCYNetIncomePerBooksAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Current Year Net Income Per Books Amount</Description>
+						<LineNumber>1</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Capital Gain -->
+			<xsd:element name="CapitalGainOrLossNetAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Capital Gain</Description>
+						<LineNumber>2a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Capital Loss -->
+			<xsd:element name="CapitalGainOrLossNetSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Capital Loss</Description>
+						<LineNumber>2a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Amortization Net Gain -->
+			<xsd:element name="DeprecAndAmortzNetAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amortization Net Gain</Description>
+						<LineNumber>2b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Amortization Net Loss -->
+			<xsd:element name="DeprecAndAmortzNetSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amortization Net Loss</Description>
+						<LineNumber>2b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Depletion Net Loss -->
+			<xsd:element name="DepletionNetAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Depletion Net Loss</Description>
+						<LineNumber>2c</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Depletion Net Loss -->
+			<xsd:element name="DepletionNetSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Depletion Net Loss</Description>
+						<LineNumber>2c</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Investment or Incentive Net Gain -->
+			<xsd:element name="InvstIncntvAllwncNetAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Investment or Incentive Net Gain</Description>
+						<LineNumber>2d</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Investment or Incentive Net Gain -->
+			<xsd:element name="InvstIncntvAllwncNetSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Investment or Incentive Net Gain</Description>
+						<LineNumber>2d</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Charges or Statuatory Reserves Net Gain -->
+			<xsd:element name="ChrgsStryReservesNetAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Charges or Statuatory Reserves Net Gain</Description>
+						<LineNumber>2e</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Charges or Statuatory Reserves Net Loss -->
+			<xsd:element name="ChrgsStryReservesNetSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Charges or Statuatory Reserves Net Loss</Description>
+						<LineNumber>2e</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Inventory Adjustments Net Gain -->
+			<xsd:element name="InventoryAdjNetAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Inventory Adjustments Net Gain</Description>
+						<LineNumber>2f</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Inventory Adjustments Net Loss -->
+			<xsd:element name="InventoryAdjNetSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Inventory Adjustments Net Loss</Description>
+						<LineNumber>2f</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Income taxes (see Schedule E, Part I, Section1, line 6, column (l) and Part III, line 3, column (i) -->
+			<xsd:element name="TaxesNetAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Income taxes Net Gain (Schedule E, Part I, Line 6, column (m), and Part III, line 3, column (i))</Description>
+						<LineNumber>2g</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!--Income taxes (see Schedule E, Part I, Section1, line 6, column (l) and Part III, line 3, column (i) -->
+			<xsd:element name="TaxesNetSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Income taxes Net Gain (Schedule E, Part I, Line 6, column (m), and Part III, line 3, column (i))</Description>
+						<LineNumber>2g</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Foreign Currency Gain Loss Additions -->
+			<xsd:element name="FrgnCurrencyGainLossAddnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Currency Gain Loss Additions</Description>
+						<LineNumber>2h</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Foreign Currency Gain Loss Subtractions -->
+			<xsd:element name="FrgnCurrencyGainLossSbtrctnAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Currency Gain Loss Subtractions</Description>
+						<LineNumber>2h</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Other Adjustments -->
+			<xsd:element name="OtherAdjustmentsNetAddnAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Adjustments</Description>
+						<LineNumber>2i</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ForeignAmountType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="EarningsAndProfitsOtherAdjStmt"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Other Adjustments -->
+			<xsd:element name="OtherAdjustmentsNetSbtrctnAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other Adjustments</Description>
+						<LineNumber>2i</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="ForeignAmountType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="EarningsAndProfitsOtherAdjStmt"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+			<!-- Total Net Value Gain -->
+			<xsd:element name="TotalNetAdditionsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Net Value Gain</Description>
+						<LineNumber>3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Total Net Value Loss -->
+			<xsd:element name="TotalNetSubtractionsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Net Value Loss</Description>
+						<LineNumber>4</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Current Earnings &amp; Profits (from Line 1 + Line 3 - Line 4) -->
+			<xsd:element name="CurrentEarningsAndProfitsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Earnings &amp; Profits (from Line 1 + Line 3 - Line 4)</Description>
+						<LineNumber>5a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- DASTM gain or (loss) for foreign corporations -->
+			<xsd:element name="DASTMGainOrLossAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>DASTM gain or (loss) for foreign corporations</Description>
+						<LineNumber>5b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Combine lines 5a and 5b and enter the result on line 5c. Then, allocate and apportion the line 5c amount to the three categories of income shown on lines 5c(1), 5c(ii) and 5c(iii). -->
+			<xsd:element name="EarningAndPrftPlusDASTMGainAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Combine lines 5a and 5b and enter the result on line 5c. Then, allocate and apportion the line 5c amount to the three categories of income shown on lines 5c(1), 5c(ii) and 5c(iii).</Description>
+						<LineNumber>5c</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Enter amount on applicable Schedule J, Part I, line 3 colun (a) -->
+			<xsd:element name="EPDASTMGeneralCatIncmAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter amount on applicable Schedule J, Part I, line 3 colun (a)</Description>
+						<LineNumber>5c(i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Enter amount on applicable Schedule J, Part I, line 3, column (a) -->
+			<xsd:element name="EPDASTMPassiveCatIncmAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter amount on applicable Schedule J, Part I, line 3, column (a)</Description>
+						<LineNumber>5c(ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- EPDASTM Section 901j Category Income Group -->
+			<xsd:element name="EPDASTMSection901jCatIncmGrp" type="EPDASTMSection901jCatIncmGrpType" minOccurs="0" maxOccurs="4">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>EPDASTM Section 901j Category Income Group</Description>
+						<LineNumber>5c(iii)(A), (B), (C), (D)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Current earnings and profits in US dollars -->
+			<xsd:element name="CurrEarnAndPrftInUSDollarsAmt" type="USAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current earnings and profits in US dollars</Description>
+						<LineNumber>5d</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Exchange rate used in line 5e -->
+			<xsd:element name="ExchangeRt" type="LargeRatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Exchange rate used in line 5e</Description>
+						<LineNumber>5e</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- EPDASTM Section 901j Category Income Group Type -->
+	<xsd:complexType name="EPDASTMSection901jCatIncmGrpType">
+		<xsd:sequence>
+			<!-- Sanctioned Country Code -->
+			<xsd:element name="SanctionedCountryCd" type="CountryType" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Sanctioned Country Code</Description>
+						<LineNumber>5c(iii)(A), (B), (C), (D)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Enter the amount for Line 5c(iii)(A), (B), (C) with respect to the sanctioned country code on the appllicable Schedule J, Part I, line 3, column (a) -->
+			<xsd:element name="EPDASTMSection901jCatIncmAmt" type="ForeignAmountType" minOccurs="1" maxOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Enter the amount for Line 5c(iii)(A), (B), (C), (D) with respect to the sanctioned country code on the applicable Schedule J, Part I, line 3, column (a)</Description>
+						<LineNumber>5c(iii)(A), (B), (C), (D)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

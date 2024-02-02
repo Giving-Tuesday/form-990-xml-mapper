@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - IRS Form 5471 Schedule R</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+
+	<!-- =========================================================== -->
+	<!-- ================ IRS Form 5471 Schedule R ================= -->
+	<!-- =========================================================== -->
+
+	<xsd:element name="IRS5471ScheduleR">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 5471 Schedule R</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS5471ScheduleRType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS5471ScheduleR">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="IRS5471ScheduleRType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 5471 Schedule R</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<xsd:choice>
+				<!-- Person Filing Form 5471 -->
+				<xsd:element name="PersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Person Filing Form 5471</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Business Filing Form 5471 -->
+				<xsd:element name="BusinessName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Business Filing Form 5471</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+
+			<xsd:choice>
+				<!-- Social Security number -->
+				<xsd:element name="SSN" type="SSNType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>SSN</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Employer Identification Number -->
+				<xsd:element name="EIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Missing Employer Identification Number Reason Code -->
+				<xsd:element name="MissingEINReasonCd">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Missing Employer Identification Number Reason Code</Description>
+							<LineNumber></LineNumber>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="TextType">
+							<xsd:enumeration value="APPLD FOR"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:choice>
+			
+			<!-- Name of Foreign Corporation -->
+			<xsd:element name="ForeignCorporationName" type="BusinessNameType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of Foreign Corporation</Description>
+						<LineNumber></LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Foreign Corporation EIN -->
+			<xsd:element name="ForeignCorporationEIN" type="EINType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Foreign Corporation EIN</Description>
+						<LineNumber></LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Reference ID number -->
+			<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reference ID</Description>
+						<LineNumber></LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Distributions from Foreign Corporations -->
+			<xsd:element name="DistributionsFromFrgnCorpGrp" type="DistributionsFromFrgnCorpGrpType" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Distributions from Foreign Corporations</Description>
+						<LineNumber>Columns (a) - (d)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for Columns (a) - (d) -->
+	<xsd:complexType name="DistributionsFromFrgnCorpGrpType" >
+		<xsd:sequence>
+
+			<!-- Row identifier number -->
+			<xsd:element name="RowId" type="IRS5471SchRRowIDType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Row identifier number</Description>
+						<LineNumber>Row identifier column</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Description of distribution -->
+			<xsd:element name="DistributionDesc" type="LineExplanationType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Description of distribution</Description>
+						<LineNumber>Column (a)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Date of description -->
+			<xsd:element name="DistributionDt" type="DateType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Date of description</Description>
+						<LineNumber>Column (b)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Amount of distribution in foreign corporation's functional currency -->
+			<xsd:element name="DistributionFuncCurAmt" type="ForeignAmountType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of distribution in foreign corporation's functional currency</Description>
+						<LineNumber>Column (c)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Amount of E&P distribution in foreign corporation's functional currency -->
+			<xsd:element name="DistributionFromEPFuncCurAmt" type="ForeignAmountType">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amount of E&amp;P distribution in foreign corporation's functional currency</Description>
+						<LineNumber>Column (d)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type used for rows in the table in Form 5471 Schedule R -->
+	<xsd:simpleType name="IRS5471SchRRowIDType">
+		<xsd:restriction base="IntegerNNType">
+			<xsd:totalDigits value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

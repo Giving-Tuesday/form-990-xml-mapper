@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.irs.gov/efile" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 5471 Schedule J</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+	
+	<!-- =============================================================== -->
+	<!-- ===============  IRS Form 5471 Schedule J ===================== -->
+	<!-- =============================================================== -->
+	
+	<xsd:element name="IRS5471ScheduleJ">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 5471 Schedule J</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS5471ScheduleJType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="xsd:string" fixed="IRS5471ScheduleJ">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					
+					<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BalanceAtBeginningOfYearExplanationStatement EPOtherAdjustmentStatement"/>
+					
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="IRS5471ScheduleJType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Form 5471 Schedule J</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+		
+			<!-- Choice between: Person Filing Form 5471 OR Business Filing Form 5471  -->
+			<xsd:choice minOccurs="1">
+				<!-- Person Filing Form 5471  -->
+				<xsd:element name="PersonNm" type="PersonNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Person Filing Form 5471</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Business Filing Form 5471  -->
+				<xsd:element name="BusinessName" type="BusinessNameType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Business Filing Form 5471</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:choice>
+			<!-- Identifying Number: choice between SSN, EIN, or Missing EIN Reason Code-->
+			<xsd:choice minOccurs="1">
+				<!-- SSN -->
+				<xsd:element name="SSN" type="SSNType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>SSN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- EIN -->
+				<xsd:element name="EIN" type="EINType">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>EIN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<!-- Missing EIN Reason Code -->
+				<xsd:element name="MissingEINReasonCd">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Missing EIN Reason Code</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:simpleType>
+						<xsd:restriction base="TextType">
+							<xsd:enumeration value="APPLD FOR"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:choice>
+			<!-- Name of Foreign Corporation -->
+			<xsd:element name="ForeignCorporationName" type="BusinessNameType" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Name of Foreign Corporation</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+				<!-- Foreign Corporation EIN -->
+				<xsd:element name="ForeignCorporationEIN" type="EINType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							<Description>Foreign corporation EIN</Description>
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+
+			<!-- Foreign Reference ID Number -->
+			<xsd:element name="ForeignEntityIdentificationGrp" type="ForeignEntityIdentificationGrpType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reference ID</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Separate Category Code -->
+			<xsd:element name="SeparateCategoryCd">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Separate category code</Description>
+						<LineNumber>Line a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="PAS"/>
+						<xsd:enumeration value="GEN"/>
+						<xsd:enumeration value="901j"/>
+						<xsd:enumeration value="951A"/>
+						<xsd:enumeration value="FB"/>
+						<xsd:enumeration value="RBT PAS"/>
+						<xsd:enumeration value="RBT GEN"/>
+						<xsd:enumeration value="RBT FB"/>
+						<xsd:enumeration value="RBT 951A"/>
+						<xsd:enumeration value="TOTAL"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>	
+			<!-- Sanctioned Country Code -->
+			<xsd:element name="SanctionedCountryCd" type="CountryType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Sanctioned country code</Description>
+						<LineNumber>Line b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+			<!-- Part I - Accumulated E&P of Controlled Foreign Corporation -->
+			
+			<!-- Taxpayers are Required to Check the Box if the Person Filing the Return Does not Have all US Shareholder's Information to Complete Amount for Columns (e) -->
+			<xsd:element name="USShareholderInfoNotAvlblInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Taxpayers are required to check the box if the person filing the return does not have all US shareholder's information to complete amount for columns (e)</Description>
+						<LineNumber>Schedule J Line 1</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Post-2017 E&P Not Previously Taxed -->
+			<xsd:element name="Post2017EPNotPrevTaxedGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Post-2017 E&amp;P not previously taxed group</Description>
+						<LineNumber>Schedule J Line Part I (a)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Post-1986 Undistributed Earnings -->
+			<xsd:element name="Post1986UndistributedEarnGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Post-1986 undistributed earnings</Description>
+						<LineNumber>Schedule J Part I (b)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Pre-1987 E&P Not Previously Taxed -->
+			<xsd:element name="Pre1987EPNotPrevTaxedGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Pre-1987 E&amp;P not previously taxed</Description>
+						<LineNumber>Schedule J Line Part I (c)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Hovering Deficit Deduction Suspended Tax -->
+			<xsd:element name="HoveringDeficitDedSspndTaxGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Hovering deficit deduction suspended tax</Description>
+						<LineNumber>Schedule J Part I (d)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reclassified Section 965(a) PTEP -->
+			<xsd:element name="ReclassifiedSect965aPTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reclassified section 965(a) PTEP</Description>
+						<LineNumber>Schedule J Part I e(i))</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reclassified Section 965(b) PTEP -->
+			<xsd:element name="ReclassifiedSect965bPTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reclassified section 965(b) PTEP</Description>
+						<LineNumber>Schedule J Part I e(ii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- General Section 959(c)(1) PTEP -->
+			<xsd:element name="GeneralSection959c1PTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>General section 959(c)(1) PTEP</Description>
+						<LineNumber>Schedule J Part I e(iii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reclassified Section 951A PTEP -->
+			<xsd:element name="ReclassifiedSect951APTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reclassified section 951A PTEP</Description>
+						<LineNumber>Schedule J Part I e(iv)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reclassified Section 245A(d) PTEP -->
+			<xsd:element name="ReclassifiedSect245AdPTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reclassified section 245A(d) PTEP</Description>
+						<LineNumber>Schedule J Part I e(v)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Section 965(a) PTEP -->
+			<xsd:element name="Section965aPTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965(a) PTEP</Description>
+						<LineNumber>Schedule J Part I e(vi)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Section 965(b) PTEP -->
+			<xsd:element name="Section965bPTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965(b) PTEP</Description>
+						<LineNumber>Schedule J Part I e(vii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Section 951A PTEP -->
+			<xsd:element name="Section951APTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 951A PTEP</Description>
+						<LineNumber>Schedule J Part I e(viii)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Section 245A(d) PTEP -->
+			<xsd:element name="Section245AdPTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 245A(d) PTEP</Description>
+						<LineNumber>Schedule J Part I e(ix)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Section 951(a)(1)(A) PTEP -->
+			<xsd:element name="Section951a1APTEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 951(a)(1)(A) PTEP</Description>
+						<LineNumber>Schedule J Part I (e)(x)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Total Section 964(A) E&P -->
+			<xsd:element name="TotalSection964AEPGrp" type="Form5471ScheduleJGrp1Type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total section 964(A) E&amp;P</Description>
+						<LineNumber>Schedule J Part I f</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			
+			<!-- Part II - Nonpreviously Taxed E & P Subject to Recapture as Subpart F Income (section 952(c)(2)) -->
+			
+			<!-- Beginning Year Balance -->
+			<xsd:element name="BeginningYearBalanceAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Beginning Year Balance</Description>
+						<LineNumber>Schedule J Part II Line 1</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Future Recapture -->
+			<xsd:element name="FutureRecaptureAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Future recapture</Description>
+						<LineNumber>Schedule J Part II Line 2</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Current Year Recapture -->
+			<xsd:element name="CurrentYearRecaptureAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Year Recapture</Description>
+						<LineNumber>Schedule J Part II Line 3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- End of Year Balance -->
+			<xsd:element name="EndYearBalanceAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>End of year balance</Description>
+						<LineNumber>Schedule J Part II Line 4</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Type definition for Part I Column a & b -->
+	<xsd:complexType name="Form5471ScheduleJGrp1Type">
+		<xsd:sequence>
+
+			<!-- Beginning Year Balance -->
+			<xsd:element name="BeginningYearBalanceAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Beginning year balance</Description>
+						<LineNumber>Schedule J Part I line 1a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Beginning Balance Adjustment -->
+			<xsd:element name="BeginningBalanceAdjustmentAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Beginning balance adjustment</Description>
+						<LineNumber>Schedule J Part I line 1b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Adjusted Beginning Balance -->
+			<xsd:element name="AdjustedBeginningBalanceAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Adjusted beginning balance</Description>
+						<LineNumber>Schedule J Part I line 1c</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reduction Taxes Unsuspended Rule -->
+			<xsd:element name="ReductionTxsUnsuspendedRuleAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reduction taxes unsuspended rule</Description>
+						<LineNumber>Schedule J Part I line 2a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Disallowed Deduction for Taxes Suspended Under Anti-Splitter Rules -->
+			<xsd:element name="DsallwDedTxsSuspendedRuleAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Disallowed deduction for taxes suspended under anti-splitter rules</Description>
+						<LineNumber>Schedule J Part I line 2b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Current Year E&P Deficit -->
+			<xsd:element name="CurrentYearEPDeficitAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current year E&amp;P deficit</Description>
+						<LineNumber>Schedule J Part I line 3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- E&P Attributable to Distributions of Previously Taxed E&P From Lower-Tier Foreign Corporation -->
+			<xsd:element name="AttrblDistriPrevTaxedEPAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>E&amp;P attributable to distributions of previously taxed E&amp;P from lower-tier foreign corporation</Description>
+						<LineNumber>Schedule J Part I line 4</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<!-- E&P Carried Over Nonrecognition Transaction -->
+			<xsd:element name="EPCyovNonrecognitionTransAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>E&amp;P carried over nonrecognition transaction</Description>
+						<LineNumber>Schedule J Part I line 5a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reclassify E&P Nonrecognition Transaction -->
+			<xsd:element name="ReclsEPNonrecognitionTransAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reclassify E&amp;P nonrecognition transaction</Description>
+						<LineNumber>Schedule J Part I line 5b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<!-- Total Other Adjustments -->
+			<xsd:element name="TotalOtherAdjustmentsAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total other adjustments</Description>
+						<LineNumber>Schedule J Part I line 6</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<!-- Total Current Accumulated E&P -->
+			<xsd:element name="TotalCurrentAccumulatedEPAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total current accumulated E&amp;P</Description>
+						<LineNumber>Schedule J Part I line 7</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Reclassified Section 959(c)(2) E&P -->
+			<xsd:element name="ReclassifiedSect959c2EPAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Reclassified section 959(c)(2) E&amp;P</Description>
+						<LineNumber>Schedule J Part I line 8</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<!-- Actual Distribution -->
+			<xsd:element name="ActualDistributionAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Actual distribution</Description>
+						<LineNumber>Schedule J Part I line 9</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<!-- Amounts Reclassified to Section 959(c)(1) E&P From Section 959(2)(2) E&P -->
+			<xsd:element name="ReclassifiedSect959c1EPAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amounts reclassified to section 959(c)(1) E&amp;P from section 959(2)(2) E&amp;P</Description>
+						<LineNumber>Schedule J Part I line 10</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<!-- Earnings Invested U.S. Property Reclassified -->
+			<xsd:element name="EarnInvstUSPropReclassifiedAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Earnings invested U.S. property reclassified</Description>
+						<LineNumber>Schedule J Part I line 11</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<!-- Other Adjustments Total -->
+			<xsd:element name="OtherAdjustmentsTotalAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Other adjustments total</Description>
+						<LineNumber>Schedule J Part I line 12</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<!-- Deficit Offset Post-Transaction E&P -->
+			<xsd:element name="DeficitOffstPostTransEPAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Deficit offset post-transaction E&amp;P</Description>
+						<LineNumber>Schedule J Part I line 13</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<!-- Balance Beginning Next Year -->
+			<xsd:element name="BalanceBeginningNextYearAmt" type="ForeignAmountType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Balance beginning next year</Description>
+						<LineNumber>Schedule J Part I line 14</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	
+</xsd:schema>

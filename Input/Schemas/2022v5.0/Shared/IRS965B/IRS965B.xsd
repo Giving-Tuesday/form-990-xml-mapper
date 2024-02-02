@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 965-B</Description>
+			<TaxYear>2022</TaxYear>
+			<MaturityLevel>R10.6 MD1</MaturityLevel>
+			<ReleaseDate>February 9, 2023</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+  <xsd:include schemaLocation="../../Common/efileTypes.xsd"/>
+	<!-- =============================================================== -->
+	<!-- =======================  IRS Form 965-B  ====================== -->
+	<!-- =============================================================== -->
+	<xsd:element name="IRS965B">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 965-B</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS965BType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="StringType" fixed="IRS965B">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment NetAdjustmentTransferStatement"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="IRS965BType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for IRS Form 965-B</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<!-- Amended Indicator -->
+			<xsd:element name="AmendedInd" type="CheckboxType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Amended Indicator</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net 965 Tax Liability Installments Election Group -->
+			<xsd:element name="Net965TaxLiabInstalElectGrp" minOccurs="0" maxOccurs="28">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Part I  Report of Net 965 Tax Liability and Election To Pay in Installments -->
+
+						<!-- Net Tax Liability Year -->
+						<xsd:element name="NetTaxLiabilityYr" type="YearType">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Net Tax Liability Year</Description>
+									<LineNumber>Part I Line 1 and up, Column (a)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Net Tax Liability With 965 Amount -->
+						<xsd:element name="NetTaxLiabilityWith965Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Net Tax Liability With 965 Amount</Description>
+									<LineNumber>Part I Line 1 and up, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Net Tax Liability Without 965 Amount -->
+						<xsd:element name="NetTaxLiabilityWithout965Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Net Tax Liability Without 965 Amount</Description>
+									<LineNumber>Part I Line 1 and up, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Net Section 965 Tax Liability Amount -->
+						<xsd:element name="NetSection965TaxLiabilityAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Net Section 965 Tax Liability Amount</Description>
+									<LineNumber>Part I Line 1 and up, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Installment Election Indicator -->
+						<xsd:element name="InstallmentElectionInd" type="BooleanType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Installment Election Indicator</Description>
+									<LineNumber>Part I Line 1 and up, Column (e)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Part I Line 1 and up, Column (f): Use Value of Column (d) if Column (e) is "No", otherwise No Entry -->
+						<!-- Part I Line 1 and up, Column (g): Use Value of Column (d) if Column (e) is "Yes", otherwise No Entry -->
+
+						<!-- Net Tax Adjustment Amount -->
+						<xsd:element name="NetTaxAdjustmentAmt" type="USAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Net Tax Adjustment Amount</Description>
+									<LineNumber>Part I Line 1 and up, Column (h)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- EIN or SSN -->
+						<xsd:choice minOccurs="0">
+							<xsd:element name="EIN" type="EINType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>EIN</Description>
+										<LineNumber>Part I Line 1 and up, Column (i)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="SSN" type="SSNType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>SSN</Description>
+										<LineNumber>Part I Line 1 and up, Column (i)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:choice>
+
+						<!-- Part II  Record of Amount of Net 965 Tax Liability Paid by the Taxpayer -->
+
+						<!-- Part II Line 1 and up, Column (a): Use Value of corresponding Part I Line 1 and up, Column (a) -->
+
+						<!-- Paid Year 1 Amount -->
+						<xsd:element name="PaidYear1Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 1 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Year 2 Amount -->
+						<xsd:element name="PaidYear2Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 2 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Year 3 Amount -->
+						<xsd:element name="PaidYear3Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 3 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Year 4 Amount -->
+						<xsd:element name="PaidYear4Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 4 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (e)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Year 5 Amount -->
+						<xsd:element name="PaidYear5Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 5 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (f)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Year 6 Amount -->
+						<xsd:element name="PaidYear6Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 6 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (g)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Year 7 Amount -->
+						<xsd:element name="PaidYear7Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 7 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (h)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Year 8 Amount -->
+						<xsd:element name="PaidYear8Amt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Year 8 Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (i)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Unpaid Tax Liability Amount -->
+						<xsd:element name="UnpaidTaxLiabilityAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Unpaid Tax Liability Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (j)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Paid Tax Liability Amount -->
+						<xsd:element name="PaidTaxLiabilityAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Paid Tax Liability Amount</Description>
+									<LineNumber>Part II Line 1 and up, Column (k)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Net Section 965 Tax Liability Unpaid Amount -->
+			<xsd:element name="NetSection965TaxLiabUnpaidAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Section 965 Tax Liability Unpaid Amount</Description>
+						<LineNumber>Part II Totals, Column (j)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Section 965 Tax Liability Paid Amount -->
+			<xsd:element name="NetSection965TaxLiabPaidAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Section 965 Tax Liability Paid Amount</Description>
+						<LineNumber>Part II Totals, Column (k)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Part III  Electing REIT Report of 965 Amounts Accounted for Over Time -->
+			<!-- Currently not supported by MeF -->
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
