@@ -28,7 +28,7 @@ def getRoot(fn):
 
     Helper Function: 
 
-    Input:  path -> ../schemas/current/2018v1.0/Common/efileTypes.xsd
+    Input:  path -> ../schemas/all/2018v1.0/Common/efileTypes.xsd
     Output: get root object as an xml tree
 
     '''

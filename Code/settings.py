@@ -8,7 +8,7 @@ time = str(datetime.now()).split(' ')[0]
 mapping_location = "../Output/mapping_%s.csv" % time
 
 # Schema Folder: This is where all schemas should be located
-schemas_location = "../Input/Schemas/all/*"
+schemas_location = "../Input/Schemas/*"
 
 # List of files in TEGE (Tax Exempt Groups Entities) Uncomment all of the ones you wish to process. We recommend uncommenting all of them.  
 files = {#Schema Files 																		              # XML Path

@@ -23,7 +23,7 @@ def main():
     print ("Initiating Schema Mapper")
     log_access('', 'Initiating Schema Mapper', Error_Details)
 
-    # Step 1. Find all schema folders in schema/current folder  and store as a list of paths example -> '../schemas/current/2018v1.0'
+    # Step 1. Find all schema folders in schema/current folder  and store as a list of paths example -> '../schemas/all/2018v1.0'
     print ('Finding all schemas')
     try:
       schemas = glob.glob(schemas_location)
@@ -36,7 +36,7 @@ def main():
     for schema in schemas:
         print ("Processing %s" % schema)
 
-        # Step 2b. Get namespaces from the common-efiletypes file by passing version -> which is a path  like this -> '../schemas/current/2018v1.0'
+        # Step 2b. Get namespaces from the common-efiletypes file by passing version -> which is a path  like this -> '../schemas/all/2018v1.0'
         # return a dictionary containing results as such 'IPAddressType': set([<path_generator.Node instance at 0x109cb91b8>, <path_generator.Node instance at 0x109cb9170>]),
         try:
          namespaces = getBaseNamespaces(schema)
@@ -47,8 +47,8 @@ def main():
         # Steb 2c. # for each of the files listed to process
         for fn in files:
 
-            # Step 2c2. Create a path with version '../schemas/current/2018v1.0' and file "TEGE/TEGE990/IRS990/IRS990.xsd"
-            # Path will look like this: ../schemas/current/2018v1.0/TEGE/Common/Dependencies/GeneralExplanationAttachment.xsd
+            # Step 2c2. Create a path with version '../schemas/all/2018v1.0' and file "TEGE/TEGE990/IRS990/IRS990.xsd"
+            # Path will look like this: ../schemas/all/2018v1.0/TEGE/Common/Dependencies/GeneralExplanationAttachment.xsd
             path = "%s/%s" % (schema, fn)
 
             # Step 2c3. Check to see if path exists (i.e. if it is viable)
@@ -62,7 +62,7 @@ def main():
                 '''  
                 1. dictionary of basenamespaces i.e. common efile types, 
                 2. prefix type "Return/ReturnData" or Return
-                3. path to file ../schemas/current/2018v1.0/TEGE/Common/Dependencies/GeneralExplanationAttachment.xsd
+                3. path to file ../schemas/all/2018v1.0/TEGE/Common/Dependencies/GeneralExplanationAttachment.xsd
                 '''
                 local = process(namespaces, xpref, path)
                 
