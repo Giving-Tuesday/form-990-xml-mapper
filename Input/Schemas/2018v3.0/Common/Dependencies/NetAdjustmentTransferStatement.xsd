@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Net Adjustment Transfer Statement</Description>
+			<Purpose>In an unusual case in which a net 965 tax liability for a tax year is both adjusted and transferred; for Form 965-A, report the net adjustment/transfer number in column (j), a transferee tax identification number in column(k), and provide a statement attached to this form which includes details of the amounts netted in column (k), for Form 965-B, report the net adjustment/transfer number in column (h), a transferee tax identification number in column (i), and provide a statement attached to this form which includes details of the amounts netted in column (h).</Purpose>
+			<TaxYear>2018</TaxYear>
+			<MaturityLevel>R10.2 Drop 5 Final</MaturityLevel>
+			<ReleaseDate>October 17, 2018</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="../efileTypes.xsd"/>
+
+	<!-- =============================================================== -->
+	<!-- =============  Net Adjustment Transfer Statement  ============= -->
+	<!-- =============================================================== -->
+
+	<xsd:element name="NetAdjustmentTransferStmt">
+		<xsd:annotation>
+			<xsd:documentation>Net Adjustment Transfer Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="NetAdjustmentTransferStmtType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="StringType" fixed="NetAdjustmentTransferStatement">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="NetAdjustmentTransferStmtType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for Net Adjustment Transfer Statement</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<!-- Net Adjustment Transfer Description -->
+			<xsd:element name="NetAdjustmentTransferDesc" type="ExplanationType" minOccurs="0" maxOccurs="50">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Adjustment Transfer Description</Description>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

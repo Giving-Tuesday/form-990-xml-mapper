@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 965 Schedule A</Description>
+			<TaxYear>2018</TaxYear>
+			<MaturityLevel>R10.2 DD5 Final</MaturityLevel>
+			<ReleaseDate>November 28, 2018</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../efileTypes.xsd"/>
+	<!-- =============================================================== -->
+	<!-- ==================  IRS Form 965 Schedule A  ================== -->
+	<!-- =============================================================== -->
+	<xsd:element name="IRS965ScheduleA">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 965 Schedule A</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS965ScheduleAType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="StringType" fixed="IRS965ScheduleA">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment GeneralDependencyMedium GeneralDependencySmall"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="IRS965ScheduleAType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for IRS Form 965 Schedule A</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<!-- US Shareholder's Section 965(a) Inclusion Amount Group -->
+			<xsd:element name="USShrSect965aInclusionAmtGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Foreign Corporation Name -->
+						<xsd:element name="ForeignCorporationName" type="BusinessNameType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Foreign Corporation Name</Description>
+									<LineNumber>Lines 1 - 15, Column "Name of Deferred Foreign Income Corporation"</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- EIN or Foreign Entity Reference ID Number -->
+						<xsd:choice>
+							<xsd:element name="EIN" type="EINType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>EIN</Description>
+										<LineNumber>Lines 1 - 15, Column (a)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="ForeignEntityReferenceIdNum">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>Foreign Entity Reference ID Number</Description>
+										<LineNumber>Lines 1 - 15, Column (a)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="AlphaNumericType">
+										<xsd:minLength value="1" />
+										<xsd:maxLength value="50" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:choice>
+
+						<!-- US Tax Year End -->
+						<xsd:element name="TaxYearEndMonthYr" type="YearMonthType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>US Tax Year End</Description>
+									<LineNumber>Lines 1 - 15, Column (b)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Accumulated Deferred Foreign Income Functional Currency Amount -->
+						<xsd:element name="AccumDefrdFrgnIncmFuncCurAmt" type="ForeignAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Accumulated Deferred Foreign Income Functional Currency Amount</Description>
+									<LineNumber>Lines 1 - 15, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Spot Rate Prior Tax Year Percentage -->
+						<xsd:element name="SpotRatePriorYearPct" type="LargeRatioType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Spot Rate Prior Tax Year Percentage</Description>
+									<LineNumber>Lines 1 - 15, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Accumulated Deferred Foreign Income US Dollar Amount -->
+						<xsd:element name="AccumDefrdFrgnIncmUSDolAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Accumulated Deferred Foreign Income US Dollar Amount</Description>
+									<LineNumber>Lines 1 - 15, Column (e)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Pro Rata Share Amount -->
+						<xsd:element name="ProRataShareAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Pro Rata Share Amount</Description>
+									<LineNumber>Lines 1 - 15, Column (f)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Deficit Allocation Percentage -->
+						<xsd:element name="DeficitAllocationPct" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Deficit Allocation Percentage</Description>
+									<LineNumber>Lines 1 - 15, Column (g)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+							<xsd:simpleType>
+								<xsd:restriction base="LargeRatioType">
+								<xsd:totalDigits value="10" />
+								<xsd:fractionDigits value="9" />
+									<xsd:minInclusive value="0.0000" />
+									<xsd:maxInclusive value="1.000000000" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+
+						<!-- Aggregate Foreign Earnings And Profits Deficit Amount -->
+						<xsd:element name="AggrgtForeignEPDeficitAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Aggregate Foreign Earnings And Profits Deficit Amount</Description>
+									<LineNumber>Lines 1 - 15, Column (h)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Section 965(a) Inclusion Amount -->
+						<xsd:element name="Section965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Section 965(a) Inclusion Amount</Description>
+									<LineNumber>Lines 1 - 15, Column (i)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Prior Tax Year Section 965(a) Inclusion Amount -->
+						<xsd:element name="PYSection965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Prior Tax Year Section 965(a) Inclusion Amount</Description>
+									<LineNumber>Lines 1 - 15, Column (j)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Current Tax Year Section 965(a) Inclusion Amount -->
+						<xsd:element name="CYSection965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Current Tax Year Section 965(a) Inclusion Amount</Description>
+									<LineNumber>Lines 1 - 15, Column (k)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Total Pro Rata Share Amount -->
+			<xsd:element name="TotalProRataShareAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Pro Rata Share Amount</Description>
+						<LineNumber>Line 16, Column (f)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Total Aggregate Foreign Earnings And Profits Deficit Amount -->
+			<xsd:element name="TotalAggrgtForeignEPDeficitAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Aggregate Foreign Earnings And Profits Deficit Amount</Description>
+						<LineNumber>Line 16, Column (h)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Total Section 965(a) Inclusion Amount -->
+			<xsd:element name="TotalSection965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Section 965(a) Inclusion Amount</Description>
+						<LineNumber>Line 16, Column (i)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Total Prior Tax Year Section 965(a) Inclusion Amount -->
+			<xsd:element name="TotalPYSection965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Prior Tax Year Section 965(a) Inclusion Amount</Description>
+						<LineNumber>Line 16, Column (j)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Total Current Tax Year Section 965(a) Inclusion Amount -->
+			<xsd:element name="TotalCYSection965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Current Tax Year Section 965(a) Inclusion Amount</Description>
+						<LineNumber>Line 16, Column (k)</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

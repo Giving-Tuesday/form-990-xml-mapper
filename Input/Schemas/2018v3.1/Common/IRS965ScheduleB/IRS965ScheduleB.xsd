@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 965 Schedule B</Description>
+			<TaxYear>2018</TaxYear>
+			<MaturityLevel>R10.2 DD5 Final</MaturityLevel>
+			<ReleaseDate>November 28, 2018</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../efileTypes.xsd"/>
+	<!-- =============================================================== -->
+	<!-- ==================  IRS Form 965 Schedule B  ================== -->
+	<!-- =============================================================== -->
+	<xsd:element name="IRS965ScheduleB">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 965 Schedule B</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS965ScheduleBType">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="StringType" fixed="IRS965ScheduleB">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment GeneralDependencySmall"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="IRS965ScheduleBType">
+		<xsd:annotation>
+			<xsd:documentation>Content model for IRS Form 965 Schedule B</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<!-- Separate Category Code -->
+			<xsd:element name="SeparateCategoryCd">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Separate Category Code</Description>
+						<LineNumber>a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="TextType">
+						<xsd:enumeration value="PAS"/>
+						<xsd:enumeration value="GEN"/>
+						<xsd:enumeration value="901j"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+
+			<!-- Sanctioned Country Code -->
+			<xsd:element name="SanctionedCountryCd" type="CountryType" minOccurs="0" maxOccurs="14">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Sanctioned Country Code</Description>
+						<LineNumber>b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Deferred Foreign Income Corporation's Earnings And Profits Group -->
+			<xsd:element name="DeferredForeignIncomeCorpEPGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<!-- Foreign Corporation Name -->
+						<xsd:element name="ForeignCorporationName" type="BusinessNameType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Foreign Corporation Name</Description>
+									<LineNumber>Line 1 and up, Column "Name of Deferred Foreign Income Corporation"</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- EIN or Foreign Entity Reference ID Number -->
+						<xsd:choice>
+							<xsd:element name="EIN" type="EINType">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>EIN</Description>
+										<LineNumber>Line 1 and up, Column (a)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="ForeignEntityReferenceIdNum">
+								<xsd:annotation>
+									<xsd:documentation>
+										<Description>Foreign Entity Reference ID Number</Description>
+										<LineNumber>Line 1 and up, Column (a)</LineNumber>
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="AlphaNumericType">
+										<xsd:minLength value="1" />
+										<xsd:maxLength value="50" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:choice>
+
+						<!-- Post-1986 Earnings And Profits November Amount -->
+						<xsd:element name="Post1986EPNovAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Post-1986 Earnings And Profits November Amount</Description>
+									<LineNumber>Line 1 and up, Column (b)(1)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Earnings And Profits Alternative Method For Calculation Indicator -->
+						<xsd:element name="EPAlternativeMethodCalcInd" type="CheckboxType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Earnings And Profits Alternative Method For Calculation Indicator</Description>
+									<LineNumber>Line 1 and up, Column (b)(2)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Post-1986 Previously Taxed Earnings And Profits November Amount -->
+						<xsd:element name="Post1986PrevTaxedEPNovAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Post-1986 Previously Taxed Earnings And Profits November Amount</Description>
+									<LineNumber>Line 1 and up, Column (c)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Post-1986 Earnings And Profits Attributable To Effectively Connected Income November Amount -->
+						<xsd:element name="Post1986EPAttrblECINovAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Post-1986 Earnings And Profits Attributable To Effectively Connected Income November Amount</Description>
+									<LineNumber>Line 1 and up, Column (d)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Accumulated Deferred Foreign Income November Amount -->
+						<xsd:element name="AccumDefrdFrgnIncmNovAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Accumulated Deferred Foreign Income November Amount</Description>
+									<LineNumber>Line 1 and up, Column (e)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Post-1986 Earnings And Profits December Amount -->
+						<xsd:element name="Post1986EPDecAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Post-1986 Earnings And Profits December Amount</Description>
+									<LineNumber>Line 1 and up, Column (f)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Post-1986 Previously Taxed Earnings And Profits December Amount -->
+						<xsd:element name="Post1986PrevTaxedEPDecAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Post-1986 Previously Taxed Earnings And Profits December Amount</Description>
+									<LineNumber>Line 1 and up, Column (g)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Post-1986 Earnings And Profits Attributable To Effectively Connected Income December Amount -->
+						<xsd:element name="Post1986EPAttrblECIDecAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Post-1986 Earnings And Profits Attributable To Effectively Connected Income December Amount</Description>
+									<LineNumber>Line 1 and up, Column (h)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+						<!-- Accumulated Deferred Foreign Income December Amount -->
+						<xsd:element name="AccumDefrdFrgnIncmDecAmt" type="ForeignAmountType" minOccurs="0">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Accumulated Deferred Foreign Income December Amount</Description>
+									<LineNumber>Line 1 and up, Column (i)</LineNumber>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
