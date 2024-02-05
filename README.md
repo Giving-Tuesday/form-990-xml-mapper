@@ -63,7 +63,7 @@ The mapper works by:
 The following are necessary for the mapper to work. 
 
  - Code/settings.py - contains all settings for the mapper. Particularly critical is the files dictionary containing all the schemas which are parsed year by year (and version by version) along with main xml path
- - Schemas/all/ - Contains a folder for each year and version of the schemas. 
+ - Schemas/ - Contains a folder for each year and version of the schemas. 
     - Its very important that you have the schema folders organized in the same manner as the settings.py otherwise the code will fail. 
   - We recommend having schemas directories structured as follows: 
     ```
