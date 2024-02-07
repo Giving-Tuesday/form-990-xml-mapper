@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>
+			<Description>IRS e-file Schema - Form 965</Description>
+			<TaxYear>2018</TaxYear>
+			<MaturityLevel>R10.2 Drop 5 Final</MaturityLevel>
+			<ReleaseDate>October 17, 2018</ReleaseDate>
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="../efileTypes.xsd"/>
+	<!-- =============================================================== -->
+	<!-- =======================  IRS Form 965  ======================== -->
+	<!-- =============================================================== -->
+	<xsd:element name="IRS965">
+		<xsd:annotation>
+			<xsd:documentation>IRS Form 965</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="IRS965Type">
+					<xsd:attributeGroup ref="DocumentAttributes">
+						<xsd:annotation>
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attributeGroup>
+					<xsd:attribute name="documentName" type="StringType" fixed="IRS965">
+						<xsd:annotation>
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentId" type="IdListType">
+						<xsd:annotation>
+							<xsd:documentation>List of document ID's of forms, schedules, supporting info. etc. attached to this form</xsd:documentation>
+						</xsd:annotation>
+					</xsd:attribute>
+					<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment IRS965ScheduleA IRS965ScheduleB IRS965ScheduleC IRS965ScheduleD IRS965ScheduleE IRS965ScheduleF IRS965ScheduleG IRS965ScheduleH"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="IRS965Type">
+		<xsd:annotation>
+			<xsd:documentation>Content model for IRS Form 965</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+
+			<!-- Part I  Section 965(a) Inclusion -->
+
+			<!-- Total Current Tax Year Section 965(a) Inclusion Amount -->
+			<xsd:element name="TotalCYSection965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Current Tax Year Section 965(a) Inclusion Amount</Description>
+						<LineNumber>Part I Line 1</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Tax Year Section 965(a) Inclusions Pass-Throughs Amount -->
+			<xsd:element name="CYSect965aInclusionPassThruAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year Section 965(a) Inclusions Pass-Throughs Amount</Description>
+						<LineNumber>Part I Line 2</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountNNType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Section 965(a) Inclusion Received Amount -->
+			<xsd:element name="Section965aInclusionRcvdAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965(a) Inclusion Received Amount</Description>
+						<LineNumber>Part I Line 3</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Total Prior Tax Year Section 965(a) Inclusion Amount -->
+			<xsd:element name="TotalPYSection965aInclusionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Total Prior Tax Year Section 965(a) Inclusion Amount</Description>
+						<LineNumber>Part I Line 4</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year Section 965(a) Inclusions Pass-Throughs Amount -->
+			<xsd:element name="PYSect965aInclusionPassThruAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year Section 965(a) Inclusions Pass-Throughs Amount</Description>
+						<LineNumber>Part I Line 5</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountNNType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Prior Tax Year Section 965(a) Inclusion Received Amount -->
+			<xsd:element name="PYSection965aInclusionRcvdAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year Section 965(a) Inclusion Received Amount</Description>
+						<LineNumber>Part I Line 6</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Part II  Section 965(c) Deduction -->
+
+			<!-- SECTION 1 - Section 965(c) Deduction by Tax Year -->
+			<!-- Current Tax Year -->
+
+			<!-- Part II Section 1 Line 7: Use Value of Part I Line 1 -->
+
+			<!-- Current Tax Year Aggregate Foreign Cash Position Amount -->
+			<xsd:element name="CYAggrgtForeignCashPositionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year Aggregate Foreign Cash Position Amount</Description>
+						<LineNumber>Part II Section 1 Line 8</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Smaller Of Current Tax Year Section 965(a) Or Foreign Cash Position Amount -->
+			<xsd:element name="SmllrCY965aOrFrgnCashPosAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Smaller Of Current Tax Year Section 965(a) Or Foreign Cash Position Amount</Description>
+						<LineNumber>Part II Section 1 Line 9</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Tax Year 15.5 Percent Rate Equivalent Percentage -->
+			<xsd:element name="CY15Pnt5PctRateEquivalentPct" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year 15.5 Percent Rate Equivalent Percentage</Description>
+						<LineNumber>Part II Section 1 Line 10</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Tax Year Section 965(c) Deduction 15.5 Percent Amount -->
+			<xsd:element name="CYSect965cDed15Pnt5PctAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year Section 965(c) Deduction 15.5 Percent Amount</Description>
+						<LineNumber>Part II Section 1 Line 11</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Smaller Of Current Tax Year Section 965(a) Or Foreign Cash Position Amount -->
+			<xsd:element name="NetSmllrCY965aOrFrgnCashPosAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Smaller Of Current Tax Year Section 965(a) Or Foreign Cash Position Amount</Description>
+						<LineNumber>Part II Section 1 Line 12</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Tax Year 8 Percent Rate Equivalent Percentage -->
+			<xsd:element name="CY8PctRateEquivalentPct" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year 8 Percent Rate Equivalent Percentage</Description>
+						<LineNumber>Part II Section 1 Line 13</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Tax Year Section 965(c) Deduction 8 Percent Amount -->
+			<xsd:element name="CYSect965cDeduction8PctAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year Section 965(c) Deduction 8 Percent Amount</Description>
+						<LineNumber>Part II Section 1 Line 14</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Tax Year Section 965(c) Deduction Non-Pass-Throughs Amount -->
+			<xsd:element name="CYSect965cDedNonPassThruAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year Section 965(c) Deduction Non-Pass-Throughs Amount</Description>
+						<LineNumber>Part II Section 1 Line 15</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Current Tax Year Section 965(c) Deduction Pass-Throughs Amount -->
+			<xsd:element name="CYSect965cDedPassThruAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year Section 965(c) Deduction Pass-Throughs Amount</Description>
+						<LineNumber>Part II Section 1 Line 16</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountNNType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Current Tax Year Total Section 965(c) Deduction Amount -->
+			<xsd:element name="CYTotalSect965cDeductionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Current Tax Year Total Section 965(c) Deduction Amount</Description>
+						<LineNumber>Part II Section 1 Line 17</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year -->
+
+			<!-- Part II Section 1 Line 18: Use Value of Part I Line 4 -->
+
+			<!-- Aggregate Foreign Cash Position Amount -->
+			<xsd:element name="AggrgtForeignCashPositionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Aggregate Foreign Cash Position Amount</Description>
+						<LineNumber>Part II Section 1 Line 19</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Smaller Of Prior Tax Year Section 965(a) Or Foreign Cash Position Amount -->
+			<xsd:element name="SmllrPY965aOrFrgnCashPosAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Smaller Of Prior Tax Year Section 965(a) Or Foreign Cash Position Amount</Description>
+						<LineNumber>Part II Section 1 Line 20</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year 15.5 Percent Rate Equivalent Percentage -->
+			<xsd:element name="PY15Pnt5PctRateEquivalentPct" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year 15.5 Percent Rate Equivalent Percentage</Description>
+						<LineNumber>Part II Section 1 Line 21</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year Section 965(c) Deduction 15.5 Percent Amount -->
+			<xsd:element name="PYSect965cDed15Pnt5PctAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year Section 965(c) Deduction 15.5 Percent Amount</Description>
+						<LineNumber>Part II Section 1 Line 22</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Net Smaller Of Prior Tax Year Section 965(a) Or Foreign Cash Position Amount -->
+			<xsd:element name="NetSmllrPY965aOrFrgnCashPosAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Net Smaller Of Prior Tax Year Section 965(a) Or Foreign Cash Position Amount</Description>
+						<LineNumber>Part II Section 1 Line 23</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year 8 Percent Rate Equivalent Percentage -->
+			<xsd:element name="PY8PctRateEquivalentPct" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year 8 Percent Rate Equivalent Percentage</Description>
+						<LineNumber>Part II Section 1 Line 24</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year Section 965(c) Deduction 8 Percent Amount -->
+			<xsd:element name="PYSect965cDeduction8PctAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year Section 965(c) Deduction 8 Percent Amount</Description>
+						<LineNumber>Part II Section 1 Line 25</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year Section 965(c) Deduction Non-Pass-Throughs Amount -->
+			<xsd:element name="PYSect965cDedNonPassThruAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year Section 965(c) Deduction Non-Pass-Throughs Amount</Description>
+						<LineNumber>Part II Section 1 Line 26</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Prior Tax Year Section 965(c) Deduction Pass-Throughs Amount -->
+			<xsd:element name="PYSect965cDedPassThruAmt" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year Section 965(c) Deduction Pass-Throughs Amount</Description>
+						<LineNumber>Part II Section 1 Line 27</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:complexType>
+					<xsd:simpleContent>
+						<xsd:extension base="USAmountNNType">
+							<xsd:attribute name="referenceDocumentId" type="IdListType"/>
+							<xsd:attribute name="referenceDocumentName" type="StringType" fixed="BinaryAttachment"/>
+						</xsd:extension>
+					</xsd:simpleContent>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- Prior Tax Year Total Section 965(c) Deduction Amount -->
+			<xsd:element name="PYTotalSect965cDeductionAmt" type="USAmountNNType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Prior Tax Year Total Section 965(c) Deduction Amount</Description>
+						<LineNumber>Part II Section 1 Line 28</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- SECTION 2 - Rate Equivalent Percentages -->
+
+			<!-- 1  Calendar Year Persons -->
+
+			<!-- Part II Section 2 Line 1a: Preprinted on form -->
+			<!-- Part II Section 2 Line 1b: Preprinted on form -->
+
+			<!-- 2  Fiscal Year Persons -->
+
+			<!-- Fiscal Year Section 15 Blended Section 965(c)(2) Rate -->
+			<xsd:element name="FYSect15Blended965c2Rt" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Fiscal Year Section 15 Blended Section 965(c)(2) Rate</Description>
+						<LineNumber>Part II Section 2 Line 2a</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Fiscal Year Section 15 Blended Section 965(c)(2) Less 15 Percent Rate -->
+			<xsd:element name="FYSect15Blend965c2Less15PctRt" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Fiscal Year Section 15 Blended Section 965(c)(2) Less 15 Percent Rate</Description>
+						<LineNumber>Part II Section 2 Line 2b</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Fiscal Year 15.5 Percent Rate Equivalent Percentage -->
+			<xsd:element name="FY15Pnt5PctRateEquivalentPct" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Fiscal Year 15.5 Percent Rate Equivalent Percentage</Description>
+						<LineNumber>Part II Section 2 Line 2c</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Fiscal Year Section 15 Blended Section 965(c)(2) Less 8 Percent Rate -->
+			<xsd:element name="FYSect15Blend965c2Less8PctRt" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Fiscal Year Section 15 Blended Section 965(c)(2) Less 8 Percent Rate</Description>
+						<LineNumber>Part II Section 2 Line 2d</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Fiscal Year 8 Percent Rate Equivalent Percentage -->
+			<xsd:element name="FY8PctRateEquivalentPct" type="F965RatioType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Fiscal Year 8 Percent Rate Equivalent Percentage</Description>
+						<LineNumber>Part II Section 2 Line 2e</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Part III  Elections -->
+
+			<!-- Section 965(h) Election Indicator -->
+			<xsd:element name="Section965hElectionInd" type="BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965(h) Election Indicator</Description>
+						<LineNumber>Part III Line A</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Section 965(i) Election Indicator -->
+			<xsd:element name="Section965iElectionInd" type="BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965(i) Election Indicator</Description>
+						<LineNumber>Part III Line B</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Section 965(m) Election Indicator -->
+			<xsd:element name="Section965mElectionInd" type="BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965(m) Election Indicator</Description>
+						<LineNumber>Part III Line C</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Section 965(n) Election Indicator -->
+			<xsd:element name="Section965nElectionInd" type="BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965(n) Election Indicator</Description>
+						<LineNumber>Part III Line D</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<!-- Section 965-2(f)(2) Election Indicator -->
+			<xsd:element name="Section9652f2ElectionInd" type="BooleanType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						<Description>Section 965-2(f)(2) Election Indicator</Description>
+						<LineNumber>Part III Line E</LineNumber>
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Type with more restrictions than LargeRatioType, used in this file -->
+	<xsd:simpleType name="F965RatioType">
+		<xsd:restriction base="LargeRatioType">
+			<xsd:totalDigits value="10" />
+			<xsd:fractionDigits value="9" />
+			<xsd:minInclusive value="0.0000" />
+			<xsd:maxInclusive value="1.000000000" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</xsd:schema>

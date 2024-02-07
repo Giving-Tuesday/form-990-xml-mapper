@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Return xmlns="http://www.irs.gov/efile" xsi:schemaLocation="http://www.irs.gov/efile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" returnVersion="2015v2.1">
+  <ReturnHeader binaryAttachmentCnt="0">
+    <ReturnTs>2016-10-04T08:49:09-05:00</ReturnTs>
+    <TaxPeriodEndDt>2015-12-31</TaxPeriodEndDt>
+    <PreparerFirmGrp>
+      <PreparerFirmName>
+        <BusinessNameLine1Txt>WithumSmithBrown PC</BusinessNameLine1Txt>
+      </PreparerFirmName>
+      <PreparerUSAddress>
+        <AddressLine1Txt>465 South St Ste 200</AddressLine1Txt>
+        <CityNm>Morristown</CityNm>
+        <StateAbbreviationCd>NJ</StateAbbreviationCd>
+        <ZIPCd>079606497</ZIPCd>
+      </PreparerUSAddress>
+    </PreparerFirmGrp>
+    <ReturnTypeCd>990PF</ReturnTypeCd>
+    <TaxPeriodBeginDt>2015-01-01</TaxPeriodBeginDt>
+    <Filer>
+      <EIN>311520982</EIN>
+      <BusinessName>
+        <BusinessNameLine1Txt>JOHNSON &amp; JOHNSON PATIENT ASSISTANCE</BusinessNameLine1Txt>
+        <BusinessNameLine2Txt>FOUNDATION INC</BusinessNameLine2Txt>
+      </BusinessName>
+      <InCareOfNm>% JAYNA BROWN</InCareOfNm>
+      <BusinessNameControlTxt>JOHN</BusinessNameControlTxt>
+      <PhoneNum>7325246218</PhoneNum>
+      <USAddress>
+        <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+        <CityNm>NEW BRUNSWICK</CityNm>
+        <StateAbbreviationCd>NJ</StateAbbreviationCd>
+        <ZIPCd>08933</ZIPCd>
+      </USAddress>
+    </Filer>
+    <BusinessOfficerGrp>
+      <PersonNm>KIMBERLY WORTMAN</PersonNm>
+      <PersonTitleTxt>VP</PersonTitleTxt>
+      <PhoneNum>7325246446</PhoneNum>
+      <SignatureDt>2016-10-03</SignatureDt>
+      <DiscussWithPaidPreparerInd>true</DiscussWithPaidPreparerInd>
+    </BusinessOfficerGrp>
+    <PreparerPersonGrp>
+      <PreparerPersonNm>Scott J Mariani</PreparerPersonNm>
+      <PTIN>P00642486</PTIN>
+      <PhoneNum>9738989494</PhoneNum>
+    </PreparerPersonGrp>
+    <TaxYr>2015</TaxYr>
+    <BuildTS>2017-02-10 21:41:12Z</BuildTS>
+  </ReturnHeader>
+  <ReturnData documentCnt="7">
+    <IRS990PF documentId="IRS990PF">
+      <Organization501c3ExemptPFInd>X</Organization501c3ExemptPFInd>
+      <FMVAssetsEOYAmt>62735923</FMVAssetsEOYAmt>
+      <MethodOfAccountingOtherInd methodOfAccountingOtherDesc="MODIFIED CASH">X</MethodOfAccountingOtherInd>
+      <AnalysisOfRevenueAndExpenses>
+        <ContriRcvdRevAndExpnssAmt>682241171</ContriRcvdRevAndExpnssAmt>
+        <InterestOnSavRevAndExpnssAmt>56255</InterestOnSavRevAndExpnssAmt>
+        <InterestOnSavNetInvstIncmAmt>56255</InterestOnSavNetInvstIncmAmt>
+        <InterestOnSavingsAdjNetIncmAmt>56255</InterestOnSavingsAdjNetIncmAmt>
+        <CapGainNetIncmNetInvstIncmAmt>0</CapGainNetIncmNetInvstIncmAmt>
+        <TotalRevAndExpnssAmt>682297426</TotalRevAndExpnssAmt>
+        <TotalNetInvstIncmAmt>56255</TotalNetInvstIncmAmt>
+        <TotalAdjNetIncmAmt>56255</TotalAdjNetIncmAmt>
+        <CompOfcrDirTrstRevAndExpnssAmt>0</CompOfcrDirTrstRevAndExpnssAmt>
+        <AccountingFeesRevAndExpnssAmt referenceDocumentId="AccountingFeesSch">31807</AccountingFeesRevAndExpnssAmt>
+        <AccountingFeesNetInvstIncmAmt>0</AccountingFeesNetInvstIncmAmt>
+        <AccountingFeesAdjNetIncmAmt>0</AccountingFeesAdjNetIncmAmt>
+        <AccountingFeesChrtblPrpsAmt>0</AccountingFeesChrtblPrpsAmt>
+        <OtherProfFeesRevAndExpnssAmt referenceDocumentId="OthProfFeesSch">131890</OtherProfFeesRevAndExpnssAmt>
+        <PrintingAndPubRevAndExpnssAmt>61210</PrintingAndPubRevAndExpnssAmt>
+        <OtherExpensesRevAndExpnssAmt referenceDocumentId="OtherExpensesSch">25456264</OtherExpensesRevAndExpnssAmt>
+        <TotOprExpensesRevAndExpnssAmt>25681171</TotOprExpensesRevAndExpnssAmt>
+        <TotOprExpensesNetInvstIncmAmt>0</TotOprExpensesNetInvstIncmAmt>
+        <TotOprExpensesAdjNetIncmAmt>0</TotOprExpensesAdjNetIncmAmt>
+        <TotOprExpensesDsbrsChrtblAmt>0</TotOprExpensesDsbrsChrtblAmt>
+        <ContriPaidRevAndExpnssAmt>662647955</ContriPaidRevAndExpnssAmt>
+        <ContriPaidDsbrsChrtblAmt>662647955</ContriPaidDsbrsChrtblAmt>
+        <TotalExpensesRevAndExpnssAmt>688329126</TotalExpensesRevAndExpnssAmt>
+        <TotalExpensesNetInvstIncmAmt>0</TotalExpensesNetInvstIncmAmt>
+        <TotalExpensesAdjNetIncmAmt>0</TotalExpensesAdjNetIncmAmt>
+        <TotalExpensesDsbrsChrtblAmt>662647955</TotalExpensesDsbrsChrtblAmt>
+        <ExcessRevenueOverExpensesAmt>-6031700</ExcessRevenueOverExpensesAmt>
+        <NetInvestmentIncomeAmt>56255</NetInvestmentIncomeAmt>
+        <AdjustedNetIncomeAmt>56255</AdjustedNetIncomeAmt>
+      </AnalysisOfRevenueAndExpenses>
+      <Form990PFBalanceSheetsGrp>
+        <CashBOYAmt>82539</CashBOYAmt>
+        <CashEOYAmt>82233</CashEOYAmt>
+        <CashEOYFMVAmt>82233</CashEOYFMVAmt>
+        <SavAndTempCashInvstBOYAmt>31704656</SavAndTempCashInvstBOYAmt>
+        <SavAndTempCashInvstEOYAmt>24994303</SavAndTempCashInvstEOYAmt>
+        <SavAndTempCashInvstEOYFMVAmt>24994303</SavAndTempCashInvstEOYFMVAmt>
+        <InventoriesBOYAmt>27966179</InventoriesBOYAmt>
+        <InventoriesEOYAmt>28645138</InventoriesEOYAmt>
+        <InventoriesEOYFMVAmt>28645138</InventoriesEOYFMVAmt>
+        <OtherAssetsBOYAmt referenceDocumentId="OtherAssetsSch">9014249</OtherAssetsBOYAmt>
+        <OtherAssetsEOYAmt referenceDocumentId="OtherAssetsSch">9014249</OtherAssetsEOYAmt>
+        <OtherAssetsEOYFMVAmt referenceDocumentId="OtherAssetsSch">9014249</OtherAssetsEOYFMVAmt>
+        <TotalAssetsBOYAmt>68767623</TotalAssetsBOYAmt>
+        <TotalAssetsEOYAmt>62735923</TotalAssetsEOYAmt>
+        <TotalAssetsEOYFMVAmt>62735923</TotalAssetsEOYFMVAmt>
+        <AccountsPayableBOYAmt>0</AccountsPayableBOYAmt>
+        <AccountsPayableEOYAmt>0</AccountsPayableEOYAmt>
+        <TotalLiabilitiesBOYAmt>0</TotalLiabilitiesBOYAmt>
+        <TotalLiabilitiesEOYAmt>0</TotalLiabilitiesEOYAmt>
+        <OrganizationFollowsSFAS117Ind>X</OrganizationFollowsSFAS117Ind>
+        <UnrestrictedBOYAmt>68767623</UnrestrictedBOYAmt>
+        <UnrestrictedEOYAmt>62735923</UnrestrictedEOYAmt>
+        <TotNetAstOrFundBalancesBOYAmt>68767623</TotNetAstOrFundBalancesBOYAmt>
+        <TotNetAstOrFundBalancesEOYAmt>62735923</TotNetAstOrFundBalancesEOYAmt>
+        <TotalLiabilitiesNetAstBOYAmt>68767623</TotalLiabilitiesNetAstBOYAmt>
+        <TotalLiabilitiesNetAstEOYAmt>62735923</TotalLiabilitiesNetAstEOYAmt>
+      </Form990PFBalanceSheetsGrp>
+      <ChgInNetAssetsFundBalancesGrp>
+        <TotNetAstOrFundBalancesBOYAmt>68767623</TotNetAstOrFundBalancesBOYAmt>
+        <ExcessRevenueOverExpensesAmt>-6031700</ExcessRevenueOverExpensesAmt>
+        <SubtotalAmt>62735923</SubtotalAmt>
+        <TotNetAstOrFundBalancesEOYAmt>62735923</TotNetAstOrFundBalancesEOYAmt>
+      </ChgInNetAssetsFundBalancesGrp>
+      <CapGainsLossTxInvstIncmDetail />
+      <QlfyUndSect4940eReducedTaxGrp />
+      <ExciseTaxBasedOnInvstIncmGrp>
+        <InvestmentIncomeExciseTaxAmt>1125</InvestmentIncomeExciseTaxAmt>
+        <SubtotalAmt>1125</SubtotalAmt>
+        <TaxBasedOnInvestmentIncomeAmt>1125</TaxBasedOnInvestmentIncomeAmt>
+        <EstimatedPlusOvpmtIncmTxAmt>4375</EstimatedPlusOvpmtIncmTxAmt>
+        <TotalPaymentsAndCreditsAmt>4375</TotalPaymentsAndCreditsAmt>
+        <OverpaymentAmt>3250</OverpaymentAmt>
+        <AppliedToESTaxAmt>3250</AppliedToESTaxAmt>
+      </ExciseTaxBasedOnInvstIncmGrp>
+      <StatementsRegardingActyGrp>
+        <LegislativePoliticalActyInd>false</LegislativePoliticalActyInd>
+        <MoreThan100SpentInd>false</MoreThan100SpentInd>
+        <Form1120POLFiledInd>false</Form1120POLFiledInd>
+        <ActivitiesNotPreviouslyRptInd>false</ActivitiesNotPreviouslyRptInd>
+        <ChangesToArticlesOrBylawsInd>false</ChangesToArticlesOrBylawsInd>
+        <UnrelatedBusIncmOverLimitInd>false</UnrelatedBusIncmOverLimitInd>
+        <OrganizationDissolvedEtcInd>false</OrganizationDissolvedEtcInd>
+        <Section508eRqrSatisfiedInd>false</Section508eRqrSatisfiedInd>
+        <AtLeast5000InAssetsInd>true</AtLeast5000InAssetsInd>
+        <OrgReportOrRegisterStateCd>NJ</OrgReportOrRegisterStateCd>
+        <Form990PFFiledWithAttyGenInd>true</Form990PFFiledWithAttyGenInd>
+        <PrivateOperatingFoundationInd>true</PrivateOperatingFoundationInd>
+        <NewSubstantialContributorsInd>false</NewSubstantialContributorsInd>
+        <OwnControlledEntityInd>false</OwnControlledEntityInd>
+        <DonorAdvisedFundInd>false</DonorAdvisedFundInd>
+        <ComplyWithPublicInspRqrInd>true</ComplyWithPublicInspRqrInd>
+        <WebsiteAddressTxt>N/A</WebsiteAddressTxt>
+        <PersonsWithBooksName>
+          <BusinessNameLine1Txt>JAYNA BROWN</BusinessNameLine1Txt>
+        </PersonsWithBooksName>
+        <PhoneNum>7325246218</PhoneNum>
+        <LocationOfBooksUSAddress>
+          <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+          <CityNm>NEW BRUNSWICK</CityNm>
+          <StateAbbreviationCd>NJ</StateAbbreviationCd>
+          <ZIPCd>08933</ZIPCd>
+        </LocationOfBooksUSAddress>
+        <ForeignAccountsQuestionInd>false</ForeignAccountsQuestionInd>
+      </StatementsRegardingActyGrp>
+      <StatementsRegardingActy4720Grp>
+        <SaleOrExchDisqualifiedPrsnInd>false</SaleOrExchDisqualifiedPrsnInd>
+        <BrrwOrLendDisqualifiedPrsnInd>false</BrrwOrLendDisqualifiedPrsnInd>
+        <FurnGoodsDisqualifiedPrsnInd>false</FurnGoodsDisqualifiedPrsnInd>
+        <PayCompDisqualifiedPrsnInd>false</PayCompDisqualifiedPrsnInd>
+        <TransferAstDisqualifiedPrsnInd>false</TransferAstDisqualifiedPrsnInd>
+        <PaymentToGovernmentOfficialInd>false</PaymentToGovernmentOfficialInd>
+        <UncorrectedPriorActsInd>false</UncorrectedPriorActsInd>
+        <UndistributedIncomePYInd>false</UndistributedIncomePYInd>
+        <UndistrIncmSect4942a2NotAppInd>false</UndistrIncmSect4942a2NotAppInd>
+        <BusinessHoldingsInd>false</BusinessHoldingsInd>
+        <JeopardyInvestmentsInd>false</JeopardyInvestmentsInd>
+        <UncorrectedPYJeopardyInvstInd>false</UncorrectedPYJeopardyInvstInd>
+        <InfluenceLegislationInd>false</InfluenceLegislationInd>
+        <InfluenceElectionInd>false</InfluenceElectionInd>
+        <GrantsToIndividualsInd>false</GrantsToIndividualsInd>
+        <GrantsToOrganizationsInd>false</GrantsToOrganizationsInd>
+        <NoncharitablePurposeInd>false</NoncharitablePurposeInd>
+        <RcvFndsToPayPrsnlBnftCntrctInd>false</RcvFndsToPayPrsnlBnftCntrctInd>
+        <PayPremiumsPrsnlBnftCntrctInd>false</PayPremiumsPrsnlBnftCntrctInd>
+        <ProhibitedTaxShelterTransInd>false</ProhibitedTaxShelterTransInd>
+      </StatementsRegardingActy4720Grp>
+      <OfficerDirTrstKeyEmplInfoGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>LAUREN MOORE</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>PRESIDENT - TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>5.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>KIMBERLY WORTMAN</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>VICE PRESIDENT - TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>40.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>DARYL TODD</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>SECRETARY - TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>MICHAEL HEPBURN</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TREASURER - TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>MARGARET FORRESTEL</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>ROBERT INSERRA</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>40.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>ENRICA MA</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>GWENDOLYN MILEY</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>MEREDITH SHARP</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>DENISE SITARIK</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>1.5</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>JOHN TOMPSON</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>SHARON D'AGOSTINO</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>PRES. - TRUSTEE (1/1 - 10/11)</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>5.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <OfficerDirTrstKeyEmplGrp>
+          <PersonNm>LOUISE WEINGROD</PersonNm>
+          <USAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </USAddress>
+          <TitleTxt>TRUSTEE (1/1 - 7/18)</TitleTxt>
+          <AverageHrsPerWkDevotedToPosRt>3.0</AverageHrsPerWkDevotedToPosRt>
+          <CompensationAmt>0</CompensationAmt>
+          <EmployeeBenefitProgramAmt>0</EmployeeBenefitProgramAmt>
+          <ExpenseAccountOtherAllwncAmt>0</ExpenseAccountOtherAllwncAmt>
+        </OfficerDirTrstKeyEmplGrp>
+        <CompensationOfHghstPdCntrctGrp>
+          <BusinessName>
+            <BusinessNameLine1Txt>LASH GROUP</BusinessNameLine1Txt>
+          </BusinessName>
+          <USAddress>
+            <AddressLine1Txt>3735 GLEN LAKE DRIVE</AddressLine1Txt>
+            <CityNm>CHARLOTTE</CityNm>
+            <StateAbbreviationCd>NC</StateAbbreviationCd>
+            <ZIPCd>28208</ZIPCd>
+          </USAddress>
+          <ServiceTypeTxt>ADMINISTRATION</ServiceTypeTxt>
+          <CompensationAmt>6984197</CompensationAmt>
+        </CompensationOfHghstPdCntrctGrp>
+        <CompensationOfHghstPdCntrctGrp>
+          <BusinessName>
+            <BusinessNameLine1Txt>EXPRESS SCRIPTS INC</BusinessNameLine1Txt>
+          </BusinessName>
+          <USAddress>
+            <AddressLine1Txt>ONE EXPRESS HIGHWAY</AddressLine1Txt>
+            <CityNm>ST LOUIS</CityNm>
+            <StateAbbreviationCd>MO</StateAbbreviationCd>
+            <ZIPCd>63121</ZIPCd>
+          </USAddress>
+          <ServiceTypeTxt>DISTRIBUTION</ServiceTypeTxt>
+          <CompensationAmt>3191664</CompensationAmt>
+        </CompensationOfHghstPdCntrctGrp>
+        <CompensationOfHghstPdCntrctGrp>
+          <BusinessName>
+            <BusinessNameLine1Txt>ICS AMERISOURCEBERGEN</BusinessNameLine1Txt>
+          </BusinessName>
+          <USAddress>
+            <AddressLine1Txt>3101 GAYLORD PARKWAY</AddressLine1Txt>
+            <CityNm>FRISCO</CityNm>
+            <StateAbbreviationCd>TX</StateAbbreviationCd>
+            <ZIPCd>75034</ZIPCd>
+          </USAddress>
+          <ServiceTypeTxt>LOGISTICS &amp; DIST'N</ServiceTypeTxt>
+          <CompensationAmt>1418742</CompensationAmt>
+        </CompensationOfHghstPdCntrctGrp>
+        <CompensationOfHghstPdCntrctGrp>
+          <BusinessName>
+            <BusinessNameLine1Txt>TCP RELIABLE INC</BusinessNameLine1Txt>
+          </BusinessName>
+          <USAddress>
+            <AddressLine1Txt>551 RARITAN CENTER PARKWAY</AddressLine1Txt>
+            <CityNm>EDISON</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08837</ZIPCd>
+          </USAddress>
+          <ServiceTypeTxt>LOGISTICS &amp; DIST'N</ServiceTypeTxt>
+          <CompensationAmt>340042</CompensationAmt>
+        </CompensationOfHghstPdCntrctGrp>
+        <CompensationOfHghstPdCntrctGrp>
+          <BusinessName>
+            <BusinessNameLine1Txt>US BIOSERVICES</BusinessNameLine1Txt>
+          </BusinessName>
+          <USAddress>
+            <AddressLine1Txt>3101 GAYLORD PARKWAY</AddressLine1Txt>
+            <CityNm>FRISCO</CityNm>
+            <StateAbbreviationCd>TX</StateAbbreviationCd>
+            <ZIPCd>75034</ZIPCd>
+          </USAddress>
+          <ServiceTypeTxt>LOGISTICS &amp; DIST'N</ServiceTypeTxt>
+          <CompensationAmt>299634</CompensationAmt>
+        </CompensationOfHghstPdCntrctGrp>
+      </OfficerDirTrstKeyEmplInfoGrp>
+      <SummaryOfDirectChrtblActyGrp>
+        <Description1Txt>DISTRIBUTION OF PHARMACEUTICAL PRODUCTS TO NEEDY PERSONS ON A NON-DISCRIMINATORY BASIS WITHOUT CHARGE. (OVER 550,000 UNITS OF MEDICINES DONATED TO OVER 97,000 PATIENTS IN 2015)</Description1Txt>
+        <Expenses1Amt>687957460</Expenses1Amt>
+      </SummaryOfDirectChrtblActyGrp>
+      <SumOfProgramRelatedInvstGrp />
+      <MinimumInvestmentReturnGrp>
+        <AverageMonthlyFMVOfSecAmt>0</AverageMonthlyFMVOfSecAmt>
+        <AverageMonthlyCashBalancesAmt>27583868</AverageMonthlyCashBalancesAmt>
+        <FMVAllOtherNoncharitableAstAmt>0</FMVAllOtherNoncharitableAstAmt>
+        <TotalFMVOfUnusedAssetsAmt>27583868</TotalFMVOfUnusedAssetsAmt>
+        <AcquisitionIndebtednessAmt>0</AcquisitionIndebtednessAmt>
+        <AdjustedTotalFMVOfUnusedAstAmt>27583868</AdjustedTotalFMVOfUnusedAstAmt>
+        <CashDeemedCharitableAmt>413758</CashDeemedCharitableAmt>
+        <NetVlNoncharitableAssetsAmt>27170110</NetVlNoncharitableAssetsAmt>
+        <MinimumInvestmentReturnAmt>1358506</MinimumInvestmentReturnAmt>
+      </MinimumInvestmentReturnGrp>
+      <DistributableAmountGrp>
+        <Sect4942j3j5FndtnAndFrgnOrgInd>X</Sect4942j3j5FndtnAndFrgnOrgInd>
+      </DistributableAmountGrp>
+      <QualifyingDistriPartXIIGrp>
+        <ExpensesAndContributionsAmt>662647955</ExpensesAndContributionsAmt>
+        <ProgramRelatedInvstTotalAmt>0</ProgramRelatedInvstTotalAmt>
+        <CharitableAssetsAcquisPaidAmt>0</CharitableAssetsAcquisPaidAmt>
+        <SetAsideSuitabilityTestAmt>0</SetAsideSuitabilityTestAmt>
+        <SetAsideCashDistriTestAmt>0</SetAsideCashDistriTestAmt>
+        <QualifyingDistributionsAmt>662647955</QualifyingDistributionsAmt>
+        <AdjustedQualifyingDistriAmt>662647955</AdjustedQualifyingDistriAmt>
+      </QualifyingDistriPartXIIGrp>
+      <UndistributedIncomeGrp>
+        <DistributableAsAdjustedAmt>0</DistributableAsAdjustedAmt>
+        <PriorYear1Yr>2013</PriorYear1Yr>
+        <PriorYear2Yr>2012</PriorYear2Yr>
+        <PriorYear3Yr>2011</PriorYear3Yr>
+        <ExcessDistributionCyovYr1Amt>0</ExcessDistributionCyovYr1Amt>
+        <TotalExcessDistributionCyovAmt>0</TotalExcessDistributionCyovAmt>
+        <QualifyingDistributionsAmt>662647955</QualifyingDistributionsAmt>
+        <AppliedToYear1Amt>0</AppliedToYear1Amt>
+        <RemainingDistriFromCorpusAmt>0</RemainingDistriFromCorpusAmt>
+        <TotalCorpusAmt>0</TotalCorpusAmt>
+        <Taxable2Amt>0</Taxable2Amt>
+        <UndistributedIncomeCYAmt>0</UndistributedIncomeCYAmt>
+        <CorpusDistri170b1EOr4942g3Amt>0</CorpusDistri170b1EOr4942g3Amt>
+        <ExcessDistriCyovToNextYrAmt>0</ExcessDistriCyovToNextYrAmt>
+        <ExcessFromCurrentYearAmt>0</ExcessFromCurrentYearAmt>
+      </UndistributedIncomeGrp>
+      <PrivateOperatingFoundationsGrp>
+        <PrivateOperatingFndtnRulingDt>1997-07-16</PrivateOperatingFndtnRulingDt>
+        <Section4942j3Ind>X</Section4942j3Ind>
+        <LessorAdjNetIncmMinInvstRetGrp>
+          <CurrentYearAmt>56255</CurrentYearAmt>
+          <Year1Amt>75985</Year1Amt>
+          <Year2Amt>54269</Year2Amt>
+          <Year3Amt>19534</Year3Amt>
+          <TotalAmt>206043</TotalAmt>
+        </LessorAdjNetIncmMinInvstRetGrp>
+        <Pct85LessorAdjIncmOrMinRetGrp>
+          <CurrentYearAmt>47817</CurrentYearAmt>
+          <Year1Amt>64587</Year1Amt>
+          <Year2Amt>46129</Year2Amt>
+          <Year3Amt>16604</Year3Amt>
+          <TotalAmt>175137</TotalAmt>
+        </Pct85LessorAdjIncmOrMinRetGrp>
+        <QualifyingDistributionsGrp>
+          <CurrentYearAmt>662647955</CurrentYearAmt>
+          <Year1Amt>787776687</Year1Amt>
+          <Year2Amt>711632110</Year2Amt>
+          <Year3Amt>611680261</Year3Amt>
+          <TotalAmt>2773737013</TotalAmt>
+        </QualifyingDistributionsGrp>
+        <QualifyingDistriNotUsedDrtGrp />
+        <QualifyingDistriMadeDrtGrp>
+          <CurrentYearAmt>662647955</CurrentYearAmt>
+          <Year1Amt>787776687</Year1Amt>
+          <Year2Amt>711632110</Year2Amt>
+          <Year3Amt>611680261</Year3Amt>
+          <TotalAmt>2773737013</TotalAmt>
+        </QualifyingDistriMadeDrtGrp>
+        <TotalAssetsGrp>
+          <CurrentYearAmt>62735923</CurrentYearAmt>
+          <Year1Amt>68767623</Year1Amt>
+          <Year2Amt>83399810</Year2Amt>
+          <Year3Amt>69921484</Year3Amt>
+          <TotalAmt>284824840</TotalAmt>
+        </TotalAssetsGrp>
+        <TotalAssetsSect4942j3BiGrp>
+          <TotalAmt>0</TotalAmt>
+        </TotalAssetsSect4942j3BiGrp>
+        <TwoThirdsMinimumInvstRetGrp />
+        <TotalSupportGrp>
+          <TotalAmt>0</TotalAmt>
+        </TotalSupportGrp>
+        <PublicSupportType>
+          <TotalAmt>0</TotalAmt>
+        </PublicSupportType>
+        <LargestSupportFromEOGrp>
+          <TotalAmt>0</TotalAmt>
+        </LargestSupportFromEOGrp>
+        <GrossInvestmentIncomeGrp>
+          <TotalAmt>0</TotalAmt>
+        </GrossInvestmentIncomeGrp>
+      </PrivateOperatingFoundationsGrp>
+      <SupplementaryInformationGrp>
+        <ApplicationSubmissionInfoGrp>
+          <RecipientPersonNm>JOHNSONJOHNSON PATIENT ASSISTANCE</RecipientPersonNm>
+          <RecipientUSAddress>
+            <AddressLine1Txt>PO BOX 221857</AddressLine1Txt>
+            <CityNm>CHARLOTTE</CityNm>
+            <StateAbbreviationCd>NC</StateAbbreviationCd>
+            <ZIPCd>282221857</ZIPCd>
+          </RecipientUSAddress>
+          <RecipientPhoneNum>8006526227</RecipientPhoneNum>
+          <FormAndInfoAndMaterialsTxt>THE FOUNDATION CONTRIBUTED PHARMACEUTICALS TO THOUSANDS OF NEEDY PATIENTS DURING THE YEAR. AS AN EXAMPLE OF THE PROCESS USED BY THE FOUNDATION'S CHARITABLE PROGRAM, ATTACHED IS THE STANDARD APPLICATION FORM TO BE COMPLETED BY PATIENTS AND THEIR PHYSICIANS TO OBTAIN ASSISTANCE FROM THE FOUNDATION.</FormAndInfoAndMaterialsTxt>
+          <SubmissionDeadlinesTxt>NONE</SubmissionDeadlinesTxt>
+          <RestrictionsOnAwardsTxt>ELIGIBILITY FOR AWARDS IS BASED ON INFORMATION PROVIDED BY PATIENTS AND PHYSICIANS. SEE ATTACHED SAMPLE APPLICATION FOR THE INFORMATION TO BE PROVIDED.</RestrictionsOnAwardsTxt>
+        </ApplicationSubmissionInfoGrp>
+        <GrantOrContributionPdDurYrGrp>
+          <RecipientBusinessName>
+            <BusinessNameLine1Txt>VARIOUS NEEDY PATIENTS</BusinessNameLine1Txt>
+          </RecipientBusinessName>
+          <RecipientUSAddress>
+            <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+            <CityNm>NEW BRUNSWICK</CityNm>
+            <StateAbbreviationCd>NJ</StateAbbreviationCd>
+            <ZIPCd>08933</ZIPCd>
+          </RecipientUSAddress>
+          <RecipientRelationshipTxt>NONE</RecipientRelationshipTxt>
+          <RecipientFoundationStatusTxt>I</RecipientFoundationStatusTxt>
+          <GrantOrContributionPurposeTxt>PHARMACEUTICAL PRODUCTS TO NEEDY PATIENTS</GrantOrContributionPurposeTxt>
+          <Amt>662647955</Amt>
+        </GrantOrContributionPdDurYrGrp>
+        <TotalGrantOrContriPdDurYrAmt>662647955</TotalGrantOrContriPdDurYrAmt>
+      </SupplementaryInformationGrp>
+      <AnalysisIncomeProducingActyGrp>
+        <FeesContractsFromGovtAgGrp />
+        <MembershipDuesAndAssmntGrp />
+        <IntOnSavAndTempCashInvstGrp>
+          <ExclusionCd>14</ExclusionCd>
+          <ExclusionAmt>56255</ExclusionAmt>
+        </IntOnSavAndTempCashInvstGrp>
+        <DivAndIntFromSecPartVIIGrp />
+        <NetRntlIncmReDebtFincdPropGrp />
+        <NetRntlIncmReNotDebtFincdProp />
+        <NetRentalIncomePersonalPropGrp />
+        <OtherInvestmentIncmPartVIIGrp />
+        <GainSalesAstOthThanInvntryGrp />
+        <NetIncomeLossFromSpecialEvtGrp />
+        <GrossProfitLossSlsOfInvntryGrp />
+        <SubtotalsIncmProducingActyGrp>
+          <ExclusionAmt>56255</ExclusionAmt>
+        </SubtotalsIncmProducingActyGrp>
+        <TotalIncomeProducingActyAmt>56255</TotalIncomeProducingActyAmt>
+      </AnalysisIncomeProducingActyGrp>
+      <TrnsfrTransRlnNonchrtblEOGrp>
+        <TrnsfrOfCashToNonchrtblEOInd>false</TrnsfrOfCashToNonchrtblEOInd>
+        <TrnsfrOtherAssetNonchrtblEOInd>false</TrnsfrOtherAssetNonchrtblEOInd>
+        <SalesOrExchangesOfAssetsInd>false</SalesOrExchangesOfAssetsInd>
+        <PurchaseOfAssetsNonchrtblEOInd>false</PurchaseOfAssetsNonchrtblEOInd>
+        <RentalOfFacilitiesOthAssetsInd>false</RentalOfFacilitiesOthAssetsInd>
+        <ReimbursementArrangementsInd>false</ReimbursementArrangementsInd>
+        <LoansOrLoanGuaranteesInd>false</LoansOrLoanGuaranteesInd>
+        <PerformanceOfServicesEtcInd>false</PerformanceOfServicesEtcInd>
+        <SharingOfFacilitiesEtcInd>false</SharingOfFacilitiesEtcInd>
+        <RelationshipsNonchrtblEOInd>false</RelationshipsNonchrtblEOInd>
+      </TrnsfrTransRlnNonchrtblEOGrp>
+    </IRS990PF>
+    <IRS990ScheduleB documentId="IRS990ScheduleB">
+      <Organization501c3ExemptPFInd>X</Organization501c3ExemptPFInd>
+      <GeneralRuleInd>X</GeneralRuleInd>
+      <ContributorInformationGrp>
+        <ContributorNum>1</ContributorNum>
+        <ContributorPersonNm>VARIOUS JOHNSON JOHNSON COMPANIES</ContributorPersonNm>
+        <ContributorUSAddress>
+          <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+          <CityNm>NEW BRUNSWICK</CityNm>
+          <StateAbbreviationCd>NJ</StateAbbreviationCd>
+          <ZIPCd>08933</ZIPCd>
+        </ContributorUSAddress>
+        <TotalContributionsAmt>673769893</TotalContributionsAmt>
+        <PersonContributionInd>X</PersonContributionInd>
+        <NoncashContributionInd>X</NoncashContributionInd>
+      </ContributorInformationGrp>
+      <ContributorInformationGrp>
+        <ContributorNum>2</ContributorNum>
+        <ContributorPersonNm>VARIOUS JOHNSON JOHNSON COMPANIES</ContributorPersonNm>
+        <ContributorUSAddress>
+          <AddressLine1Txt>ONE JOHNSON JOHNSON PLAZA</AddressLine1Txt>
+          <CityNm>NEW BRUNSWICK</CityNm>
+          <StateAbbreviationCd>NJ</StateAbbreviationCd>
+          <ZIPCd>08933</ZIPCd>
+        </ContributorUSAddress>
+        <TotalContributionsAmt>6053137</TotalContributionsAmt>
+        <PersonContributionInd>X</PersonContributionInd>
+      </ContributorInformationGrp>
+      <ContributorInformationGrp>
+        <ContributorNum>3</ContributorNum>
+        <ContributorPersonNm>DEPOMED INC</ContributorPersonNm>
+        <ContributorUSAddress>
+          <AddressLine1Txt>7999 GATEWAY BLVD 300</AddressLine1Txt>
+          <CityNm>NEWARK</CityNm>
+          <StateAbbreviationCd>CA</StateAbbreviationCd>
+          <ZIPCd>94560</ZIPCd>
+        </ContributorUSAddress>
+        <TotalContributionsAmt>2418141</TotalContributionsAmt>
+        <PersonContributionInd>X</PersonContributionInd>
+        <NoncashContributionInd>X</NoncashContributionInd>
+      </ContributorInformationGrp>
+      <NonCashPropertyContributionGrp>
+        <ContributorNum>1</ContributorNum>
+        <NoncashPropertyDesc>PHARMACEUTICAL PRODUCTS</NoncashPropertyDesc>
+        <FairMarketValueAmt>673769893</FairMarketValueAmt>
+        <ReceivedDt>2015-12-31</ReceivedDt>
+      </NonCashPropertyContributionGrp>
+      <NonCashPropertyContributionGrp>
+        <ContributorNum>3</ContributorNum>
+        <NoncashPropertyDesc>PHARMACEUTICAL PRODUCTS</NoncashPropertyDesc>
+        <FairMarketValueAmt>2418141</FairMarketValueAmt>
+        <ReceivedDt>2015-12-31</ReceivedDt>
+      </NonCashPropertyContributionGrp>
+    </IRS990ScheduleB>
+    <AccountingFeesSchedule documentId="AccountingFeesSch">
+      <AccountingFeesDetail>
+        <CategoryTxt>AUDITING EXPENSE</CategoryTxt>
+        <Amt>31807</Amt>
+      </AccountingFeesDetail>
+    </AccountingFeesSchedule>
+    <DepreciationSchedule documentId="DepreciationSch" />
+    <OtherAssetsSchedule documentId="OtherAssetsSch">
+      <OtherAssetsScheduleGrp>
+        <Desc>DEPOSIT</Desc>
+        <BOYBookValueAmt>9014249</BOYBookValueAmt>
+        <EOYBookValueAmt>9014249</EOYBookValueAmt>
+        <EOYFMVAmt>9014249</EOYFMVAmt>
+      </OtherAssetsScheduleGrp>
+    </OtherAssetsSchedule>
+    <OtherExpensesSchedule documentId="OtherExpensesSch">
+      <OtherExpensesScheduleGrp>
+        <Desc>PROGRAM ADMINISTRATION</Desc>
+        <RevenueAndExpensesPerBooksAmt>22121405</RevenueAndExpensesPerBooksAmt>
+      </OtherExpensesScheduleGrp>
+      <OtherExpensesScheduleGrp>
+        <Desc>FREIGHT EXPENSE</Desc>
+        <RevenueAndExpensesPerBooksAmt>1804076</RevenueAndExpensesPerBooksAmt>
+      </OtherExpensesScheduleGrp>
+      <OtherExpensesScheduleGrp>
+        <Desc>WAREHOUSING EXPENSE</Desc>
+        <RevenueAndExpensesPerBooksAmt>1384024</RevenueAndExpensesPerBooksAmt>
+      </OtherExpensesScheduleGrp>
+      <OtherExpensesScheduleGrp>
+        <Desc>BANK SERVICE CHARGES</Desc>
+        <RevenueAndExpensesPerBooksAmt>43275</RevenueAndExpensesPerBooksAmt>
+      </OtherExpensesScheduleGrp>
+      <OtherExpensesScheduleGrp>
+        <Desc>MISCELLANEOUS EXPENSES</Desc>
+        <RevenueAndExpensesPerBooksAmt>103484</RevenueAndExpensesPerBooksAmt>
+      </OtherExpensesScheduleGrp>
+    </OtherExpensesSchedule>
+    <OtherProfessionalFeesSchedule documentId="OthProfFeesSch">
+      <OtherProfessionalFeesDetail>
+        <CategoryTxt>CONSULTING EXPENSE</CategoryTxt>
+        <Amt>131890</Amt>
+      </OtherProfessionalFeesDetail>
+    </OtherProfessionalFeesSchedule>
+  </ReturnData>
+</Return>

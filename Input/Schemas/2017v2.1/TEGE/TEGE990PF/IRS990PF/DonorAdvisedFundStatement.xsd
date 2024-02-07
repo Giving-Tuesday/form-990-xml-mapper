@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.irs.gov/efile" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.irs.gov/efile" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+
+
+
+	<xsd:annotation>
+
+		<xsd:documentation>
+
+			<Description>IRS e-file Tax Exempt and Government Entities Schema - Donor Advised Fund Statement</Description>
+
+			<TaxYear>2017</TaxYear>
+
+			<MaturityLevel>Drop 5</MaturityLevel>
+
+			<ReleaseDate>September 14, 2017</ReleaseDate>			
+
+		</xsd:documentation>
+
+	</xsd:annotation>
+
+	
+
+	<xsd:include schemaLocation="../../../Common/efileTypes.xsd"/>
+
+		
+
+	<!-- ======================================================= -->
+
+	<!-- ======= Donor Advised Fund Statement ======= -->
+
+	<!-- ======================================================= -->
+
+	
+
+	<xsd:element name="DonorAdvisedFundStmt">
+
+		<xsd:annotation>
+
+			<xsd:documentation>Donor Advised Fund Statement</xsd:documentation>
+
+		</xsd:annotation>
+
+		<xsd:complexType>
+
+			<xsd:complexContent>
+
+				<xsd:extension base="DonorAdvisedFundStmtType">
+
+					<xsd:attributeGroup ref="DocumentAttributes">
+
+						<xsd:annotation>
+
+							<xsd:documentation>Common return document attributes</xsd:documentation>
+
+						</xsd:annotation>
+
+					</xsd:attributeGroup>
+
+					<xsd:attribute name="documentName" type="xsd:string" fixed="DonorAdvisedFundStatement">
+
+						<xsd:annotation>
+
+							<xsd:documentation>IRS internal use only. To avoid error in the return, do not include the attribute name or value.</xsd:documentation>
+
+						</xsd:annotation>
+
+					</xsd:attribute>
+
+				</xsd:extension>
+
+			</xsd:complexContent>
+
+		</xsd:complexType>
+
+	</xsd:element>
+
+	
+
+	<xsd:complexType name="DonorAdvisedFundStmtType">
+
+		<xsd:annotation>
+
+			<xsd:documentation>Content model for Donor Advised Fund Statement</xsd:documentation>
+
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DonorAdvisedFundGrp" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- Qualifying Distribution Txt -->
+						<xsd:element name="QualifyingDistributionTxt" type="ShortExplanationType" minOccurs="1" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>Treated distributions to a donor advised fund as a qualifying distribution</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+						<!-- Sect170c2B Purpose Expln Txt -->
+						<xsd:element name="Sect170c2BPurposeExplnTxt" type="ExplanationType" minOccurs="1" maxOccurs="unbounded">
+							<xsd:annotation>
+								<xsd:documentation>
+									<Description>How distribution will be used to accomplish section 170(c)(2)(B) purpose</Description>
+								</xsd:documentation>
+							</xsd:annotation>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+</xsd:schema>
