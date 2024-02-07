@@ -11,7 +11,7 @@ Unfortunately, the different types of XML documents (across years and form types
 
 These issus are complicated by shifting xpaths.  XML field locations can change (across years) as schemas are changed by the IRS.  For example, trying to grab a specifc field of the form 990 in 2010 will result in having to parse/navigate a Xpath that is different than the Xpath for the exact same field in 2018 as the xml schemas have changed. (See sample schemas --->  https://www.irs.gov/e-file-providers/current-valid-xml-schemas-and-business-rules-for-exempt-organizations-and-other-tax-exempt-entities-modernized-e-file).
 
-CitizenAudit.org & Giving Tuesday have partnered to solve this issue by releasing the following library/package. 
+CitizenAudit.org & GivingTuesday have partnered to solve this issue by releasing the following library/package. 
 
 ### Our Goal: A software library that will: 
 
@@ -171,20 +171,11 @@ Schema Mapper
 - Missing Schema Files 
 - Missing output directory for data dictionary csv to be saved. 
 
+
 ### Acknowledgements 
 
-This library was created by Miguel Barbosa at CitizenAudit.org in collaboration with Giving Tuesday.
+This library was created by Miguel Barbosa at CitizenAudit.org in collaboration with GivingTuesday.
 
 Sample schemas were provided by ProPublica. 
 
 In 2017 Matt Dragon & David Borenstein at Charity Navigator created a small open source 990 meta data project https://github.com/CharityNavigator/990_metadata/ to map 990xml fields using the IRS Schemas. We at CitizenAudit are indebted to their initial efforts as we expanded on their library (for our internal uses) and are now open sourcing our work for the benefit of the charitable sector. 
-
-### Licensing
-
-Copyright 2024 CitizenAudit.Org Inc & Giving Tuesday
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
